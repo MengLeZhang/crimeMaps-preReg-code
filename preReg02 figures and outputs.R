@@ -3,7 +3,13 @@
 
 library(tidyverse)
 
-# create fake data --------------------------------------------------------
+
+
+
+# Time series example -----------------------------------------------------
+
+
+# create fake data 
 
 tsData <-
   data.frame(
@@ -26,7 +32,7 @@ tsData <-
 
 
 
-# example its -------------------------------------------------------------
+# example its 
 
 ggplot(tsData, aes(x=year, y=beta, shape = period))+
   geom_point(size = 3) +
@@ -43,3 +49,63 @@ ggplot(tsData, aes(x=year, y=beta, shape = period))+
     x = 'T (year)',
     y = expression( hat(beta) [t]) #using R's maths
   )
+
+
+
+# voronoi example ---------------------------------------------------------
+
+library(sf)
+library(tmaptools)
+
+## load in the infered snaps?
+theseSnaps <-
+  readRDS('saved cleaned data/makeFile06 snaps.rds')
+
+# 1.1. Selection which version of snaps to use 
+
+theseSnaps <-
+  theseSnaps %>%
+  filter(
+    snapVersion == 1
+  )
+
+## extract a segement 
+
+theseSnaps<- 
+  theseSnaps %>%
+  filter(
+    snap_x0 %>% between(440644 - 250, 440644 + 250) ##median +- a distance
+  ) %>%
+  filter(
+    snap_y0 %>% between(394550 - 250, 394550 + 250) ##median +- 
+  ) 
+
+## Create coordinates 
+theseSnaps <-
+  theseSnaps %>%
+  st_as_sf(
+    coords = c('snap_x0', 'snap_y0'),
+    crs = st_crs(ukgrid)
+  )
+
+## Using code from: https://stackoverflow.com/questions/45719790/create-voronoi-polygon-with-simple-feature-in-r
+theseVoronoi <-
+  theseSnaps %>% 
+  st_union %>% 
+  st_voronoi %>%
+  st_cast
+
+
+# basemap
+library(tmaptools)
+
+tmap_mode('plot')
+
+osm_base <- read_osm(theseSnaps, ext = 1.5)
+
+tm_shape(osm_base) + tm_rgb(alpha = 0.5) +
+tm_shape(theseSnaps) + tm_dots(size = 1.1) +
+tm_shape(theseVoronoi) + tm_borders()
+
+
+# take a snapshot?

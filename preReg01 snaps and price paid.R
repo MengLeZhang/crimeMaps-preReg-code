@@ -8,7 +8,7 @@ library(stargazer)
 
 
 summaryPP2Snap <-
-  readRDS('saved cleaned data/makeFile0x snaps nearby house.rds')
+  readRDS('saved cleaned data/makeFile07 snaps nearby house.rds')
 
 summaryPP2Crime <-
    readRDS('saved cleaned data/makeFile04 policeUK count per house.rds')
