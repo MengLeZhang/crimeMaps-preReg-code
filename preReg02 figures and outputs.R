@@ -41,5 +41,5 @@ ggplot(tsData, aes(x=year, y=beta, shape = period))+
   labs(
     title = "An illustration of an interrupted time series",
     x = 'T (year)',
-    y = expression(beta)
+    y = expression( hat(beta) [t]) #using R's maths
   )
