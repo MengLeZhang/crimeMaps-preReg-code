@@ -19,21 +19,11 @@ google = "+init=epsg:3857"
 
 
 ##  Data file paths -------------------
-##  Note: Small files are kept locally; larges ones are in my google drive folder
-##  Note: cleaned data is used in the safe setting
-##  Note: Data is now stored in a folder outside this repo folder (next directory up; reachable with ../)
+##  Note: Data is stored in a folder outside this repo folder (next directory up; reachable with ../). See README
 
-## Land registery download (all years and huge)
-## https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads#yearly-file
-## in google drive
 
-## Police.uk data Dec 2010 - 2013
-# https://data.police.uk/data/archive/
-## The file is within my google drive -- just put into data/
-## Google Drive/Google Drive/Spatial lookup files/policeUK crime data
-# git ignore the whole folder
-## excluding the ZIP file!
-
+## !!Note: PoliceUk file is saved in folder with months and within contains csv for police force
+## This codes gets all the relevant file names for reading in 
 policeUk_path <-
     '../data/policeUK crime data'
 
@@ -44,18 +34,15 @@ allFiles_path <-
   file.path(
     list.files(policeUk_path, recursive = T)
   ) 
+
 ## only csvs
 allFiles_path <-
    allFiles_path[grepl(allFiles_path, pattern = '.csv')]
 
-
 ## filter to just SY
+## (optional) comment out the follow commands to load in all GB data
 allFiles_path <-
    allFiles_path[grepl(allFiles_path, pattern = '-south-yorkshire-street.csv')]
-
-##  police.uk crime categorisation ----------------
-policeCat_path <- 
-  '../data/policeUK crime categorisation/police-uk-category-mappings.csv'
 
 
 # Functions ---------------------------------------------------------------

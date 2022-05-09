@@ -1,4 +1,4 @@
-# makeFile 0x get snaps per house sold 
+# makeFile 07 get snaps per house sold 
 
 
 # input -------------------------------------------------------------------
@@ -16,7 +16,7 @@ whatBuffer <-
   150
 
 
-# code --------------------------------------------------------------------
+# code (run after setting global) ---------------------------------------------
 
 ##  1. Get all points 
 sypPP_df <-

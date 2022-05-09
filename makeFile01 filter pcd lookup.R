@@ -46,7 +46,7 @@ pcdLookup_sf <-
     crs = st_crs(syp_sf)
   )
 
-## Filter and save (or do not filter to get the whole of the UK)
+## Filter and save (optional: do not filter to get the whole of the UK) ------
 
 syp_pcds <- 
   pcdLookup_sf[syp_sf,]

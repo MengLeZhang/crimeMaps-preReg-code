@@ -8,7 +8,7 @@ The steps are:
 2. Download the raw data public domain data
 3. Run R scripts
 
-Tested under R.4.0.3 and windows 10. Test machine has an i7-4770 CPU with 16GB RAM.
+Tested under R.4.0.3 and windows 10. Test machine has an i7-4770 CPU with 16GB RAM.M
 
 ### Folder structure
 File directory structure is this:
@@ -30,10 +30,13 @@ The raw data coomes from:
 
 Run 00-utils.R first to load in dependencies and check file paths. All file paths are relative (to this folder).
 
-The scripts need to create the inferred list of snap points (in order):
-- makeFile01 (South Yorkshire only; amend line 63 to use the entire country)
+The scripts need to create the inferred list of snap points (South Yorkshire only):
+- makeFile01 (South Yorkshire only)
 - makeFile03
 - makeFile06 (Check output in /saved cleaned data folder)
+
+To create the inferred list of snaps for the whole of England and Wales comment out lines in 00-utils and makeFile01. See code comments.
+
 
 To recreate the analysis in supplement, run these additional scripts:
 - makeFile02

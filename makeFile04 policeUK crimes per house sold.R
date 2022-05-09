@@ -1,6 +1,4 @@
-##  makeFile04: crimes and snaps around an area each month 
-
-
+##  makeFile04: crimes and snaps around a sold house each month 
 
 # input/output ------------------------------------------------------------
 
@@ -17,6 +15,11 @@ whatBuffer <-
   150
 
 
+
+# code (run after setting global vars) ------------------------------------
+
+
+
 ##  1. Get all points 
 sypPP_df <-
   sypPP_df %>%
@@ -25,9 +28,6 @@ sypPP_df <-
 ## Get month and year in decimal format
 sypPP_df$year %>% table
   
-## approx 9k sold per year 
-
-
 # hotfix remove month and year from police --------------------------------
 
 policeUk_df <-
@@ -122,11 +122,7 @@ summaryPP2Crime <-
   select(idPP, starts_with('ppElapsed')) %>%
   group_by(idPP) %>%
   summarise_all(
-#    is.numeric,
     sum
-    # ppElapsed_minus180 = ppElapsed_minus180 %>% sum,
-    # ppElapsed_180 = ppElapsed_180 %>% sum,
-    # ppElapsed_365 = ppElapsed_365 %>% sum
   )
 
 
