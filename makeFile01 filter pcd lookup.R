@@ -6,35 +6,24 @@
 ## police border file from policeUK in google docs folder
 forcesKML <- '../data/force kmls/south-yorkshire.kml'
 
-## English postcodes
+## GB postcodes
 ## https://geoportal.statistics.gov.uk/datasets/ons-postcode-directory-may-2020
-## saved in data/postcodes -- multiple files
-##  Else we get it from the ONS centroid file located in my spatial lookup folder
-
 pcd_path <-
   '../data/postcodes/ONS_Postcode_Directory_Latest_Centroids.csv'
-# %>%
-#   file.path(
-#     list.files('data/postcodes')
-#   )
-
 
 
 # code --------------------------------------------------------------------
-
 
 # 1. Read in file 
 syp_sf <-
   forcesKML %>%
   st_read()
 
-st_crs(syp_sf)
-
 ##  2. Get the postcode data 
 pcdLookup_df <- 
   fread(pcd_path,
         select = c('pcd', 'X', 'Y', 'oseast1m', 'osnrth1m', 'lsoa01', 'oa01')
-      #   nrows = 1
+      #   nrows = 1 # for checking headers 
          )
 
 ## Filter the table first to Sheffield PCDS/ or at least those in the north 
@@ -47,7 +36,6 @@ pcdLookup_df <-
 
 ## 2. Turn pcd into coords 
 
-
 pcdLookup_sf <-
   pcdLookup_df %>%
   filter(
@@ -58,16 +46,13 @@ pcdLookup_sf <-
     crs = st_crs(syp_sf)
   )
 
-## Filter and save (or do not filter to get the whole of the UK)
+## Filter and save (optional: do not filter to get the whole of the UK) ------
 
 syp_pcds <- 
   pcdLookup_sf[syp_sf,]
 
-
-syp_pcds$pcd %>% substr(1,3) %>% table
-
-
-syp_pcds[sample.int(nrow(syp_pcds), 1e4),] %>% qtm # check it visually looks like SY
+## Check it looks like SY (do not run)
+##  syp_pcds[sample.int(nrow(syp_pcds), 1e4),] %>% qtm 
 ## we're done
 
 
@@ -82,8 +67,6 @@ syp_pcds <-
 
 
 # Output ------------------------------------------------------------------
-
-
 
 st_geometry(syp_pcds) <- 
   NULL

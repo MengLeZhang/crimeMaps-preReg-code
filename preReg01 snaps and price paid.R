@@ -3,12 +3,10 @@
 ## See README for which scripts to run beforehand
 
 # input -------------------------------------------------------------------
-library(tidyverse)
 library(stargazer)
 
-
 summaryPP2Snap <-
-  readRDS('saved cleaned data/makeFile0x snaps nearby house.rds')
+  readRDS('saved cleaned data/makeFile07 snaps nearby house.rds')
 
 summaryPP2Crime <-
    readRDS('saved cleaned data/makeFile04 policeUK count per house.rds')
@@ -166,43 +164,43 @@ regThis %>%
   )
 
 
-## Permutation test
-since2008 <-
-  regThis %>%
-  filter(year %in% 2009:2013)
-
-permutateSpearman <-
-  function(x){
-    since2008 %>%
-      mutate(
-        year = year[sample.int(nrow(since2008), nrow(since2008))]
-      ) %>%
-      split(.$year) %>%
-      map_dbl(
-        function(x) {
-          cor(x$thisOutcome, x$ppSnapsNearby, method = 'spearman')
-        }
-      )
-  }
-
-results <- 
-  1:1e4 %>% map(permutateSpearman)
-
-res_tab <-
-  results %>%
-  bind_rows
-
-res_tab %>% summary
-
-rest_tab <- res_tab %>%
-  map_dfr(
-    quantile, probs = c(0.025, 0.975)
-  ) 
-
-row.names(rest_tab) <- 2009:2013
-
-rest_tab
-
+## Permutation test (takes ages; do not run)
+# since2008 <-
+#   regThis %>%
+#   filter(year %in% 2009:2013)
+# 
+# permutateSpearman <-
+#   function(x){
+#     since2008 %>%
+#       mutate(
+#         year = year[sample.int(nrow(since2008), nrow(since2008))]
+#       ) %>%
+#       split(.$year) %>%
+#       map_dbl(
+#         function(x) {
+#           cor(x$thisOutcome, x$ppSnapsNearby, method = 'spearman')
+#         }
+#       )
+#   }
+# 
+# results <- 
+#   1:1e4 %>% map(permutateSpearman)
+# 
+# res_tab <-
+#   results %>%
+#   bind_rows
+# 
+# res_tab %>% summary
+# 
+# rest_tab <- res_tab %>%
+#   map_dfr(
+#     quantile, probs = c(0.025, 0.975)
+#   ) 
+# 
+# row.names(rest_tab) <- 2009:2013
+# 
+# rest_tab
+# 
 ## This jump is not possible if they were from same distribution
 
 # lm ----------------------------------------------------------------------
@@ -221,7 +219,6 @@ fitOLS_FE <-
 
 fitOLSCoef<- fitOLS %>% correctSE_tab()
 fitOLS_FECoef <- fitOLS_FE %>% correctSE_tab()
-fitOLSCoef
 
 stargazer(
   fitOLS,fitOLS_FE,

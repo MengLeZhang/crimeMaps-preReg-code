@@ -1,9 +1,5 @@
 ##  Westlands house price data
-##  Output: house price data for westmidlands 2010-2013
-
-library(tidyverse)
-library(data.table)
-
+##  Output: house price data for South Yorkshire 1995 onwards
 
 # Input -----------------------------------------------------------
 ## input = data from 
@@ -14,9 +10,7 @@ make01_sypPcds <-
 
 # code --------------------------------------------------------------------
 
-
-
-##  1) Load in land reg data and filter to west mids and 2010-2013
+##  1) Load in land reg data and filter to west mids
 ## no headers in this data!
 ## Check this https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads?
 landReg_df <-

@@ -1,9 +1,4 @@
-## Goal get a datasets of crimes in areal unit 
-##  Output: saved file to the local no commit subfolder
-##  Output is wideform data with annual crime count per crime type as variables
-## One row = 1 postcode during one year
-
-##  Remember to run the 00-utils
+## Clean up the police.uk data and subset to one area
 
 ## 1) Load Police. uk and turn that data into points----- 
 ## Cleaning police.uk
@@ -46,7 +41,9 @@ police_df <-
 
 
 # hotfix to check unique snaps --------------------------------------------
-# police_df %>% summary
+##  Do not run unless:
+##  1. checking all snaps in UK
+##  2. changed the filter in 00-utils and makeFile02 to not subset to South yorkshire
 ## last edit: 31/1/2022
 
 
@@ -174,7 +171,7 @@ police_df <-
 
 
 
-## Transform to UK gride 
+## Transform to UK grid
 
 police_sf <- 
   police_df %>%
@@ -193,9 +190,9 @@ police_df_out <-
     st_coordinates(police_sf) %>% as.data.frame()
   )
 
-police_df_out %>% object.size()
+# do not run: check space
+#police_df_out %>% object.size()
 
-##  snap_x0 is the real police.uk snap point
 police_df_out <- 
   police_df_out %>%
   rename(
@@ -226,4 +223,5 @@ saveRDS(
   file = 'saved cleaned data/makeFile03 policeUk data.rds'
 )
 
+## save space
 rm(police_df_out)

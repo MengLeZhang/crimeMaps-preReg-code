@@ -49,7 +49,6 @@ snapsByVersion %>%
     n = n()
   )
 
-## Checks what were in use
 
 
 # output ------------------------------------------------------------------
