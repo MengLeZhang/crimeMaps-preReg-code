@@ -8,18 +8,21 @@ The steps are:
 2. Download the raw data public domain data
 3. Run R scripts
 
+Tested under R.4.0.3 and windows 10. Test machine has an i7-4770 CPU with 16GB RAM.
+
 ### Folder structure
 File directory structure is this:
 
 master folder /// for data and code
 |-> \code folder //// this folder
-    |-> .\saved cleaned data /// find cleaned outputs here
-|-> \data /// raw data folder; see description
+    |-> \code folder\saved cleaned data /// find cleaned outputs here
+|-> \data /// raw data folder; see data sources
 
 ### Data sources
 
 The raw data coomes from:
-- police.uk data: https://data.police.uk/ (archived data from Dec 2013: checksum d24b0ed41359af22a7538604cfcfef74)
+- police.uk archival data: https://data.police.uk/data/archive/ (Dec 2013: checksum d24b0ed41359af22a7538604cfcfef74)
+- police force boundary data: https://data.police.uk/data/boundaries/
 - house prices: https://www.gov.uk/guidance/about-the-price-paid-data
 - ONS postcode lookup: https://geoportal.statistics.gov.uk/datasets/7606baba633d4bbca3f2510ab78acf61
 
@@ -39,3 +42,4 @@ To recreate the analysis in supplement, run these additional scripts:
 - makeFile06
 - makeFile07
 - preReg01
+- preReg02

@@ -1,10 +1,6 @@
 ##  preReg2 figures and tables 
-## This is to digitise the handdrawn figures 
 
-library(tidyverse)
 # Time series example -----------------------------------------------------
-
-
 # create fake data 
 
 tsData <-

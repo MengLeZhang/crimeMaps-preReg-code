@@ -3,9 +3,7 @@
 ## See README for which scripts to run beforehand
 
 # input -------------------------------------------------------------------
-library(tidyverse)
 library(stargazer)
-
 
 summaryPP2Snap <-
   readRDS('saved cleaned data/makeFile07 snaps nearby house.rds')
