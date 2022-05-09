@@ -2,10 +2,6 @@
 ## This is to digitise the handdrawn figures 
 
 library(tidyverse)
-
-
-
-
 # Time series example -----------------------------------------------------
 
 
@@ -74,15 +70,20 @@ theseSnaps <-
 theseSnaps<- 
   theseSnaps %>%
   filter(
-    snap_x0 %>% between(440644 - 250, 440644 + 250) ##median +- a distance
+    snap_x0 %>% 
+      dplyr::between(440644 - 250, 440644 + 250) ##median +- a distance
   ) %>%
   filter(
-    snap_y0 %>% between(394550 - 250, 394550 + 250) ##median +- 
+    snap_y0 %>% 
+      dplyr::between(394550 - 250, 394550 + 250) ##median +- 
   ) 
 
 ## Create coordinates 
 theseSnaps <-
   theseSnaps %>%
+  mutate(
+    id = LETTERS[1:nrow(theseSnaps)]
+  ) %>%
   st_as_sf(
     coords = c('snap_x0', 'snap_y0'),
     crs = st_crs(ukgrid)
@@ -96,6 +97,7 @@ theseVoronoi <-
   st_cast
 
 
+
 # basemap
 library(tmaptools)
 
@@ -103,9 +105,18 @@ tmap_mode('plot')
 
 osm_base <- read_osm(theseSnaps, ext = 1.5)
 
+theseSnaps %>% st_jitter()
+
+set.seed(12345)
 tm_shape(osm_base) + tm_rgb(alpha = 0.5) +
-tm_shape(theseSnaps) + tm_dots(size = 1.1) +
-tm_shape(theseVoronoi) + tm_borders()
+tm_shape(theseSnaps) + tm_dots(size = 0.4) + 
+tm_shape(theseSnaps[8, ]) + tm_dots(size = 0.4, col = 'red') + 
+tm_shape(
+  (theseSnaps %>% st_jitter(factor = 0.1))[8,] %>%
+           mutate(id = 'A') 
+  ) + tm_text('id') + #jitter text
+tm_shape(theseVoronoi) + tm_borders() 
 
 
-# take a snapshot?
+## 
+

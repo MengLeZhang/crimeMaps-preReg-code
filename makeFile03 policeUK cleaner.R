@@ -174,7 +174,7 @@ police_df <-
 
 
 
-## Transform to UK gride 
+## Transform to UK grid
 
 police_sf <- 
   police_df %>%
@@ -226,4 +226,5 @@ saveRDS(
   file = 'saved cleaned data/makeFile03 policeUk data.rds'
 )
 
+## save space
 rm(police_df_out)

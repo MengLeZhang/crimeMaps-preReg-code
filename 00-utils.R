@@ -115,7 +115,7 @@ nn2_mz <-
   }
 
 
-## Test
+## Example (do not run)
 ##  k = 2 nearest neighbours with 10m 
 # nn2_mz(
 #   data = data.frame(1:500, 1:500),

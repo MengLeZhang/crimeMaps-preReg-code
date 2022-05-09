@@ -35,6 +35,7 @@ The scripts need to create the inferred list of snap points (in order):
 To recreate the analysis in supplement, run these additional scripts:
 - makeFile02
 - makeFile03
+- makeFile04
 - makeFile06
 - makeFile07
 - preReg01

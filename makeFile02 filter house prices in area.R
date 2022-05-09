@@ -14,8 +14,6 @@ make01_sypPcds <-
 
 # code --------------------------------------------------------------------
 
-
-
 ##  1) Load in land reg data and filter to west mids and 2010-2013
 ## no headers in this data!
 ## Check this https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads?
