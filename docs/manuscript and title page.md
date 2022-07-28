@@ -1,3 +1,8 @@
+---
+output:
+  word_document: default
+  html_document: default
+---
 __Estimating the Effects of Crime Maps on House Prices using an (Un)natural Experiment: A Study Protocol__
 
 Meng Le Zhang*[1], Monsuru Adepeju [2], Rhiannon Thomas [3]
@@ -123,7 +128,7 @@ However, we cannot ever observe a world in which police.uk did not exist in 2011
 
 The below Directed Acyclic Graph (DAG) represents our core assumptions about causal relationships in a world where police.uk did not exist (Pearl 2009). A more extensive version is shown in the appendix.
 
-![](assets/markdown-img-paste-20220728152624952.png)
+![](assets/fig-dag.png)
 __Figure 3: DAG/ Path diagram of causal relations__
 
 We assume the existence of police.uk only affected house prices through i) the information shown on the website (modifying $C_g \rightarrow Y$) and ii) changing the relationship between information outside the website and house prices ($U \rightarrow Y$, $U \rightarrow C_r \rightarrow Y$). Other causal relationships are unchanged, and this forms the basis for our assumption tests later.
