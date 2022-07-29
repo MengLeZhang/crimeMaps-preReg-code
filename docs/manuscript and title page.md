@@ -325,6 +325,15 @@ The scope of this study is only limited to a number of years, mainly 2010 - 2013
 All personal data will be stored within SYP setting. No personal data will leave these settings. All other data is publicly available. Only aggregated results will be taken out of the setting and cleared by SYP beforehand.
 
 
+-----
+# Supporting information
+
+S1. Appendix
+s2. Full dag
+S3. 
+
+-----
+
 # Bibliography
 
 Braakmann, Nils. 2017. ‘The Link between Crime Risk and Property Prices in England and Wales: Evidence from Street-Level Data’. Urban Studies 54 (8): 1990–2007. https://doi.org/10.1177/0042098016634611.
