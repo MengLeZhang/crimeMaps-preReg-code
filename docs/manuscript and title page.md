@@ -309,6 +309,9 @@ __Table 1: Summary of house price data__
 
 To do a power analysis, we need to know the variance of the ‘treatment’ variable: the sum of potential snaps points for RQ1 (M_S) and the crime counts on police.uk (conditional on real crime counts) for RQ2. For RQ2, we cannot know this statistic before accessing the data. For RQ1, we already have early results for South Yorkshire. From those results, we are confident in the statistical power of our estimator when applied to the entirety of England and Wales (see supplementary materials).
 
+## Ethics
+This project has been approved by the University Research Ethics Committee at the University of Sheffield (approved 13/10/2021, reference no. 043654). The corresponding author submitted a University Research Ethics Committee-approved self-declaration to the ethics committee. A full ethical review was waived since the research was judged to involve only existing data that has been robustly anonymised, and is unlikely to cause offence to those who originally provided the data. Our ethics approval letter is contained in the supplementary materials. Most of the data we use is in the public domain. We have obtained consent from South Yorkshire Police to use their data.
+
 # Other considerations
 
 ## Study limitations and risks
@@ -317,9 +320,6 @@ A data protection plan formed between SYP and Sheffield University minimises the
 police.uk’s snaps database remains a secret to this day. This guarantees that the snap point database cannot causally affect house prices except via police.uk’s website and API. However, we have to replicate the snap point database using public information. We can infer the majority of the snap-points through police.uk data but our inferred database can still contain errors. We can test the accuracy of our inferred snap database using real police force data.
 
 The scope of this study is only limited to a number of years, mainly 2010 - 2013. For RQ2, we can only study the effects for South Yorkshire.
-
-## Ethics
-This project has been approved by the University of Sheffield (self-declaration: 043654). It only uses existing data that has been robustly anonymised.
 
 ## Data protection
 All personal data will be stored within SYP setting. No personal data will leave these settings. All other data is publicly available. Only aggregated results will be taken out of the setting and cleared by SYP beforehand.
