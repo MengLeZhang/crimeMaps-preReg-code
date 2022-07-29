@@ -20,7 +20,9 @@ Remember this about markdown:
 # Steps:
 1. Check the issues page on github
 2. Pick an issue that you want to work on and write on the page
-3. Create a new branch. Name it after the issue. Work on the issue on that branch.
+3. Each issue has a branch named it after the issue. Work on the issue on that branch. See below to check how to access:
+![](assets/readme-1.png)
+
 4. Every week on Friday, MZ will merge finished branches together into main.
 5. Repeat until all issues are addressed.
 6. If you can get stuck on an issue or particular task (i.e. it's something only MZ can do). Let everyone know in the issues page.
