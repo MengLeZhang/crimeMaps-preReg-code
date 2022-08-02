@@ -1,4 +1,4 @@
-## S1. Example of analysis (RQ1)
+# S1. Example of analysis (RQ1)
 
 For this analysis, we'll use house price data for the year 2010 - 2013 and futher filter the sample according to the routine described in this protcol. For each house sold, we know the total number of potential snap points nearby (150m), the sold price (logged), and other characteristics. We use version one of the police.uk snap points list.
 
@@ -14,7 +14,7 @@ We report the means of key characteristics such as price sold and the coordinate
 5 2013           3.64 131535.    11.7  443814.  397058.
 ```
 
-### Estimation
+## Estimation
 
 __Estimator 1A: Non-parametric__
 > Check whether the correlation (i.e. spearman's rank) between $Y$ and $M_s$ is the same at $T = 0$ and $T = 1$. The null hypothesis is that the correlation remains the same. We can use bootstrapping or permutation tests to get standard errors.
@@ -83,7 +83,7 @@ $$E(Y_T) = \beta_{0,T} +  \beta_{M_s, T}M_s$$
 For this estimator, we take data on houses sold since 1995 until 2019 (prior to COVID19). Run OLS for each year and plot the estimated parameter above. We use both price and logged price. The results are plotted below:
 
 ![](assets/markdown-img-paste-20220313133759764.png)
-__Figure A1.1: Time series of OLS estimates using price (logged, left) and price (untransformed, right)__
+__Figure 1: Time series of OLS estimates using price (logged, left) and price (untransformed, right)__
 
 The error bars represent the 95% margin of error for each OLS estimate. We use OLS to predict the trend in these points between 1995 and 2010 (see below).
 
@@ -115,7 +115,7 @@ Between 1995-2010, there is no time trend using logged prices and a very predict
 
 Using the 1995-2010 OLS models, we predict a values of $\tilde\beta_{M_s, 2011}$ of 0.051 for logged prices and -7,800 for the un-logged prices. The real values of $\beta_{M_s, 2011}$ are -0.046 (se: 0.002) and -5,900 (se: 318). The difference between $\tilde\beta_{M_s, 2011}$ and  $\beta_{M_s, 2011}$ (as well as the graph above) suggests that 2011 bucks the trend.
 
-### Assumption testing
+## Assumption testing
 
 Take the coordinates, Eastings and Northings (nearest metre), of housing sold in South Yorkshire as potential confounders. Due to data limitations, we use the coordinates of the postcode centroid instead of the coordinates of the house itself. Let $T=0$ refer to the year 2010 and $T = 1$ refer to the year 2011.
 

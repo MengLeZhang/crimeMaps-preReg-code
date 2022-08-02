@@ -11,4 +11,10 @@ Additional variables are:
 Other variables retain the same meaning.
 
   ![](assets/dag1.png)
-  __Figure 1: DAG/ Path diagram of causal relations__
+  __Figure 1: DAG/ Path diagram of causal relations during the control period__
+
+The purpose of this DAG is to show that:
+1. $M_s$ is purely a function of two only inputs: $I_h$ and $I_s$.
+2. Crime count shown $C_g$ on police.uk is a function of only three inputs: $I_h$, $I_s$, and $I_c$
+
+The simpler DAG in the main text treats $I$ as items in the larger set of confounders $U$. 

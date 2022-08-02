@@ -15,14 +15,14 @@ You can download additional packages for Atom to make it more useable. I recomme
 Remember this about markdown:
 - all filepaths are relative. Take this README which is written in markdown. If I want link to 'appendix.md' it will look for a filed names this in the same folder as this README.
 - unfortunately my experience with reference managers in markdown is a faff. Any references just pop it in with a note (e.g. @reference) and I'll go chase it up.
-- I'll be rendering the markdown doc with rstudio (which calls up pandocs) into word. I'll take care of this.  
+- I'll be rendering the markdown doc with rstudio (which calls up pandocs) into word. I'll take care of this.
 
 # Steps:
 1. Check the issues page on github
 2. Pick an issue that you want to work on and write on the page
 3. Create a new branch. Name it after the issue. Work on the issue on that branch.
 4. Every week on Friday, MZ will merge finished branches together into main.
-5. Repeat until all issues are addressed.  
+5. Repeat until all issues are addressed.
 6. If you can get stuck on an issue or particular task (i.e. it's something only MZ can do). Let everyone know in the issues page.
 
 When all issues are done, I'll render all the markdown files into word using pandocs/rstudio/rmarkdown. Then it'll get sent to PLOSone.
@@ -63,6 +63,7 @@ When all issues are done, I'll render all the markdown files into word using pan
   - [ ] The bibliography list is not homgeneous.
   - [ ] The authors should mention how to cope with the risk of finding errors in the data, having solid data for such a project is not only related the presence of missing data.
   - [ ] The quality of preparation of this manuscript should increase.
+
 - Reviewer two comments:
   - [ ] the paper is very flawed in its structure, groundwork such as literature and data referencing and lacks a discussion section completely.
   - [ ] Background. Why is results in supplementary materials. what is the meaning of the data access sentence. what does it mean by serendipitous discovery.
