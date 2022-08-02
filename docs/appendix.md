@@ -1,7 +1,7 @@
 
 # Appendix:
 
-## A1. Early results and example of analysis (RQ1)
+## S1. Early results and example of analysis (RQ1)
 
 For this analysis, we'll use house price data for the year 2010 - 2013 and futher filter the sample according to the routine described in this protcol. For each house sold, we know the total number of potential snap points nearby (150m), the sold price (logged), and other characteristics. We use version one of the police.uk snap points list.
 
@@ -153,7 +153,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 ```
 
 
-## A2. Full DAG
+## S2. Full DAG
 
 Additional variables are:
 
@@ -168,7 +168,7 @@ Other variables retain the same meaning.
   __Figure A2.1: DAG/ Path diagram of causal relations__
 
 
-## A3. ## Inferring police.uk's list of snaps
+## S3. ## Inferring police.uk's list of snaps
 
 As mentioned earlier, there are two major versions of the snap list. Version one was in use until 2012, and version two was used afterwards. The creation of both versions uses roughly the same routine:
 

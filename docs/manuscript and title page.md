@@ -32,7 +32,7 @@ In this project, we are interested in the causal effect of public crime maps on 
 
 To address this question empirically, we would ideally conduct an experiment and introduce a source of variation in the crime statistics. For instance, across England and Wales, we could randomly increase or decrease the number of offences displayed on police.uk for a period to measure the effects. For obvious reasons, we cannot pursue this research design. However, intentional errors introduced into police.uk crime maps can be leveraged as a source of variation to investigate the signalling effect of the crime maps on the house prices.
 
-Police.uk implements a geomasking algorithm that obscures the actual location of crimes in order to protect the identity of victims. The geomasking algorithm allocates crimes to a nearby geographical location called a snap-point (Tompson et al 2015, Ratcliffe 2002). Whilst the density of snap-points in urban areas is very high, the level of crime in a small area measured using police.uk can differ substantially from actual police records due to geomasking (Tompson et al 2015). This error level gets progressively worse at smaller spatial scales. In 80% of postcodes, the local area crime counts as recorded by police.uk is substantially different from that measured by actual police sources (Tompson et al 2015, figure 7). In short, local area crime statistics on police.uk can be considerably lower or higher than what they should be. This mismatch (henceforth the geomasking error) constitutes the source of variation that we will use in our (un)natural experiment. A key part of this study is that the secret list of snap-points used by police.uk can be inferred using public data alone, as we explain in the next section.
+Police.uk implements a geomasking algorithm that obscures the actual location of crimes in order to protect the identity of victims. The geomasking algorithm allocates crimes to a nearby geographical location called a snap-point (Tompson et al 2015, Ratcliffe 2002). Whilst the density of snap-points in urban areas is very high, the level of crime in a small area measured using police.uk can differ substantially from actual police records due to geomasking (Tompson et al 2015). This error level gets progressively worse at smaller spatial scales. In 80% of postcodes, the local area crime counts as recorded by police.uk is substantially different from that measured by actual police sources (see figure 7, in Tompson et al 2015). In short, local area crime statistics on police.uk can be considerably lower or higher than what they should be. This mismatch (henceforth the geomasking error) constitutes the source of variation that we will use in our (un)natural experiment. A key part of this study is that the secret list of snap-points used by police.uk can be inferred using public data alone, as we explain in the next section.
 
 The primary research questions are:
 
@@ -69,7 +69,7 @@ The geomasking routine currently used on police.uk is documented on data.police.
 
 We note that police.uk crime maps were updated with a 2-month delay until at least 2016 (as reported by Quinn et al 2019). The list of potential snap points used in step two is a secret. Between 2011 to 2013, we believe there were at least two major versions of the snap-point list which we henceforth refer to as  Version One and Version Two. Version One was used on records between Dec 2010 and Nov 2011 whilst Version Two was used on records from Dec 2011 until at least the end of our study period (Dec 2013). The snap points were created in the following ways:
 
-_Version One_: This was created in 2011 using Ordnance Survey data (exact datasets unverified). Potential snap-points were the centre of residential roads (Smith and Heath 2014, p. 93 - 94), and Catchment areas for each point were created using Voronoi polygons. If a snap-point has less than 12 postal addresses within its catchment, it is dropped. This version consists of the remaining snap-points. For computational efficiency, police.uk could have used a nearest neighbour finding algorithm to do the postal address counting. This would have yielded the same outcome as the catchment approach.
+_Version One_: This was created in 2011 using Ordnance Survey data (exact datasets unverified). Potential snap-points were the centre of residential roads (Smith and Heath 2014, p. 93 - 94), and Catchment areas for each point were created using Voronoi polygons (figure 1). If a snap-point has less than 12 postal addresses within its catchment, it is dropped. This version consists of the remaining snap-points. For computational efficiency, police.uk could have used a nearest neighbour finding algorithm to do the postal address counting. This would have yielded the same outcome as the catchment approach.
 
 ![](assets/fig-voronoi.png)
 __Figure 1: Example of Voronoi polygons. Polygon A is associated with point A and represents areas closer to point A than any other point. Source: OpenStreetMap (base map only).__
@@ -126,7 +126,7 @@ $$P(Y | M_s, T = 1, W = 1) - P(Y | M_s, T = 1, W = 0)$$
 
 However, we cannot ever observe a world in which police.uk did not exist in 2011 (i.e. $T = 1, W = 0$). But we do observe data from the year 2010 when police.uk did no exist (i.e. $T = 0, W = 0$). We can substitute data from 2010 for the data from the counterfactual $T = 0, W = 0$.
 
-The below Directed Acyclic Graph (DAG) represents our core assumptions about causal relationships in a world where police.uk did not exist (Pearl 2009). A more extensive version is shown in the appendix.
+The below Directed Acyclic Graph (DAG) (figure 3) represents our core assumptions about causal relationships in a world where police.uk did not exist (Pearl 2009). A more extensive version is shown in the appendix.
 
 ![](assets/fig-dag.png)
 __Figure 3: DAG/ Path diagram of causal relations__
@@ -208,7 +208,7 @@ Our statistical tests are designed to reject the null hypothesis. Failure to rej
 
 ## Sensitivity and Robustness tests
 
-From the DAG in Figure 5, we can infer most of our key assumptions which are:
+From the DAG in Figure 3, we can infer most of our key assumptions which are:
 
 1. The effect of confounders on crimes shown on police.uk does not change over time $P(C_g| U, T) = P(C_g| U)$
 2. The effect of confounders on potential nearby snaps does not change over time $P(M_s| U, T) = P(M_s| U)$
@@ -265,7 +265,7 @@ To test the plausibility of the research design, we use a variety of data source
 Police force data is not directly available for research. Researchers need to contact and negotiate access with individual police forces.
 Other data sources mentioned are publicly available or else require a free registered account. In the case of Ordinance Survey product (OS), researchers may need to purchase data from OS.
 
-We inferred the master list of snap-points from public domain data from data.police.uk. The inferred list cannot be used for reverse geomasking (i.e. to reveal the exact location of crimes and identify victims). We have explained exactly how to recreate this list using public data and have share our code on Github [link redacted for peer review] and as supplementary materials for this protocol.
+We inferred the master list of snap-points from public domain data from data.police.uk. The inferred list cannot be used for reverse geomasking (i.e. to reveal the exact location of crimes and identify victims). We have explained exactly how to recreate this list using public data and have shared our code on Github [link redacted for peer review] and as supplementary materials for this protocol.
 
 We will not bring any house price data (i.e. outcomes information) into South Yorkshire Police’s settings until after the protocol is finalised to protect the validity of the study protocol.
 
@@ -314,7 +314,7 @@ For the protocol, the study period is limited to years before 2014. 2014 was cho
 
 For RQ2, after restricting our sample, we have roughly 10,000 houses sold every year between 2010 and 2012 (12,000 sold in 2013). The mean house price is virtually unchanged while the price variance increased in 2013 (Table 1).
 
-| **Year** | **N** | **Mean Price** | **Mean Ln Price** | **Sd Price** | **Sd Log Price** |
+| **Year** | **N** | **Mean Price** | **Mean Log Price** | **Sd Price (£)** | **Sd Log Price (£)** |
 | -------- | ----- | -------------- | ----------------- | ------------ | ---------------- |
 | **2010** | 9598  | 143983         | 11.7              | 94415        | 0.530            |
 | **2011** | 9798  | 135934         | 11.7              | 96959        | 0.521            |
