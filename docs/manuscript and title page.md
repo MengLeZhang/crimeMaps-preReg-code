@@ -271,9 +271,25 @@ We will not bring any house price data (i.e. outcomes information) into South Yo
 
 ### Variables/ Codebook
 The main variables used are:
--	police.uk variables (points data) - Date of offence/ incident (truncated to year and month only) - Home Office Offence Code - Latitude and Longitude (WGS84, to be converted to Easting and Northing OSGB36)
--	South Yorkshire Police force variables (to be confirmed) - Date of offence/ incident - Home Office Offence Code - Easting and Northing (OSGB36) - Other contexts (e.g. free text information about location)
--	Land registry price paid data - Date of transfer. Date when the sale was completed, as stated on the transfer deed. - Price paid - Postcode (joined to coordinates of postcode centroid via the ONS master postcode lookup) - Type of property (e.g. Flats, Detached housing etc) - Old/New. Whether a property was newly built or an established residential building - Freehold or Leasehold Price Paid Data (PPD) category. Relates to type of price paid data and data recording changes over time. We use category A which forms the bulk of the dataset and is available from 1995. Category B transactions are only recorded since October 2013. These include transfers under a power of sale/repossessions and buy-to-lets.
+
+police.uk variables (points data)
+- Date of offence/ incident (truncated to year and month only)
+- Home Office Offence Code
+- Latitude and Longitude (WGS84, to be converted to Easting and Northing OSGB36)
+
+South Yorkshire Police force variables (to be confirmed)
+- Date of offence/ incident
+- Home Office Offence Code
+- Easting and Northing (OSGB36)
+- Other contexts (e.g. free text information about location)
+
+Land registry price paid data
+- Date of transfer. Date when the sale was completed, as stated on the transfer deed.
+- Price paid (in GBP)
+- Postcode (joined to coordinates of postcode centroid via the ONS master postcode lookup)
+- Type of property (e.g. Flats, Detached housing etc)
+- Old/New. Whether a property was newly built or an established residential building
+- Freehold or Leasehold Price Paid Data (PPD) category. Relates to type of price paid data and data recording changes over time. We use category A which forms the bulk of the dataset and is available from 1995. Category B transactions are only recorded since October 2013. These include transfers under a power of sale/repossessions and buy-to-lets.
 
 For every residential property sold, we can derive the following variables:
 - number of potential snap points nearby (based on a particular snap list version)
