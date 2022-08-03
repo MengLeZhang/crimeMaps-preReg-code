@@ -3,14 +3,16 @@ output:
   word_document: default
   html_document: default
 ---
+
 __Estimating the Effects of Crime Maps on House Prices using an (Un)natural Experiment: A Study Protocol__
 
-Meng Le Zhang*[1], Monsuru Adepeju [2], Rhiannon Thomas [3]
+Meng Le Zhang$^1$*, Monsuru Adepeju$^2$, Rhiannon Thomas$^1$
 
-[1] Sheffield Methods Institute, University of Sheffield, Sheffield, United Kingdom
+[1] Department of Social Science, University of Sheffield, Sheffield, United Kingdom
 [2] Department of Sociology, Manchester Metropolitan University, Manchester, United Kingdom
-[3] Department of Social Science, University of Sheffield, Sheffield, United Kingdom
-*Corresponding author: meng_le.zhang@sheffield.ac.uk
+
+*Corresponding author
+Email: meng_le.zhang@sheffield.ac.uk (MZ)
 
 
 ----
