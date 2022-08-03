@@ -73,8 +73,8 @@ We note that police.uk crime maps were updated with a 2-month delay until at lea
 
 _Version One_: This was created in 2011 using Ordnance Survey data (exact datasets unverified). Potential snap-points were the centre of residential roads (Smith and Heath 2014, p. 93 - 94), and Catchment areas for each point were created using Voronoi polygons. If a snap-point has less than 12 postal addresses within its catchment, it is dropped. This version consists of the remaining snap-points. For computational efficiency, police.uk could have used a nearest neighbour finding algorithm to do the postal address counting. This would have yielded the same outcome as the catchment approach.
 
-![](assets/fig-voronoi.png)
-__Figure 1: Example of Voronoi polygons. Polygon A is associated with point A and represents areas closer to point A than any other point. Source: OpenStreetMap (base map only).__
+__Fig1. Example of Voronoi polygons.__ Polygon A is associated with point A and represents areas closer to point A than any other point. Source: OpenStreetMap (base map only).__
+![fig-voronoi](assets/fig1.png)
 
 _Version Two_: These snap point list were created in 2012. The centre point of every road in England and Wales was taken from the Ordnance Survey Locator dataset. These points were augmented with locally relevant points of interest from the Point X dataset. Points of interest include public places, such as Parks, or commercial premises, such as Shopping Centres. Each map point was analysed to see how many postal addresses were contained in its catchment area according to the Ordnance Survey Address-Point dataset. Again, the catchments were created using Voronoi polygons. Any catchments with between 1 and 7 postal addresses were discarded to protect privacy. The remaining points were provided to police forces for human assessment; a small number of additions and deletions were made to make map points more locally relevant.
 
@@ -92,8 +92,8 @@ Furthermore, since police.uk’s geomasking algorithm is documented, we can depl
 
 Members of the public or other bodies (e.g. estate agents) are not aware of the actual location of crimes as recorded by the police. Also, street-level crime maps for South Yorkshire did not exist before police.uk. Broader areal level maps have existed since 2008; notably the crimemapper website. The research design exploits the fact that key features of police.uk, namely its snap point list and geomasking errors, did not exist before 2011 and had no causal impact on house prices before that date. Any statistical association between these features and house prices are due to confounding (e.g. common causes). After the launch of police.uk in 2011, these features could have a causal effect on house prices. Assuming that the relationship between confounders and these key features are constant over time, changes in the association between these key features and house prices before and after the launch of police.uk will be indicative of causality. In essence, we are employing a form of interrupted time series analysis. Figure 2 demonstrates the intuition behind our research design.
 
-![fig-ITS](assets/fig-time-series.png)
-__Figure 2: An illustration of an interrupted time series using police.uk data__
+__Fig2. Example of an interrupted time series using police.uk data__
+![fig-ITS](assets/fig2.png)
 
 $\hat\beta_T$ is the associations (e.g. correlation coefficient, regression slope) between house prices and either number of snap-point or geomasking error. A change in  $\hat\beta_T$ after the launch of police.uk in 2011 indicates causality. We can also check for a constant trend in $\hat\beta_T$ before the intervention (e.g. $\hat\beta_T$ doesn't wildly fluctuate for no reason).
 
@@ -130,8 +130,8 @@ However, we cannot ever observe a world in which police.uk did not exist in 2011
 
 The below Directed Acyclic Graph (DAG) represents our core assumptions about causal relationships in a world where police.uk did not exist (Pearl 2009). A more extensive version is shown in the appendix.
 
-![](assets/fig-dag.png)
-__Figure 3: DAG/ Path diagram of causal relations__
+__Fig3. DAG/ Path diagram of causal relations__
+![fig-dag](assets/fig3.png)
 
 We assume the existence of police.uk only affected house prices through i) the information shown on the website (modifying $C_g \rightarrow Y$) and ii) changing the relationship between information outside the website and house prices ($U \rightarrow Y$, $U \rightarrow C_r \rightarrow Y$). Other causal relationships are unchanged, and this forms the basis for our assumption tests later.
 
@@ -210,7 +210,7 @@ Our statistical tests are designed to reject the null hypothesis. Failure to rej
 
 ## Sensitivity and Robustness tests
 
-From the DAG in Figure 5, we can infer most of our key assumptions which are:
+From the DAG in Figure 3, we can infer most of our key assumptions which are:
 
 1. The effect of confounders on crimes shown on police.uk does not change over time $P(C_g| U, T) = P(C_g| U)$
 2. The effect of confounders on potential nearby snaps does not change over time $P(M_s| U, T) = P(M_s| U)$
@@ -300,6 +300,7 @@ For the protocol, the study period is limited to years before 2014. 2014 was cho
 
 For RQ2, after restricting our sample, we have roughly 10,000 houses sold every year between 2010 and 2012 (12,000 sold in 2013). The mean house price is virtually unchanged while the price variance increased in 2013.
 
+__Table 1: Summary of house price data__
 | **Year** | **N** | **Mean Price** | **Mean Ln Price** | **Sd Price** | **Sd Log Price** |
 | -------- | ----- | -------------- | ----------------- | ------------ | ---------------- |
 | **2010** | 9598  | 143983         | 11.7              | 94415        | 0.530            |
@@ -307,7 +308,6 @@ For RQ2, after restricting our sample, we have roughly 10,000 houses sold every 
 | **2012** | 9915  | 141522         | 11.7              | 94802        | 0.532            |
 | **2012** | 12064 | 142829         | 11.7              | 118282       | 0.546            |
 
-__Table 1: Summary of house price data__
 
 To do a power analysis, we need to know the variance of the ‘treatment’ variable: the sum of potential snaps points for RQ1 (M_S) and the crime counts on police.uk (conditional on real crime counts) for RQ2. For RQ2, we cannot know this statistic before accessing the data. For RQ1, we already have early results for South Yorkshire. From those results, we are confident in the statistical power of our estimator when applied to the entirety of England and Wales (see supplementary materials).
 
@@ -327,15 +327,13 @@ The scope of this study is only limited to a number of years, mainly 2010 - 2013
 All personal data will be stored within SYP setting. No personal data will leave these settings. All other data is publicly available. Only aggregated results will be taken out of the setting and cleared by SYP beforehand.
 
 
------
 # Supporting information
 
-__Captions__
-S1. Example of analysis using South Yorkshire
-S2. Full DAG
-S3. Snaps replication method
-S4. Ethics approval letter (PDF)
-S5. Funding acceptance letter (PDF)
+__S1. Example of analysis using South Yorkshire__
+__S2. Full DAG__
+__S3. Snaps replication method__
+__S4. Ethics approval letter (PDF)__
+__S5. Funding acceptance letter (PDF)__
 
 -----
 
