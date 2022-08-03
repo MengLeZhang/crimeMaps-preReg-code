@@ -92,7 +92,7 @@ Furthermore, since police.uk’s geomasking algorithm is documented, we can depl
 
 ## Research design
 
-Members of the public or other bodies (e.g. estate agents) are not aware of the actual location of crimes as recorded by the police. Also, street-level crime maps for South Yorkshire did not exist before police.uk. Broader areal level maps have existed since 2008; notably the crimemapper website. The research design exploits the fact that key features of police.uk, namely its snap point list and geomasking errors, did not exist before 2011 and had no causal impact on house prices before that date. Any statistical association between these features and house prices are due to confounding (e.g. common causes). After the launch of police.uk in 2011, these features could have a causal effect on house prices. Assuming that the relationship between confounders and these key features are constant over time, changes in the association between these key features and house prices before and after the launch of police.uk will be indicative of causality. In essence, we are employing a form of interrupted time series analysis. Figure 2 demonstrates the intuition behind our research design.
+Members of the public or other bodies (e.g. estate agents) are not aware of the actual location of crimes as recorded by the police. Also, street-level crime maps for South Yorkshire did not exist before police.uk. Broader areal level maps have existed since 2008; notably the crimemapper website. The research design exploits the fact that key features of police.uk, namely its snap point list and geomasking errors, did not exist before 2011 and had no causal impact on house prices before that date. Any statistical association between these features and house prices are due to the existence of confounders: common causes that affect both police.uk crime map features and house prices. After the launch of police.uk in 2011, these map features could have a causal effect on house prices. Assuming that the relationship between confounders and these map features are constant over time, changes in the association between these map features and house prices before and after the launch of police.uk will be indicative of causality. In essence, we are employing a form of interrupted time series analysis. Figure 2 demonstrates the intuition behind our research design.
 
 __Fig2. Example of an interrupted time series using police.uk data__
 ![fig-ITS](assets/fig2.png)
@@ -115,7 +115,7 @@ Begin with a limited version of the causal relationship between snap points arou
 - $C_g$ Total crime counts around a house using police.uk (i.e. geomasked crime count). For records before Dec 2010, we use South Yorkshire Police's geocoded data, our inferred-snap list, and details from data.police.uk to create what data would have been on police.uk if it had launched earlier (see data section).
 - $C_r$ Total crime counts around a house using police force records. Although errors can exist in the police data, we assume this is the real crime count for simplicity. We do not believe this will adversely affect our design.
 - $M_s$ Sum of snaps around a house
-- $U$ confounding factors affecting $Y$ and other variables. Some are observed, and some are unobserved.
+- $U$ confounders affecting both $Y$ and key map features ($M_s$, $C_g$).
 - $I$ represent entire information sets/ datasets with a subscript denoting different information.
   - $I_s$ is the secret list of snap-points used by police.uk. We know how $I_s$ was constructed (see data section).
   - $I_c$ represents crimes, where they occur and crime type. The level of crimes around a house (summarised by $C_r$) affects house prices in various ways (e.g. property destruction).
@@ -130,7 +130,7 @@ $$P(Y | M_s, T = 1, W = 1) - P(Y | M_s, T = 1, W = 0)$$
 
 However, we cannot ever observe a world in which police.uk did not exist in 2011 (i.e. $T = 1, W = 0$). But we do observe data from the year 2010 when police.uk did no exist (i.e. $T = 0, W = 0$). We can substitute data from 2010 for the data from the counterfactual $T = 0, W = 0$.
 
-The below Directed Acyclic Graph (DAG) represents our core assumptions about causal relationships in a world where police.uk did not exist (Pearl 2009). A more extensive version is shown in the appendix.
+The below Directed Acyclic Graph (DAG) represents our core assumptions about causal relationships in a world where police.uk did not exist (Pearl 2009). All confounders are collected into one node $U$; an expanded version is contained in supplement S2.
 
 __Fig3. DAG/ Path diagram of causal relations__
 ![fig-dag](assets/fig3.png)
@@ -221,9 +221,11 @@ From the DAG in Figure 3, we can infer most of our key assumptions which are:
 
 For RQ2, we need the additional assumption:
 
-   5. Between $T = 0$ and $T =1$, any change in the effect of $U$ on $Y$ is entirely mediated by the real crime count $C_r$.
+5. Between $T = 0$ and $T =1$, any change in the effect of $U$ on $Y$ is entirely mediated by the real crime count $C_r$.
 
-Many of these assumptions involve $U$, confounder which are common causes of $M_s$, $C_g$ and $Y$. We do observe confounders such type of housing sold, existence of nearby amenities, and so forth. For the confounders that we do observe we can check if:
+Many of these assumptions involve $U$: common causes of $M_s$, $C_g$ and $Y$. The majority of confounders are spatial characteristics. Snap points are determined by mostly static urban features. These features could affect opportunities for crime as well as house prices.
+
+Confounders can be split into two group: observable and unobserable. Observable confounders are common causes that we are both aware of and have information on. Unobserved confounders are common causes that we have no information on either because that information is inaccessible or we are not aware of their existence. For observable confounders, we can check if:
 
 $$P(M_s| U, T) = P(M_s| U)$$
 $$P(C_g| U, T) = P(C_g| U)$$
