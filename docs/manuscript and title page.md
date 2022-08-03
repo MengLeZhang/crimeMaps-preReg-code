@@ -24,7 +24,7 @@ Street-level crime maps are publicly available online in England and Wales. Howe
 
 To address this question empirically, we would ideally experiment and introduce a source of random variation in the crime statistics. For instance, we could randomly increase or decrease the number of offences displayed in crime statistics and measure their effects on local house prices. For obvious reasons, we cannot pursue this research design. However, street-level crime maps contain intentional errors, which are the product of a geomasking algorithm designed to mask the location of crimes and protect the identity of victims. This project leverages features associated with the geomasking algorithm to estimate the effect of public crime statistics on house prices.
 
-# Background
+# Introduction
 
 Crime may affect house prices through mediating causal pathways–such as the destruction of property or victimisation of locals (Ceccato & Wilhelmsson, 2011; Gibbons, 2004). One mediating pathway is the ‘signalling’ effect of crime which may decrease house prices in high crime areas due to a perception of increased victimisation or other factors like undesirable neighbours. The public may form their opinions about crime from several sources, from word of mouth to official statistics. Since 2011, the UK government has published online monthly crime figures at almost street-level resolution (Sampson and Kinnear 2010). Since launch, the crime map website (henceforth referred to by its domain name police.uk) has received approximately 1 million visits a month (Semrush, 2022).  On launch in February 2011, police.uk received over 18 million visits an hour which caused the website to crash repeatedly (Travis and Mulholland 2011). Before the publication of online crime maps on police.uk, street-level crime data was never available to the public (except in West Yorkshire, Sampson and Kinnear 2010).
 
@@ -46,7 +46,7 @@ The objective of this study protocol is to specify the research plan ahead of da
 
 We can use public domain data to answer RQ1. We serendipitously discovered this whilst developing this study protocol. This project and our research design was conceived and funded before we made our serendipitous discovery. RQ1 was part of the original funding application. The hypothesis for RQ1 echoes the position of the government and critics of UK crime maps when it launched in 2011 (i.e. not affected by our early study findings). We have not changed them to reflect our early accidental findings but want to make this clear for readers to judge for themselves. The early results are in the supplementary materials.
 
-# Previous studies
+## Previous studies
 
 To our knowledge, no other study has studied the effect of crime maps on house prices or leveraged the type of design developed in this study. On the other hand, several observational studies have used crime count data in the UK in the investigation of the relationships between crime and house prices with the results revealing that higher local crime rates negatively impact house prices (Gibbons 2004, Braakman 2017). Globally, Ihlanfeldt and Mayock (2009) reviewed 18 hedonic price studies that have included a measure of neighbourhood crime among the explanatory variables. Generally, crime indicators are negatively associated with house prices but the vast majority of studies do not implement research designs to deal with unobserved characteristics that are associated with both neighbourhood crime and house prices.
 
@@ -56,7 +56,7 @@ The general strategy of leveraging differences between what is publicly seen and
 
 The research team has previously undertaken a pilot study to check the practical feasibility of this approach. We used West Midlands police data which had incomplete records on incidents (e.g. Anti-Social behaviour). We found that, on average, crimes on police.uk are almost 100m away from their actual locations as recorded by the police. No house price data was used in the pilot.
 
-# Hypothesis
+## Hypothesis
 
 __H1.__ The hypothesis is that police.uk lowered house prices in high crime areas. This was the position of other property analysts and estate agents in 2011 (Travis and Mulholland 2011). The null hypothesis is that police.uk did not affect house prices. This was the position of the Home Office and some property analysts in 2011 following criticisms of the website.
 
@@ -64,7 +64,7 @@ __H2.__ An increase in the number of crimes shown on police.uk’s crime map in 
 
 These were the original hypotheses at the onset of the project. Whilst trialing our approach on public domain data for South Yorkshire, we serendipitously uncovered evidence that rejects H1. We have not changed H1 to reflect our knowledge of the data. We have not yet extracted the data required to test H2.
 
-# Geomasking in police.uk
+## Geomasking in police.uk
 The geomasking routine currently used on police.uk is documented on data.police.uk. Using information from various sources and public data, we know that the geomasking routine was changed in 2012 when police.uk updated its snap-points list. To summarise, the data processing for police.uk is as follows:
 1. Home Office receives geocoded data from individual police forces and performs data checks (e.g. identifying crime outside police force boundaries).
 2.	The coordinates of crimes and incidents are changed to the coordinates of the nearest snap-point for the public data.
@@ -88,7 +88,9 @@ The geomasking routine produces at least two features uniquely associated with p
 
 Furthermore, since police.uk’s geomasking algorithm is documented, we can deploy it on policing data for years before the launch of police.uk. Together these pieces of information form the core of our research design.
 
-# Research design
+# Materials and Methods
+
+## Research design
 
 Members of the public or other bodies (e.g. estate agents) are not aware of the actual location of crimes as recorded by the police. Also, street-level crime maps for South Yorkshire did not exist before police.uk. Broader areal level maps have existed since 2008; notably the crimemapper website. The research design exploits the fact that key features of police.uk, namely its snap point list and geomasking errors, did not exist before 2011 and had no causal impact on house prices before that date. Any statistical association between these features and house prices are due to confounding (e.g. common causes). After the launch of police.uk in 2011, these features could have a causal effect on house prices. Assuming that the relationship between confounders and these key features are constant over time, changes in the association between these key features and house prices before and after the launch of police.uk will be indicative of causality. In essence, we are employing a form of interrupted time series analysis. Figure 2 demonstrates the intuition behind our research design.
 
@@ -105,7 +107,7 @@ As stated above, these urban features are primarily static over time and space, 
 
 As with potential snaps points, we would look for differences in the association between geomasking errors and in periods before and after police.uk’s launch. Our preferred estimator would compare houses sold in areas with different levels of geomasking error but the same level of real crime. This is to block other causal pathways between police.uk and house prices that are not related to the information shown on the crime maps (see next section).
 
-## Methodology and Statistical analysis
+## Statistical analysis
 
 Begin with a limited version of the causal relationship between snap points around a house, crimes on police.uk around a house, selling price and confounders (many of which we observe). Let:
 
@@ -136,7 +138,7 @@ __Fig3. DAG/ Path diagram of causal relations__
 We assume the existence of police.uk only affected house prices through i) the information shown on the website (modifying $C_g \rightarrow Y$) and ii) changing the relationship between information outside the website and house prices ($U \rightarrow Y$, $U \rightarrow C_r \rightarrow Y$). Other causal relationships are unchanged, and this forms the basis for our assumption tests later.
 
 
-## Estimators (RQ1)
+### Estimators (RQ1)
 
 From the DAG, at $T=0$ we can see that the statistical correlation between $Y$ and $M_s$ is simply due to confounding. If the police.uk affected house prices, then this correlation will change at $T = 1$. Therefore we can answer RQ1 by checking the statistical relationship between house prices and the number of potential nearby snap-points $M_s$.
 
@@ -163,7 +165,7 @@ $$E(\beta_{M_s, T}) = \delta_0 + \delta_{T}T$$
 We can use the model to estimate  $\tilde\beta_{M_s, 2011}$. This is what $\beta_{M_s, 2011}$ would have been if police.uk did not launch in 2011. Under the null hypothesis: $$\beta_{M_s, 2011} - \tilde\beta_{M_s, 2011} = 0$$
 
 
-## Estimators (RQ2)
+### Estimators (RQ2)
 
 To answer RQ2, we can directly estimate the effect of the information shown on its website $C_g$ by exploiting the discrepancies in $C_g$, which is what the public observes, and the actual crime count $C_r$. By comparing areas with the same underlying crime levels ($C_r$) but different crime counts as shown on police.uk, we can estimate the causal effect of $C_g$ on house prices.
 
@@ -189,7 +191,7 @@ $$E(Y) = \beta_0 + \beta_T T + \beta_{C_g}C_g +\beta_{TC_g}T.C_g + \beta_{C_r}C_
 Under the null hypothesis that $C_g$ has no effect, $\beta_{TC_g}$ is equal to zero. $\beta_{TC_g}$ is the estimate for the impact of a one-unit increase in $C_g$ on house prices. We can also replace $C_r$ with dummy variables for $C_r$ quartiles.
 
 
-## Alternative estimators
+### Alternative estimators
 
 We can further extend estimators 1B, 1C, and 2B using areal fixed effects. We will use lower super output area (LSOA) fixed effects. This is because public information at levels lower than LSOA is rare due to small area estimation and privacy issues. For example, the much-used index of multiple deprivation only reports deprivation at the LSOA level. We are almost certain that the older crime maps did not contain information at a lowest geographical scale than LSOA (with one potential exception for West Yorkshire). In addition, fixed effects control for time-variant confounders. As we mentioned previously, the major sources of confounding are due to static urban features and arise due to how police.uk created the snap-point list.
 
@@ -208,7 +210,7 @@ For estimator 1C, which is relevant in case of trends over time, we can explore 
 
 Our statistical tests are designed to reject the null hypothesis. Failure to reject the null hypothesis does not mean that the null hypothesis is true (i.e. police.uk did not affect house prices). An alternative approach is to calculate the probability that the true effect size is higher than some substantial amount. For example, if we can check the probability that a standard deviation change in $C_g$ causes an increase in house prices higher than 2%. This would involve some Bayesian statistics.
 
-## Sensitivity and Robustness tests
+### Sensitivity and Robustness tests
 
 From the DAG in Figure 3, we can infer most of our key assumptions which are:
 
@@ -240,9 +242,9 @@ We do not expect spatial autocorrelation to greatly affect our results. However,
 Finally, we can resort to investigative work to uncover evidence that may refute any of our assumptions. In particular, we will look for other ways that the police.uk crime maps may have affected house prices in non-crime related ways.
 
 
-# Data
+## Data
 
-## Data sources / Datasets used
+### Data sources / Datasets used
 The HM Land Registry Price Paid dataset is a publicly available dataset of properties sold in England and Wales since 1995. The dataset contains information on price sold, address, house type and other features of the property sold. The dataset excludes certain types of transactions, such as inheritance and discounted transactions (e.g. discounted sales of social housing under the ‘Right to Buy’ scheme). The dataset can be accessed at: https://www.gov.uk/government/collections/price-paid-data. The coordinates of a property are derived from the coordinates of its postcode as recorded in the ONS National Statistics Postcode Lookup (ONS, 2021).
 
 Archival data from police.uk are publicly available from the police.uk data site (https://data.police.uk/data/archive/). Other information, such as police force boundaries, are also contained on the website. We use the earliest archival extract of police.uk which contains data on crimes from Dec 2010 to Dec 2013. In general, police.uk keeps excellent documentation on archival data and changes made to its website and data manipulation. We also cross-referenced the historical police.uk website using the Wayback machine, which is an archive of websites.
@@ -263,7 +265,7 @@ To test the plausibility of the research design, we use a variety of data source
   –	air quality
 -	Levels of homeownership in the area (output area, lower super output area)
 
-## Data restrictions
+### Data restrictions
 Police force data is not directly available for research. Researchers need to contact and negotiate access with individual police forces.
 Other data sources mentioned are publicly available or else require a free registered account. In the case of Ordinance Survey product (OS), researchers may need to purchase data from OS.
 
@@ -314,7 +316,7 @@ To do a power analysis, we need to know the variance of the ‘treatment’ vari
 ## Ethics
 This project has been approved by the University Research Ethics Committee at the University of Sheffield (approved 13/10/2021, reference no. 043654). The corresponding author submitted a University Research Ethics Committee-approved self-declaration to the ethics committee. A full ethical review was waived since the research was judged to involve only existing data that has been robustly anonymised, and is unlikely to cause offence to those who originally provided the data. Our ethics approval letter is contained in the supplementary materials. Most of the data we use is in the public domain. We have obtained consent from South Yorkshire Police to use their data.
 
-# Other considerations
+# Discussion
 
 ## Study limitations and risks
 A data protection plan formed between SYP and Sheffield University minimises the disclosure of personal data.
@@ -326,6 +328,11 @@ The scope of this study is only limited to a number of years, mainly 2010 - 2013
 ## Data protection
 All personal data will be stored within SYP setting. No personal data will leave these settings. All other data is publicly available. Only aggregated results will be taken out of the setting and cleared by SYP beforehand.
 
+# Author Contributions
+(Redacted for peer review)
+
+# Acknowledgements
+(Redacted for peer review)
 
 # Supporting information
 

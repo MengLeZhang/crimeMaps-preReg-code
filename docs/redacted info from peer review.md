@@ -1,4 +1,4 @@
-__Author roles__
+__Author contributions__
 MZ is the principal investigator and is responsible for the study design, analysis and writing of this protocol. Both MZ and MA worked together on an early pilot of feasibility. MA is a co-investigator on the project and contributed to the design and writing of this protocol. RT is a researcher on the project and is responsible for analysis.
 
 __Acknowledgements__
