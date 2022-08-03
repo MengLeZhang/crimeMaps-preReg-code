@@ -328,9 +328,12 @@ All personal data will be stored within SYP setting. No personal data will leave
 -----
 # Supporting information
 
-S1. Appendix
-s2. Full dag
-S3. 
+__Captions__
+S1. Example of analysis using South Yorkshire
+S2. Full DAG
+S3. Snaps replication method
+S4. Ethics approval letter (PDF)
+S5. Funding acceptance letter (PDF)
 
 -----
 

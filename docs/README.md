@@ -50,7 +50,8 @@ When all issues are done, I'll render all the markdown files into word using pan
 
   - [ ] Please upload a copy of Figure 7 and 5, to which you refer in your text on page 3 and 14. If the figure is no longer to be included as part of the submission please remove all reference to it within the text.
 
-  - [ ] Please include captions for your Supporting Information files at the end of your manuscript, and update any in-text citations to match accordingly. Please see our Supporting Information guidelines for more information: http://journals.plos.org/plosone/s/supporting-information.
+  - [x] Please include captions for your Supporting Information files at the end of your manuscript, and update any in-text citations to match accordingly. Please see our Supporting Information guidelines for more information: http://journals.plos.org/plosone/s/supporting-information.
+  A: Done. File names changed and put captions at end of main text.
 
 - Review one comments
   - [ ] I find the text a bit repetitive. Try to remove some ideas that are mentioned twice.
