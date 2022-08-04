@@ -45,11 +45,14 @@ When all issues are done, I'll render all the markdown files into word using pan
 
   - [ ] Please upload a new copy of Figure 1 as the detail is not clear. Please follow the link for more information: https://blogs.plos.org/plos/2019/06/looking-good-tips-for-creating-your-plos-figures-graphics/
 
-  - [ ] We note you have included a table to which you do not refer in the text of your manuscript. Please ensure that you refer to Table 1 in your text; if accepted, production will need this reference to link the reader to the Table.
+  - [x] We note you have included a table to which you do not refer in the text of your manuscript. Please ensure that you refer to Table 1 in your text; if accepted, production will need this reference to link the reader to the Table.
+  - A: Done
 
-  - [ ] Please ensure that you refer to Figure 1 and 3 in your text as, if accepted, production will need this reference to link the reader to the figure.
+  - [x] Please ensure that you refer to Figure 1 and 3 in your text as, if accepted, production will need this reference to link the reader to the figure.
+  - A: references added in text
 
-  - [ ] Please upload a copy of Figure 7 and 5, to which you refer in your text on page 3 and 14. If the figure is no longer to be included as part of the submission please remove all reference to it within the text.
+  - [x] Please upload a copy of Figure 7 and 5, to which you refer in your text on page 3 and 14. If the figure is no longer to be included as part of the submission please remove all reference to it within the text.
+  - A: Figure 5 amended to figure 3. Figure 7 is a figure in a referenced paper (made clearer in text).
 
   - [x] Please include captions for your Supporting Information files at the end of your manuscript, and update any in-text citations to match accordingly. Please see our Supporting Information guidelines for more information: http://journals.plos.org/plosone/s/supporting-information.
   A: Done. File names changed and put captions at end of main text.
@@ -57,11 +60,20 @@ When all issues are done, I'll render all the markdown files into word using pan
 - Review one comments
   - [ ] I find the text a bit repetitive. Try to remove some ideas that are mentioned twice.
   - [ ] Page 16. In general, confounders are not properly defined. This is unclear.
-  - [ ] Page 16. The definition of "I" and three types of "I" is unclear. How is this used later in the text?
-  - [ ] Page 20. The text mentions Figure 5, which is not located in the main text.
-  - [ ] Page 22. "share" should be "shared"
-  - [ ] Table 1 column headings should be checked (Ln vs. Log)?
-  - [ ] Table 1 should contain currency (the reader assumes this is GBP, right?).
+  - [x] Page 16. The definition of "I" and three types of "I" is unclear. How is this used later in the text?
+- A : Deleted in main text. This definition is used in the S2.
+
+  - [x] Page 20. The text mentions Figure 5, which is not located in the main text.
+    - A: Figure 5 is amended to figure 3.
+
+  - [x] Page 22. "share" should be "shared"
+  - A: done
+
+  - [x] Table 1 column headings should be checked (Ln vs. Log)?
+- A: Changed to log which is normally interpreted as the natural log (ln)
+  - [x] Table 1 should contain currency (the reader assumes this is GBP, right?).
+  - A: Done
+
   - [ ] The bibliography list is not homgeneous.
   - [ ] The authors should mention how to cope with the risk of finding errors in the data, having solid data for such a project is not only related the presence of missing data.
   - [ ] The quality of preparation of this manuscript should increase.
