@@ -2,6 +2,7 @@
 output:
   word_document: default
   html_document: default
+  bibliography: assets/manuscript-references.bib
 ---
 
 __Estimating the Effects of Crime Maps on House Prices using an (Un)natural Experiment: A Study Protocol__
@@ -34,17 +35,29 @@ In this project, we are interested in the causal effect of public crime maps on 
 
 To address this question empirically, we would ideally conduct an experiment and introduce a source of variation in the crime statistics. For instance, across England and Wales, we could randomly increase or decrease the number of offences displayed on police.uk for a period to measure the effects. For obvious reasons, we cannot pursue this research design. However, intentional errors introduced into police.uk crime maps can be leveraged as a source of variation to investigate the signalling effect of the crime maps on the house prices.
 
-Police.uk implements a geomasking algorithm that obscures the actual location of crimes in order to protect the identity of victims. The geomasking algorithm allocates crimes to a nearby geographical location called a snap-point (Tompson et al 2015, Ratcliffe 2002). Whilst the density of snap-points in urban areas is very high, the level of crime in a small area measured using police.uk can differ substantially from actual police records due to geomasking (Tompson et al 2015). This error level gets progressively worse at smaller spatial scales. In 80% of postcodes, the local area crime counts as recorded by police.uk is substantially different from that measured by actual police sources (see figure 7, in Tompson et al 2015). In short, local area crime statistics on police.uk can be considerably lower or higher than what they should be. This mismatch (henceforth the geomasking error) constitutes the source of variation that we will use in our (un)natural experiment. A key part of this study is that the secret list of snap-points used by police.uk can be inferred using public data alone, as we explain in the next section.
+Police.uk implements a geomasking algorithm that obscures the actual location of crimes in order to protect the identity of victims. The geomasking algorithm allocates crimes to a nearby geographical location called a snap-point (Tompson et al 2015, Ratcliffe 2002). Whilst the density of snap-points in urban areas is very high, the level of crime in a small area measured using police.uk can differ substantially from actual police records due to geomasking (Tompson et al 2015). This error level gets progressively worse at smaller spatial scales. In 80% of postcodes, the local area crime counts as recorded by police.uk is substantially different from that measured by actual police sources (see figure 7, in Tompson et al 2015). In short, local area crime statistics on police.uk can be considerably lower or higher than what they should be. This mismatch (henceforth the geomasking error) constitutes one source of variation that we will use in our (un)natural experiment.
+
+The geomasking routine produces another key map feature associated with police.uk: the number of potential snap-points in an area (i.e. around a house). Another test of whether police.uk affected house prices is to compare the statistical association between snap-points before and after the launch of street-level crime maps.
+
+A key part of this study is that the secret list of snap-points used by police.uk can be inferred using public data alone.
+
+## Research questions and hypotheses
 
 The primary research questions are:
 
-  -	RQ1. Did police.uk crime statistics affect property prices?
+__RQ1.__ Did police.uk crime statistics affect property prices? We test this indirectly using snap-point data only.
 
-  -	RQ2. What is the effect of a one-unit increase in crime around a house (as reported by crime maps) on its selling price?
+__RQ2.__ What is the effect of a one-unit increase in crime around a house (as reported by crime maps) on its selling price? We test this directly using geomasking errors.
 
-The objective of this study protocol is to specify the research plan ahead of data collection/ access. We can use public domain data to answer RQ1 and we have tried this approach on data from South Yorkshire in the first instance (see S1). Our intention is to extend the analysis to every police force in England and Wales. RQ2 cannot be answered without access to the original geocoded crime data used by police.uk in their online crime maps. Individual police forces supply this data to the UK Home Office. Our research design also requires access to police force geocoded data before the launch of online crime maps in 2011. To this end, we have gained the support of the South Yorkshire Police (henceforth SYP) Force to access and use their geocoded crimes and incidence data. SYP will also continue to advise us on the processing of the crime data. At this time of writing, we have not yet accessed the police force data needed for RQ2. If data access is granted before this protocol is finalised, we will stop any house price data (i.e. outcomes) from being analysed alongside the police force data. This should be relatively straightforward as we can only access the police data from local machines within SYP settings.
+We have the following hypotheses:
 
-We can use public domain data to answer RQ1. We serendipitously discovered this whilst developing this study protocol. This project and our research design was conceived and funded before we made our serendipitous discovery. RQ1 was part of the original funding application. The hypothesis for RQ1 echoes the position of the government and critics of UK crime maps when it launched in 2011 (i.e. not affected by our early study findings). We have not changed them to reflect our early accidental findings but want to make this clear for readers to judge for themselves. The early results are can be found in S1.
+__H1.__ The hypothesis is that police.uk lowered house prices in high crime areas. This was the position of other property analysts and estate agents in 2011 (Travis and Mulholland 2011). The null hypothesis is that police.uk did not affect house prices. This was the position of the Home Office and some property analysts in 2011 following criticisms of the website.
+
+__H2.__ An increase in the number of crimes shown on police.uk’s crime map in an area should lower house prices. This is in line with economic theory that perceptions of high crime make houses less desirable. This was also the position of critics of police.uk in 2011 (Travis and Mulholland 2011). The null hypothesis is that the number of crimes shown on police.uk will not decrease house prices. This was the position of the Home Office.
+
+The objective of this study protocol is to specify the research plan ahead of data collection/ access. For RQ1, we will use public domain data only and examine evidence from all 43 police forces in England and Wales. RQ2 cannot be answered without access to the original geocoded crime data used by police.uk in their online crime maps. To this end, we have gained the support of the South Yorkshire Police (henceforth SYP) Force to access and use their geocoded crimes and incidence data.
+
+
 
 ## Previous studies
 
@@ -54,48 +67,15 @@ The existence of individual police force crime maps before police.uk has been do
 
 The general strategy of leveraging differences between what is publicly seen and what is actually the case is well-established in economics. In labour economics, coarsened information about overall course grades has been used to study the ‘signalling’ effects of education on labour market outcomes (Feng and Graetz 2015). Coarsened public information about Radon has been used to study the effects of Radon on house prices (Pinchbeck et al 2020).
 
-The research team has previously undertaken a pilot study to check the practical feasibility of this approach. We used West Midlands police data which had incomplete records on incidents (e.g. Anti-Social behaviour). We found that, on average, crimes on police.uk are almost 100m away from their actual locations as recorded by the police. No house price data was used in the pilot.
-
-## Hypothesis
-
-__H1.__ The hypothesis is that police.uk lowered house prices in high crime areas. This was the position of other property analysts and estate agents in 2011 (Travis and Mulholland 2011). The null hypothesis is that police.uk did not affect house prices. This was the position of the Home Office and some property analysts in 2011 following criticisms of the website.
-
-__H2.__ An increase in the number of crimes shown on police.uk’s crime map in an area should lower house prices. This is in line with economic theory that perceptions of high crime make houses less desirable. This was also the position of critics of police.uk in 2011 (Travis and Mulholland 2011). The null hypothesis is that the number of crimes shown on police.uk will not decrease house prices. This was the position of the Home Office.
-
-These were the original hypotheses at the onset of the project. Whilst trialing our approach on public domain data for South Yorkshire, we serendipitously uncovered evidence that rejects H1. We have not changed H1 to reflect our knowledge of the data. We have not yet extracted the data required to test H2.
-
-## Geomasking in police.uk
-The geomasking routine currently used on police.uk is documented on data.police.uk. Using information from various sources and public data, we know that the geomasking routine was changed in 2012 when police.uk updated its snap-points list. To summarise, the data processing for police.uk is as follows:
-1. Home Office receives geocoded data from individual police forces and performs data checks (e.g. identifying crime outside police force boundaries).
-2.	The coordinates of crimes and incidents are changed to the coordinates of the nearest snap-point for the public data.
-
-We note that police.uk crime maps were updated with a 2-month delay until at least 2016 (as reported by Quinn et al 2019). The list of potential snap points used in step two is a secret. Between 2011 to 2013, we believe there were at least two major versions of the snap-point list which we henceforth refer to as  Version One and Version Two. Version One was used on records between Dec 2010 and Nov 2011 whilst Version Two was used on records from Dec 2011 until at least the end of our study period (Dec 2013). The snap points were created in the following ways:
-
-_Version One_: This was created in 2011 using Ordnance Survey data (exact datasets unverified). Potential snap-points were the centre of residential roads (Smith and Heath 2014, p. 93 - 94), and Catchment areas for each point were created using Voronoi polygons (figure 1). If a snap-point has less than 12 postal addresses within its catchment, it is dropped. This version consists of the remaining snap-points. For computational efficiency, police.uk could have used a nearest neighbour finding algorithm to do the postal address counting. This would have yielded the same outcome as the catchment approach.
-
-__Fig1. Example of Voronoi polygons.__ Polygon A is associated with point A and represents areas closer to point A than any other point. Source: OpenStreetMap (base map only).__
-![fig-voronoi](assets/fig1.tif)
-
-_Version Two_: These snap point list were created in 2012. The centre point of every road in England and Wales was taken from the Ordnance Survey Locator dataset. These points were augmented with locally relevant points of interest from the Point X dataset. Points of interest include public places, such as Parks, or commercial premises, such as Shopping Centres. Each map point was analysed to see how many postal addresses were contained in its catchment area according to the Ordnance Survey Address-Point dataset. Again, the catchments were created using Voronoi polygons. Any catchments with between 1 and 7 postal addresses were discarded to protect privacy. The remaining points were provided to police forces for human assessment; a small number of additions and deletions were made to make map points more locally relevant.
-
-Our main source of information regarding these snap points are police.uk itself and its accompanying data website: data.police.uk (see data.police,uk n.d and its web archived version in 2013). Information on Version One was inferred from Smith and Heath (2014) and cross-referenced with information from older versions of data.police.uk. We inferred the timing of the version from looking at the dates that unique points were first recorded on police.uk (see data section). For both versions, the locations of snap-points are based on the location of static urban features. The centre of streets form the vast majority of snap-points in Version Two and the entirety of Version One.
-
-In theory, since police.uk used Ordnance Survey data, we can recreate the majority of snap-points in their master snaps list. In practice, given the density of crime in urban regions and a long enough timeframe, all the unique snap points on police.uk will eventually be used. So we can infer the master snaps list by counting the number of unique locations used by police.uk during a given period. Using this method, we can recover 96% of all the snap-points used in the 2012 and the vast majority used in Version One (see S3).
-
-The geomasking routine produces at least two features uniquely associated with police.uk:
--	the number of snap-points in an area
--	the discrepancy in crime counts as recorded by police.uk and ‘real’ police force data in the area (i.e. geomasking error)
-
-Furthermore, since police.uk’s geomasking algorithm is documented, we can deploy it on policing data for years before the launch of police.uk. Together these pieces of information form the core of our research design.
 
 # Materials and Methods
 
 ## Research design
 
-Members of the public or other bodies (e.g. estate agents) are not aware of the actual location of crimes as recorded by the police. Also, street-level crime maps for South Yorkshire did not exist before police.uk. Broader areal level maps have existed since 2008; notably the crimemapper website. The research design exploits the fact that key features of police.uk, namely its snap point list and geomasking errors, did not exist before 2011 and had no causal impact on house prices before that date. Any statistical association between these features and house prices are due to the existence of confounders: common causes that affect both police.uk crime map features and house prices. After the launch of police.uk in 2011, these map features could have a causal effect on house prices. Assuming that the relationship between confounders and these map features are constant over time, changes in the association between these map features and house prices before and after the launch of police.uk will be indicative of causality. In essence, we are employing a form of interrupted time series analysis. Figure 2 demonstrates the intuition behind our research design.
+Members of the public or other bodies (e.g. estate agents) are not aware of the actual location of crimes as recorded by the police. Also, street-level crime maps for South Yorkshire did not exist before police.uk. Broader areal level maps have existed since 2008; notably the crimemapper website. The research design exploits the fact that key features of police.uk, namely its snap point list and geomasking errors, did not exist before 2011 and had no causal impact on house prices before that date. Any statistical association between these features and house prices are due to the existence of confounders: common causes that affect both police.uk crime map features and house prices. After the launch of police.uk in 2011, these crime map features could have a causal effect on house prices. Assuming that the relationship between confounders and these map features are constant over time, changes in the association between these map features and house prices before and after the launch of police.uk will be indicative of causality. In essence, we are employing a form of interrupted time series analysis. Figure 1 demonstrates the intuition behind our research design.
 
-__Fig2. Example of an interrupted time series using police.uk data__
-![fig-ITS](assets/fig2.tif)
+__Fig1. Example of an interrupted time series using police.uk data__
+![fig-ITS](assets/fig1.tif)
 
 $\hat\beta_T$ is the associations (e.g. correlation coefficient, regression slope) between house prices and either number of snap-point or geomasking error. A change in  $\hat\beta_T$ after the launch of police.uk in 2011 indicates causality. We can also check for a constant trend in $\hat\beta_T$ before the intervention (e.g. $\hat\beta_T$ doesn't wildly fluctuate for no reason).
 
@@ -103,9 +83,36 @@ First, we can test for the impact of police.uk on house prices if we knew the se
 
 Second, using-snap points alone, we cannot disentangle the impact of crime shown on crime maps from the effect of police.uk on other causal factors. We will use geomasking error around a property as a source of variation in the crime shown on a crime map to resolve this issue. If the level of geomasking error was completely random, we could use it to estimate the effects of police.uk on house prices. However, geomasking errors are not entirely random. Due to the rule governing the creation of the snap points, high levels of geomasking error are associated with proximity to urban features (e.g. high density housing, centre of roads). These features will also affect house prices.
 
-As stated above, these urban features are primarily static over time and space, and therefore their confounding effects tend to remain invariant over time. Furthermore, the geomasking technique used by police.uk can be replicated since it is well documented and based on a list of static snap-points. The latter is secret, but we mostly infer the coordinates of these snap-points from public data. Therefore, we can mimic what public crime information would have looked like on the website if it had launched a year or two earlier. Then we can calculate geomasking errors around an area for periods before police.uk’s launch.
+As stated above, these urban features are primarily static over time and space, and therefore their confounding effects tend to remain invariant over time. Furthermore, the geomasking technique used by police.uk can be replicated since it is well documented and based on a list of static snap-points. The latter is secret, but we can infer the coordinates of most snap-points from public data. Therefore, we can mimic what public crime information would have looked like on the website if it had launched a year or two earlier. Then we can calculate geomasking errors around an area for periods before police.uk’s launch.
 
-As with potential snaps points, we would look for differences in the association between geomasking errors and in periods before and after police.uk’s launch. Our preferred estimator would compare houses sold in areas with different levels of geomasking error but the same level of real crime. This is to block other causal pathways between police.uk and house prices that are not related to the information shown on the crime maps (see next section).
+As with potential snaps points, we would look for differences in the association between geomasking errors and in periods before and after police.uk’s launch. Our preferred estimator would compare houses sold in areas with different levels of geomasking error but the same level of real crime. This is to block other causal pathways between police.uk and house prices that are not related to the information shown on the crime maps (see Statistical Analysis section).
+
+## Sample
+
+Our unit of analysis are residential properties that were sold in England and Wales. We will cover a period from 2010 (or earlier) to 2013. We further restrict our sample to properties:
+- which are not newly built
+- whose PPD category is category A (see data section)
+- not transfered as part of a discounted sale (e.g. discounted social housing) or inheritance
+- not in the top or bottom 2% of price sold that year (trimming outliers)
+
+For RQ1, we examine data from every police force (n = 43) within England and Wales. The earliest date covered by our data is 1995.
+
+For RQ2, we restrict the sample to all properties sold within South Yorkshire Police’s force boundaries. We do not know the earliest date covered by SYP data (which is needed to calculated geomasking errors). We have been told that SYP data from at least 2010 is available. In South Yorkshire, we have roughly 10,000 properties in our eligible sample every year between 2010 and 2012 (12,000 sold in 2013). The mean house price is virtually unchanged while the price variance increased in 2013 (see table 1).
+
+__Table 1. Summary statistics for South Yorkshire only.__ All prices are in GBP.
+| **Year** | **N** | **Mean Price** | **Mean Log Price** | **Sd Price** | **Sd Log Price** |
+| -------- | ----- | -------------- | ----------------- | ------------ | ---------------- |
+| **2010** | 9598  | 143983         | 11.7              | 94415        | 0.530            |
+| **2011** | 9798  | 135934         | 11.7              | 96959        | 0.521            |
+| **2012** | 9915  | 141522         | 11.7              | 94802        | 0.532            |
+| **2013** | 12064 | 142829         | 11.7              | 118282       | 0.546            |
+
+
+The year 2013 was chosen as the end period for several reasons. First, we want to investigate in detail what happened in the years around the launch of police.uk. Given our small resources, we have to constrain ourselves to a few years to investigate. Second, we want to make sure that the housing market and policy remain relatively stable in the years just before and after police.uk. Three years after the launch of police.uk seemed to be sensible. Third, in 2013 a scheme aimed at helping first time home buyers called Help to Buy was launched. The first phase of the scheme only affected buyers looking to buy newly built homes (which are excluded from our sample). The second phase was launched in October 2013 and did not just affect newly built homes. This scheme increased demand in the housing market, but it’s not apparent how that will affect the validity of our design. As a precaution, we limit our protocol analysis to years up to 2013 (i.e to balance credibility and statistical power).
+
+
+To do a power analysis, we need to know the variance of the ‘treatment’ variable: the sum of potential snaps points for RQ1 ($M_S$) and the crime counts on police.uk (conditional on real crime counts) for RQ2. For RQ2, we cannot know this statistic before accessing the data. For RQ1, we have ran our statistical analysis for one police force only (South Yorkshire, see supplement S1). From those results, we are confident in the statistical power of our estimator when applied to other police force in England and Wales.
+
 
 ## Statistical analysis
 
@@ -126,10 +133,10 @@ $$P(Y | M_s, T = 1, W = 1) - P(Y | M_s, T = 1, W = 0)$$
 
 However, we cannot ever observe a world in which police.uk did not exist in 2011 (i.e. $T = 1, W = 0$). But we do observe data from the year 2010 when police.uk did no exist (i.e. $T = 0, W = 0$). We can substitute data from 2010 for the data from the counterfactual $T = 0, W = 0$.
 
-The below Directed Acyclic Graph (DAG) (figure 3) represents our core assumptions about causal relationships in a world where police.uk did not exist (Pearl 2009). A more extensive version is shown in supplement S2.
+The below Directed Acyclic Graph (DAG) (Figure 3) represents our core assumptions about causal relationships in a world where police.uk did not exist (Pearl 2009). A more extensive version is shown in supplement S2.
 
-__Fig3. DAG/ Path diagram of causal relations__
-![fig-dag](assets/fig3.tif)
+__Fig2. DAG/ Path diagram of causal relations__
+![fig-dag](assets/fig2.tif)
 
 We assume the existence of police.uk only affected house prices through i) the information shown on the website (modifying $C_g \rightarrow Y$) and ii) changing the relationship between information outside the website and house prices ($U \rightarrow Y$, $U \rightarrow C_r \rightarrow Y$). Other causal relationships are unchanged, and this forms the basis for our assumption tests later.
 
@@ -204,7 +211,7 @@ Another alternate estimator uses the relationship between crimes shown on police
 
 For estimator 1C, which is relevant in case of trends over time, we can explore more elaborate time series models with different techniques for identifying structural breaks.
 
-Our statistical tests are designed to reject the null hypothesis. Failure to reject the null hypothesis does not mean that the null hypothesis is true (i.e. police.uk did not affect house prices). An alternative approach is to calculate the probability that the true effect size is higher than some substantial amount. For example, if we can check the probability that a standard deviation change in $C_g$ causes an increase in house prices higher than 2%. This would involve some Bayesian statistics.
+Our statistical tests are designed to reject the null hypothesis. Failure to reject the null hypothesis does not mean that the null hypothesis is true (i.e. police.uk did not affect house prices). An alternative approach is to calculate the probability that the true effect size is higher than some substantial amount. For example, if we can check the probability that a standard deviation change in $C_g$ causes an increase in house prices higher than 2%.
 
 ### Sensitivity and Robustness tests
 
@@ -223,9 +230,9 @@ Many of these assumptions involve $U$: common causes of $M_s$, $C_g$ and $Y$. Th
 
 Confounders can be split into two group: observable and unobserable. Observable confounders are common causes that we are both aware of and have information on. Unobserved confounders are common causes that we have no information on either because that information is inaccessible or we are not aware of their existence. For observable confounders, we can check if:
 
-$$P(M_s| U, T) = P(M_s| U)$$
-$$P(C_g| U, T) = P(C_g| U)$$
-$$P(U|T) = P(U)$$
+1. $P(M_s| U, T) = P(M_s| U)$
+2. $P(C_g| U, T) = P(C_g| U)$
+3. $P(U|T) = P(U)$
 
 by comparing univariate and multivariate statistics between $T = 0$ and $T = 1$. We can also do similar tests to check $P(Y|T) = P(Y)$.
 
@@ -263,13 +270,10 @@ To test the plausibility of the research design, we use a variety of data source
   –	air quality
 -	Levels of homeownership in the area (output area, lower super output area)
 
-### Data restrictions
-Police force data is not directly available for research. Researchers need to contact and negotiate access with individual police forces.
-Other data sources mentioned are publicly available or else require a free registered account. In the case of Ordinance Survey product (OS), researchers may need to purchase data from OS.
+### Data access restrictions
+Police force data is not directly available for research. Researchers need to contact and negotiate access with individual police forces. Other data sources mentioned are publicly available or else require a free registered account. In the case of Ordinance Survey product (OS), researchers may need to purchase data from OS.
 
-We inferred the master list of snap-points from public domain data from data.police.uk. The inferred list cannot be used for reverse geomasking (i.e. to reveal the exact location of crimes and identify victims). We have explained exactly how to recreate this list using public data and have shared our code on Github [link redacted for peer review].
-
-We will not bring any house price data (i.e. outcomes information) into South Yorkshire Police’s settings until after the protocol is finalised to protect the validity of the study protocol.
+We inferred the master list of snap-points from public domain data from data.police.uk. The inferred list cannot be used for reverse geomasking (i.e. to reveal the exact location of crimes and identify victims). We have explained exactly how to recreate this list using public data (see supplement S3) and have shared our code on Github [link redacted for peer review].
 
 ### Variables/ Codebook
 The main variables used are:
@@ -311,28 +315,12 @@ Aside from these issues, there are no missing values in our data. Where missing 
 
 To check that we can replicate police.uk's crime maps, we have cross-referenced statistics from our inferred Snaps list with the statistics from the actual Snap data (see S3). We will also use the raw police data to check that we can recreate the public crime data from 2011 - 2013.
 
-### Sample
-
-Our unit of analysis are residential properties that were sold in England and Wales. For RQ1, we restrict the sample to data on houses: - sold before 2014 - sold in England and Wales. We’ll focus on South Yorkshire in the first instance before extending to cover all other areas. - which are not newly built - PPD category (see variable) is category A. - not in the top or bottom 2% of price sold (trimming outliers)
-
-For RQ2, we add further restrictions due to data limitations and look at houses: - sold in the years 2010 to 2013 (or earlier if data allows) - sold within South Yorkshire Police’s force boundaries
-
-For the protocol, the study period is limited to years before 2014. 2014 was chosen as the limit for several reasons. First, we want to investigate in detail what happened in the years around the launch of police.uk. Given our small resources, we have to constrain ourselves to a few years to investigate. Second, we want to make sure that the housing market and policy remain relatively stable in the years just before and after police.uk. Three years after the launch of police.uk seemed to be sensible. Third, in 2013 a scheme aimed at helping first time home buyers called Help to Buy was launched. The first phase of the scheme only affected buyers looking to buy newly built homes (which are excluded from our sample). The second phase was launched in October 2013 and did not just affect newly built homes. This scheme increased demand in the housing market, but it’s not apparent how that will affect the validity of our design. As a precaution, we limit our protocol analysis to years up to 2013 (i.e to balance credibility and statistical power).
-
-For RQ2, after restricting our sample, we have roughly 10,000 houses sold every year between 2010 and 2012 (12,000 sold in 2013). The mean house price is virtually unchanged while the price variance increased in 2013 (see table 1).
-
-| **Year** | **N** | **Mean Price** | **Mean Log Price** | **Sd Price (£)** | **Sd Log Price (£)** |
-| -------- | ----- | -------------- | ----------------- | ------------ | ---------------- |
-| **2010** | 9598  | 143983         | 11.7              | 94415        | 0.530            |
-| **2011** | 9798  | 135934         | 11.7              | 96959        | 0.521            |
-| **2012** | 9915  | 141522         | 11.7              | 94802        | 0.532            |
-| **2012** | 12064 | 142829         | 11.7              | 118282       | 0.546            |
-
-
-To do a power analysis, we need to know the variance of the ‘treatment’ variable: the sum of potential snaps points for RQ1 (M_S) and the crime counts on police.uk (conditional on real crime counts) for RQ2. For RQ2, we cannot know this statistic before accessing the data. For RQ1, we already have early results for South Yorkshire. From those results, we are confident in the statistical power of our estimator when applied to the entirety of England and Wales (see S1 and S3).
-
 ## Ethics
 This project has been approved by the University Research Ethics Committee at the University of Sheffield (approved 13/10/2021, reference no. 043654). The corresponding author submitted a University Research Ethics Committee-approved self-declaration to the ethics committee. A full ethical review was waived since the research was judged to involve only existing data that has been robustly anonymised, and is unlikely to cause offence to those who originally provided the data. Our ethics approval letter is contained in the supplement (S4). Most of the data we use is in the public domain. We have obtained consent from South Yorkshire Police to use their data.
+
+## Project timeline
+
+[Add what happens]
 
 # Discussion
 
@@ -356,7 +344,7 @@ All personal data will be stored within SYP setting. No personal data will leave
 
 __S1. Example of analysis using South Yorkshire__
 __S2. Full DAG__
-__S3. Snaps replication method__
+__S3. Materials related to police-uk__
 __S4. Ethics approval letter (PDF)__
 __S5. Funding acceptance letter (PDF)__
 
