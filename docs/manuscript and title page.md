@@ -303,8 +303,13 @@ As mentioned early, there is a lag in police.uk data, homebuyers buying in Febru
 
 Data on crimes in the prior three months is chosen based on Braakman’s research (2017). Nearby is defined as within 150/300/500m; our preferred distance is 150 because the lowest level of points data on police.uk appears at a specific zoom level. At that zoom level, the scope of the interactive map on police.uk roughly covers a 300m by 300m square.
 
-### Missing data
-There are almost no missing values in our main variables. Where missing values exists, we will perform list-wise deletion (i.e. get rid of cases with missing fields).
+### Data quality issues
+
+From speaking to South Yorkshire Police, there are some data quality issues in the raw police geocoded crime and incidents data. First, some crimes and incidents will have no locations recorded, or locations are misrecorded. For instance, incidents with unknown or ambiguous locations are often recorded as taking place within police stations. Second, the data received by police.uk each month is a snapshot of police systems. The police continually update these records (e.g. to omit duplicate incidents), but these updates will not be reflected on public crime maps. For RQ2, our police records will be more up-to-date than those used to produce the police.uk crime maps in the past. The extent of these errors are unlikely to affect our results.
+
+Aside from these issues, there are no missing values in our data. Where missing values exist, we will perform list-wise deletion (i.e. get rid of cases with missing fields). Public domain data on housing and crimes already have undergone data cleaning and error checks by their respective data owners. We will conduct checks on the South Yorkshire Police. This is in addition to any data cleaning already done by the police.
+
+To check that we can replicate police.uk's crime maps, we have cross-referenced statistics from our inferred Snaps list with the statistics from the actual Snap data (see S3). We will also use the raw police data to check that we can recreate the public crime data from 2011 - 2013.
 
 ### Sample
 

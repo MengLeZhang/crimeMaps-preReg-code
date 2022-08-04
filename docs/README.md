@@ -78,6 +78,8 @@ When all issues are done, I'll render all the markdown files into word using pan
 
   - [ ] The bibliography list is not homgeneous.
   - [ ] The authors should mention how to cope with the risk of finding errors in the data, having solid data for such a project is not only related the presence of missing data.
+  - A: We have filled this out more extensively. The public domain data has already been error checked. We have noted potential errors in the raw police data (which will be reflected in the public data). Based on talking with the police and their crime mapper -- these issues are unlikely to affect our results. We have reiterated that we have checked that our Snap data is an accurate recreation of the real secret snap data. We recreate the public domain data from 2011-2013 using raw police data to check that we have recreated the police.uk data routine. Section has been renamed data quality instead of missing data to reflect.
+
   - [ ] The quality of preparation of this manuscript should increase.
 
 - Reviewer two comments:
