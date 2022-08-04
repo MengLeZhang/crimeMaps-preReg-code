@@ -74,7 +74,7 @@ We note that police.uk crime maps were updated with a 2-month delay until at lea
 _Version One_: This was created in 2011 using Ordnance Survey data (exact datasets unverified). Potential snap-points were the centre of residential roads (Smith and Heath 2014, p. 93 - 94), and Catchment areas for each point were created using Voronoi polygons. If a snap-point has less than 12 postal addresses within its catchment, it is dropped. This version consists of the remaining snap-points. For computational efficiency, police.uk could have used a nearest neighbour finding algorithm to do the postal address counting. This would have yielded the same outcome as the catchment approach.
 
 __Fig1. Example of Voronoi polygons.__ Polygon A is associated with point A and represents areas closer to point A than any other point. Source: OpenStreetMap (base map only).__
-![fig-voronoi](assets/fig1.png)
+![fig-voronoi](assets/fig1.tif)
 
 _Version Two_: These snap point list were created in 2012. The centre point of every road in England and Wales was taken from the Ordnance Survey Locator dataset. These points were augmented with locally relevant points of interest from the Point X dataset. Points of interest include public places, such as Parks, or commercial premises, such as Shopping Centres. Each map point was analysed to see how many postal addresses were contained in its catchment area according to the Ordnance Survey Address-Point dataset. Again, the catchments were created using Voronoi polygons. Any catchments with between 1 and 7 postal addresses were discarded to protect privacy. The remaining points were provided to police forces for human assessment; a small number of additions and deletions were made to make map points more locally relevant.
 
@@ -95,7 +95,7 @@ Furthermore, since police.uk’s geomasking algorithm is documented, we can depl
 Members of the public or other bodies (e.g. estate agents) are not aware of the actual location of crimes as recorded by the police. Also, street-level crime maps for South Yorkshire did not exist before police.uk. Broader areal level maps have existed since 2008; notably the crimemapper website. The research design exploits the fact that key features of police.uk, namely its snap point list and geomasking errors, did not exist before 2011 and had no causal impact on house prices before that date. Any statistical association between these features and house prices are due to the existence of confounders: common causes that affect both police.uk crime map features and house prices. After the launch of police.uk in 2011, these map features could have a causal effect on house prices. Assuming that the relationship between confounders and these map features are constant over time, changes in the association between these map features and house prices before and after the launch of police.uk will be indicative of causality. In essence, we are employing a form of interrupted time series analysis. Figure 2 demonstrates the intuition behind our research design.
 
 __Fig2. Example of an interrupted time series using police.uk data__
-![fig-ITS](assets/fig2.png)
+![fig-ITS](assets/fig2.tif)
 
 $\hat\beta_T$ is the associations (e.g. correlation coefficient, regression slope) between house prices and either number of snap-point or geomasking error. A change in  $\hat\beta_T$ after the launch of police.uk in 2011 indicates causality. We can also check for a constant trend in $\hat\beta_T$ before the intervention (e.g. $\hat\beta_T$ doesn't wildly fluctuate for no reason).
 
@@ -133,7 +133,7 @@ However, we cannot ever observe a world in which police.uk did not exist in 2011
 The below Directed Acyclic Graph (DAG) represents our core assumptions about causal relationships in a world where police.uk did not exist (Pearl 2009). All confounders are collected into one node $U$; an expanded version is contained in supplement S2.
 
 __Fig3. DAG/ Path diagram of causal relations__
-![fig-dag](assets/fig3.png)
+![fig-dag](assets/fig3.tif)
 
 We assume the existence of police.uk only affected house prices through i) the information shown on the website (modifying $C_g \rightarrow Y$) and ii) changing the relationship between information outside the website and house prices ($U \rightarrow Y$, $U \rightarrow C_r \rightarrow Y$). Other causal relationships are unchanged, and this forms the basis for our assumption tests later.
 
