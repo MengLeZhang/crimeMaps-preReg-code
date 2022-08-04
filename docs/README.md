@@ -42,8 +42,10 @@ When all issues are done, I'll render all the markdown files into word using pan
   - A: Title page formatted as per instruction. Figures and heading formatted as per instruction. We have also added headings
 
   - [x] Please include your full ethics statement in the ‘Methods’ section of your manuscript file. In your statement, please include the full name of the IRB or ethics committee who approved or waived your study, as well as whether or not you obtained informed written or verbal consent. If consent was waived for your study, please include this information in your statement as well.
+  - A: Added and ethics letter is in supplement
 
-  - [ ] Please upload a new copy of Figure 1 as the detail is not clear. Please follow the link for more information: https://blogs.plos.org/plos/2019/06/looking-good-tips-for-creating-your-plos-figures-graphics/
+  - [x] Please upload a new copy of Figure 1 as the detail is not clear. Please follow the link for more information: https://blogs.plos.org/plos/2019/06/looking-good-tips-for-creating-your-plos-figures-graphics/
+  - A: Done. All figures are converted and checked through PACE
 
   - [x] We note you have included a table to which you do not refer in the text of your manuscript. Please ensure that you refer to Table 1 in your text; if accepted, production will need this reference to link the reader to the Table.
   - A: Done
