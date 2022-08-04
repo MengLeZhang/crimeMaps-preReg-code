@@ -1,4 +1,6 @@
 ##  preReg2 figures and tables 
+## Workflow: Output in whatever source we want and use PACE on Plosone to convert 
+
 
 # Time series example -----------------------------------------------------
 # create fake data 
@@ -37,7 +39,7 @@ ggplot(tsData, aes(x=year, y=beta, shape = period))+
   ) +
   geom_abline(intercept = -0.5, slope = -0.001) +
   labs(
-    title = "An illustration of an interrupted time series",
+#    title = "An illustration of an interrupted time series",
     x = 'T (year)',
     y = expression( hat(beta) [t]) #using R's maths
   )
@@ -96,10 +98,11 @@ theseVoronoi <-
 
 # basemap
 library(tmaptools)
-
+library(OpenStreetMap)
 tmap_mode('plot')
 
-osm_base <- read_osm(theseSnaps, ext = 1.5)
+osm_base <- 
+  read_osm(theseSnaps, ext = 1.5)
 
 theseSnaps %>% st_jitter()
 
