@@ -218,33 +218,38 @@ Our statistical tests are designed to reject the null hypothesis. Failure to rej
 
 ### Sensitivity and Robustness tests
 
-From the DAG in Figure 3, we can infer most of our key assumptions which are:
+From the DAG in Figure 2, we can infer most of our key assumptions, which are:
 
 1. The effect of confounders on crimes shown on police.uk does not change over time $P(C_g| U, T) = P(C_g| U)$
 2. The effect of confounders on potential nearby snaps does not change over time $P(M_s| U, T) = P(M_s| U)$
 3. The distribution of confounders do not change over time $P(U|T) = P(U)$
-4. The distribution of selling prices did not change for other reasons. To account for rising average house prices, we can demean $Y$ (or adding an intercept term in regression models).
+4. The distribution of selling prices did not change for other reasons. To account for rising average house prices, we can demean $Y$ (or add an intercept term in regression models).
 
 For RQ2, we need the additional assumption:
 
 5. Between $T = 0$ and $T =1$, any change in the effect of $U$ on $Y$ is entirely mediated by the real crime count $C_r$.
 
-Many of these assumptions involve $U$: common causes of $M_s$, $C_g$ and $Y$. Confounders can be split into two group: observable and unobserable. Observable confounders are common causes that we are both aware of and have information on. Unobserved confounders are common causes that we have no information on either because that information is inaccessible or we are not aware of their existence.
+Many of these assumptions involve $U$: common causes of $M_s$, $C_g$ and $Y$. Confounders can be split into two groups: observable and unobservable. Observable confounders are factors the research team has information about. In contrast, unobserved confounders are factors that the research team has no information on either because that information is inaccessible or the team is unaware of their existence.
 
-For observable confounders, we can check for changes over time (assumptions 1 - 3) by comparing univariate and multivariate statistics between $T = 0$ and $T = 1$. For assumptions 1, we can use an F-test comparing linear models:
+For observable confounders, we can check for changes over time (assumptions 1 - 3) by comparing univariate and multivariate statistics between $T = 0$ and $T = 1$. For assumption 1, we can use an F-test comparing linear models:
 
 $C_g = \beta_{n0} + \beta_{nt}T + \beta_{nu}U+ e_n$ (null model)
 $C_g = \beta_{a0} + \beta_{at}T + \beta_{au}U + \beta_{ut}T*U + e_a$ (alternative model)
 
-For demonstration, we specify $U$ as a continuous variable but it is can be categorical. Under the null model, the relationship between $U$ and $C_g$ remains the same over time (with the exception of a scale shift accounted for by $T$). Under the alternative model, changes in the relationship between $U$ and $C_g$ are modelled as an interaction term. If an F-test rejects the null hypothesis that null model and the alternative model are equivalent then assumption 1 is not credible. We test assumption 2 in the same way. To test assumption 3, we can use either a Fisher's exact test or a Kurskal-Wallis test depending on whether $U$ is continuous or categorical.
+For demonstration, we specify $U$ as a continuous variable, but it can be categorical. Under the null model, the relationship between $U$ and $C_g$ remains the same over time (except for a scale shift accounted for by $T$). Under the alternative model, changes in the relationship between $U$ and $C_g$ are modelled as an interaction term. If an F-test rejects the null hypothesis that null model and the alternative model are equivalent, then assumption 1 is not credible. We test assumption 2 in the same way. To test assumption 3, we can use either a Fisher's exact test or a Kurskal-Wallis test, depending on whether $U$ is continuous or categorical.
 
-We adopt a kitchen-sink approach to testing: get as many possible variables as possible and check for changes in correlation (or other statistics) over time. We outline some potential candidates for $U$ in the data section.
+In theory, any variable can be a confounder (unless proven otherwise). However, the most important confounders are the three inputs that determine what is shown on police.uk crime maps (see Supplement S2):
+- the location that is queried on the crime map. In our case, this is the area around a property.
+- the secret Snap point database
+- police force recorded crime data
 
-To test for changes over time for unobserved confounders, we can do a pre-intervention test. First, we find another period $T = -1$ before $T = 0$ where police.uk did not launch. Then we check that the same assumptions are met (e.g. $P(U|T = -1) = P(U| T = 0)$). For example, $T = -1$ can be the year 2009. Then we check that if our estimators (e.g. 1A - 1C) give the expected result of no effects for years before any intervention took place.
+In our study, the research team can set the Snap point database used in the control periods (satisfying assumptions 1-3). For the location of houses and crimes, we can use geocoded information for tests (e.g. coordinates, higher areal units such as neighbourhoods). We can also use areal characteristics such as deprivation or access to amenities (see data section).
 
-We have no statistical way to test the assumption that between $T = 0$ and $T =1$, any change in the effect of $U$ on $Y$ will be entirely mediated by the real crime count $C_r$. There may be other mediating pathways that do not travel along $U \rightarrow C_r \rightarrow Y$. For example. $Md$ is a mediator whose effect on house prices $Y$ differs between $T = 1$ and $T = 0 $. If there is a single causal pathways between $Md$ and $Y$ that does not lies along the causal pathway $C_r \rightarrow M \rightarrow Y$ then this would violate our assumptions.
+To test for changes over time for unobserved confounders, we can do a pre-intervention test. First, we find another period $T = -1$ before $T = 0$ where police.uk did not launch. Then we check that the same assumptions are met (e.g. $P(U|T = -1) = P(U| T = 0)$). For example, $T = -1$ can be the year 2009. Then we check if our estimators (e.g. 1A - 1C) give the expected result of no effects for years before any intervention took place.
 
-We do not expect spatial autocorrelation to greatly affect our results. However, we will test for spatial autocorrelation (i.e. checking Moran's I) and adjust estimates accordingly.
+We have no statistical way to test the assumption that between $T = 0$ and $T =1$, any change in the effect of $U$ on $Y$ will be entirely mediated by the real crime count $C_r$. There may be other mediating pathways that do not travel along $U \rightarrow C_r \rightarrow Y$. For example. $Md$ is a mediator whose effect on house prices $Y$ differs between $T = 1$ and $T = 0 $. If there is a single causal pathway between $Md$ and $Y$ that does not lie along the causal pathway $C_r \rightarrow M \rightarrow Y$ then this would violate our assumptions.
+
+We do not expect spatial autocorrelation to affect our results greatly. However, we will test for spatial autocorrelation (i.e. checking Moran's I) and adjust estimates accordingly.
 
 Finally, we can resort to investigative work to uncover evidence that may refute any of our assumptions. In particular, we will look for other ways that the police.uk crime maps may have affected house prices in non-crime related ways.
 
@@ -260,7 +265,7 @@ For SYP crime data, we will use the same data source sent to the Home Office and
 
 We infer the snaps used by police.uk from the unique crime locations shown on police.uk during these periods covered by versions one and two (see S1 and S3). In our inferred dataset, we have 734,000 snaps in version 2, roughly 96% of all the snaps in use by police.uk during this period. The inferred snaps are much lower in version one (~462k); we do not know how many snaps were used in this version. Ideally, we would like to use the entire master snap point data to mitigate against all measurement errors. However, for our estimators, it only matters that the causal relationship between our inferred snap points and confounders remains constant during the period under study.
 
-To test the plausibility of the research design, we use a variety of data sources. In short, we want to use this information to check that the distribution of potential confounders is the same before and after the launch of police.uk. Ideally, confounders would be entirely uncorrelated with the number of snaps and errors in geomasking. We aim to use a kitchen-sink approach: assume that any variable can be a confounder and test it all. We expect to use:
+To test the plausibility of the research design, we use a variety of data sources to check for confounders. We aim to use a kitchen-sink approach: assume that any variable can be a confounder and test it all. Potential confounders include:
 
 -	Food agency standards ratings. This is points data that contain information on business type, address, latitude and longitude alongside the most recent hygiene rating of an establishment
 -	Radon readings per 1km square grid. This is a public dataset.
@@ -311,7 +316,7 @@ Data on crimes in the prior three months is chosen based on Braakman’s researc
 
 ### Data quality issues
 
-From speaking to SYP, there are some data quality issues in the raw police geocoded crime and incidents data. First, some crimes and incidents will have no locations recorded, or locations are misrecorded. For instance, incidents with unknown or ambiguous locations are often recorded as taking place within police stations. Second, the data received by police.uk each month is a snapshot of police systems. The police continually update these records (e.g. to omit duplicate incidents), but these updates will not be reflected on public crime maps. For RQ2, our police records will be more up-to-date than those used to produce the police.uk crime maps in the past. The extent of these errors are unlikely to affect our results.
+From speaking to SYP, there are some data quality issues in the raw police geocoded crime and incidents data. First, some crimes and incidents will have no locations recorded, or locations are misrecorded. For instance, incidents with unknown or ambiguous locations are often recorded as taking place within police stations. Second, the data received by police.uk each month is a snapshot of police systems. The police continually update these records (e.g., omitting duplicate incidents), but these updates will not be reflected on public crime maps. For RQ2, our police records will be more up-to-date than those used to produce the police.uk crime maps in the past. The extent of these errors is unlikely to affect our results.
 
 Aside from these issues, there are no missing values in our data. Where missing values exist, we will perform list-wise deletion (i.e. get rid of cases with missing fields). Public domain data on housing and crimes already have undergone data cleaning and error checks by their respective data owners. We will conduct checks on the SYP data. This is in addition to any data cleaning already done by the police.
 
