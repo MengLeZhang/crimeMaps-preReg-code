@@ -327,19 +327,17 @@ This project has been approved by the University Research Ethics Committee at th
 
 ## Project timeline
 
-[Add what happens]
+The project idea was conceived in 2020. An early pilot of the method for detecting snap points was trialled using West Midlands Police data in December 2020. This pilot did not use any housing data. This project was funded in September 2021 (see S5 Funding acceptance letter). The project aims and our hypotheses have not changed since initial funding. We used public domain data from South Yorkshire to test our methods in December 2021 (see supplement S1). This revealed initial results for only one police force (out of 43 police forces) for RQ1. The study was pre-registered in April 2022. We are blind to the study's results and will commence data analysis in September 2022.
 
 # Discussion
 
 ## Study limitations and risks
-A data protection plan formed between SYP and Sheffield University minimises the disclosure of personal data.
-
-police.uk’s snaps database remains a secret to this day. This guarantees that the snap point database cannot causally affect house prices except via police.uk’s website and API. However, we have to replicate the snap point database using public information. We can infer the majority of the snap-points through police.uk data but our inferred database can still contain errors. We can test the accuracy of our inferred snap database using real police force data.
+police.uk’s snaps database remains a secret. This guarantees that the snap point database cannot causally affect house prices except via police.uk’s website and API. However, we have to replicate the snap point database using public information. We can infer the majority of the snap-points through police.uk data but our inferred database can still contain errors. We can test the accuracy of our inferred snap database using real police force data.
 
 The scope of this study is only limited to a number of years, mainly 2010 - 2013. For RQ2, we can only study the effects for South Yorkshire.
 
 ## Data protection
-All personal data will be stored within SYP setting. No personal data will leave these settings. All other data is publicly available. Only aggregated results will be taken out of the setting and cleared by SYP beforehand.
+A data protection plan formed between SYP and Sheffield University minimises the disclosure of personal data. All personal data will be stored within SYP setting. No personal data will leave these settings. All other data is publicly available. Only aggregated results will be taken out of the setting and cleared by SYP beforehand.
 
 # Author Contributions
 (Redacted for peer review)
