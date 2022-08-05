@@ -100,6 +100,7 @@ For RQ1, we examine data from every police force (n = 43) within England and Wal
 For RQ2, we restrict the sample to all properties sold within South Yorkshire Police’s force boundaries. We do not know the earliest date covered by SYP data (which is needed to calculated geomasking errors). We have been told that SYP data from at least 2010 is available. Using public data sources (see Data section), in South Yorkshire we have roughly 10,000 properties in our eligible sample every year between 2010 and 2012 (12,000 sold in 2013). The mean house price is virtually unchanged while the price variance increased in 2013 (see table 1).
 
 __Table 1. Summary statistics for South Yorkshire only.__ All prices are in GBP.
+
 | **Year** | **N** | **Mean Price** | **Mean Log Price** | **Sd Price** | **Sd Log Price** |
 | -------- | ----- | -------------- | ----------------- | ------------ | ---------------- |
 | **2010** | 9598  | 143983         | 11.7              | 94415        | 0.530            |
@@ -234,13 +235,17 @@ Many of these assumptions involve $U$: common causes of $M_s$, $C_g$ and $Y$. Co
 For observable confounders, we can check for changes over time (assumptions 1 - 3) by comparing univariate and multivariate statistics between $T = 0$ and $T = 1$. For assumption 1, we can use an F-test comparing linear models:
 
 $C_g = \beta_{n0} + \beta_{nt}T + \beta_{nu}U+ e_n$ (null model)
+
 $C_g = \beta_{a0} + \beta_{at}T + \beta_{au}U + \beta_{ut}T*U + e_a$ (alternative model)
 
 For demonstration, we specify $U$ as a continuous variable, but it can be categorical. Under the null model, the relationship between $U$ and $C_g$ remains the same over time (except for a scale shift accounted for by $T$). Under the alternative model, changes in the relationship between $U$ and $C_g$ are modelled as an interaction term. If an F-test rejects the null hypothesis that null model and the alternative model are equivalent, then assumption 1 is not credible. We test assumption 2 in the same way. To test assumption 3, we can use either a Fisher's exact test or a Kurskal-Wallis test, depending on whether $U$ is continuous or categorical.
 
 In theory, any variable can be a confounder (unless proven otherwise). However, the most important confounders are the three inputs that determine what is shown on police.uk crime maps (see Supplement S2):
+
 - the location that is queried on the crime map. In our case, this is the area around a property.
+
 - the secret Snap point database
+
 - police force recorded crime data
 
 In our study, the research team can set the Snap point database used in the control periods (satisfying assumptions 1-3). For the location of houses and crimes, we can use geocoded information for tests (e.g. coordinates, higher areal units such as neighbourhoods). We can also use areal characteristics such as deprivation or access to amenities (see data section).
@@ -286,17 +291,20 @@ We inferred the master list of snap-points from public domain data from data.pol
 The main variables used are:
 
 police.uk variables (points data)
+
 - Date of offence/ incident (truncated to year and month only)
 - Home Office Offence Code
 - Latitude and Longitude (WGS84, to be converted to Easting and Northing OSGB36)
 
 SYP Police force variables (to be confirmed)
+
 - Date of offence/ incident
 - Home Office Offence Code
 - Easting and Northing (OSGB36)
 - Other contexts (e.g. free text information about location)
 
 Land registry price paid data
+
 - Date of transfer. Date when the sale was completed, as stated on the transfer deed.
 - Price paid (in GBP)
 - Postcode (joined to coordinates of postcode centroid via the ONS master postcode lookup)
@@ -305,6 +313,7 @@ Land registry price paid data
 - Freehold or Leasehold Price Paid Data (PPD) category. Relates to type of price paid data and data recording changes over time. We use category A which forms the bulk of the dataset and is available from 1995. Category B transactions are only recorded since October 2013. These include transfers under a power of sale/repossessions and buy-to-lets.
 
 For every residential property sold, we can derive the following variables:
+
 - number of potential snap points nearby (based on a particular snap list version)
 - number of crimes and incidents nearby in the past three months (police force recorded).
 - number of crimes and incidents nearby in the past three months (police.uk recorded)
@@ -349,11 +358,11 @@ A data protection plan formed between SYP and Sheffield University minimises the
 
 # Supporting information
 
-__S1. Example of analysis using South Yorkshire__
-__S2. Full DAG__
-__S3. Materials related to police-uk__
-__S4. Ethics approval letter (PDF)__
-__S5. Funding acceptance letter (PDF)__
+- __S1. Example of analysis using South Yorkshire__
+- __S2. Full DAG__
+- __S3. Materials related to police-uk__
+- __S4. Ethics approval letter (PDF)__
+- __S5. Funding acceptance letter (PDF)__
 
 -----
 
