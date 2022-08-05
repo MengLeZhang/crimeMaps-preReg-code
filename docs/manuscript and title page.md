@@ -97,7 +97,7 @@ Our unit of analysis are residential properties that were sold in England and Wa
 
 For RQ1, we examine data from every police force (n = 43) within England and Wales. The earliest date covered by our data is 1995.
 
-For RQ2, we restrict the sample to all properties sold within South Yorkshire Police’s force boundaries. We do not know the earliest date covered by SYP data (which is needed to calculated geomasking errors). We have been told that SYP data from at least 2010 is available. In South Yorkshire, we have roughly 10,000 properties in our eligible sample every year between 2010 and 2012 (12,000 sold in 2013). The mean house price is virtually unchanged while the price variance increased in 2013 (see table 1).
+For RQ2, we restrict the sample to all properties sold within South Yorkshire Police’s force boundaries. We do not know the earliest date covered by SYP data (which is needed to calculated geomasking errors). We have been told that SYP data from at least 2010 is available. Using public data sources (see Data section), in South Yorkshire we have roughly 10,000 properties in our eligible sample every year between 2010 and 2012 (12,000 sold in 2013). The mean house price is virtually unchanged while the price variance increased in 2013 (see table 1).
 
 __Table 1. Summary statistics for South Yorkshire only.__ All prices are in GBP.
 | **Year** | **N** | **Mean Price** | **Mean Log Price** | **Sd Price** | **Sd Log Price** |
@@ -122,8 +122,11 @@ Begin with a limited version of the causal relationship between snap points arou
 - $C_g$ Total crime counts around a house using police.uk (i.e. geomasked crime count). For records before Dec 2010, we use South Yorkshire Police's geocoded data, our inferred-snap list, and details from data.police.uk to create what data would have been on police.uk if it had launched earlier (see data section).
 - $C_r$ Total crime counts around a house using police force records. Although errors can exist in the police data, we assume this is the real crime count for simplicity. We do not believe this will adversely affect our design.
 - $M_s$ Sum of snaps around a house
-- $U$ confounding factors affecting $Y$ and other variables. Some are observed, and some are unobserved.
+- $U$ confounding factors affecting $Y$ and other variables.
 
+Examples of confounders are:
+- The real location of crimes which can lower house prices in an area. Higher areas of crime could also result in higher geomasking error.
+- The locations of houses sold. Location can affect houses prices and we know that Snap points are located near urban features such as the centre of roads.
 
 Imagine two period: one before the launch of police.uk ($T$ = 0) and one afterwards ($T = 1$). For now, assume that $T = 0$ refers to the year 2010 and $T = 1$ is the year 2011. Furthermore imagine these counterfactuls: let $W = 1$ be a world where police.uk's website existed during period $T$ and $W = 0$ be a world it didn't.
 
@@ -133,7 +136,7 @@ $$P(Y | M_s, T = 1, W = 1) - P(Y | M_s, T = 1, W = 0)$$
 
 However, we cannot ever observe a world in which police.uk did not exist in 2011 (i.e. $T = 1, W = 0$). But we do observe data from the year 2010 when police.uk did no exist (i.e. $T = 0, W = 0$). We can substitute data from 2010 for the data from the counterfactual $T = 0, W = 0$.
 
-The below Directed Acyclic Graph (DAG) (Figure 3) represents our core assumptions about causal relationships in a world where police.uk did not exist (Pearl 2009). A more extensive version is shown in supplement S2.
+The below Directed Acyclic Graph (DAG) (Figure 2) represents our core assumptions about causal relationships in a world where police.uk did not exist (Pearl 2009). A more extensive version is shown in supplement S2.
 
 __Fig2. DAG/ Path diagram of causal relations__
 ![fig-dag](assets/fig2.tif)
@@ -207,7 +210,7 @@ Where $F_{LSOA}$ are the LSOA fixed effects. The quantity of interest (i.e. $\be
 
 Instead of using the log of house prices as our outcomes $Y$, we can try to use house prices without any transformations. This is only a useful estimator if inflation between $T = 0$ and $T = 1$ is negligible. Else if inflation is non-negligible but consistent, then estimator 1C (i.e. time series) will remain unbiased.
 
-Another alternate estimator uses the relationship between crimes shown on police.uk $C_g$ and $Y$ to answer RQ1. Replace $M_s$ with $C_g$ in estimators 1A - 1C and change the relevant quantities of interest. Everything else remains the same. There are data limitations based on how many years of geocoded data (before 2011) have been archived by police forces. SYP can only guarantee that data from 2010 is available.
+Another alternate estimator uses the relationship between crimes shown on police.uk $C_g$ and $Y$ to answer RQ1. Replace $M_s$ with $C_g$ in estimators 1A - 1C and change the relevant quantities of interest. Everything else remains the same. There are data limitations based on how many years of geocoded data (before 2011) have been archived by police forces.
 
 For estimator 1C, which is relevant in case of trends over time, we can explore more elaborate time series models with different techniques for identifying structural breaks.
 
@@ -226,19 +229,18 @@ For RQ2, we need the additional assumption:
 
 5. Between $T = 0$ and $T =1$, any change in the effect of $U$ on $Y$ is entirely mediated by the real crime count $C_r$.
 
-Many of these assumptions involve $U$: common causes of $M_s$, $C_g$ and $Y$. The majority of confounders are spatial characteristics. Snap points are determined by mostly static urban features. These features could affect opportunities for crime as well as house prices.
+Many of these assumptions involve $U$: common causes of $M_s$, $C_g$ and $Y$. Confounders can be split into two group: observable and unobserable. Observable confounders are common causes that we are both aware of and have information on. Unobserved confounders are common causes that we have no information on either because that information is inaccessible or we are not aware of their existence.
 
-Confounders can be split into two group: observable and unobserable. Observable confounders are common causes that we are both aware of and have information on. Unobserved confounders are common causes that we have no information on either because that information is inaccessible or we are not aware of their existence. For observable confounders, we can check if:
+For observable confounders, we can check for changes over time (assumptions 1 - 3) by comparing univariate and multivariate statistics between $T = 0$ and $T = 1$. For assumptions 1, we can use an F-test comparing linear models:
 
-1. $P(M_s| U, T) = P(M_s| U)$
-2. $P(C_g| U, T) = P(C_g| U)$
-3. $P(U|T) = P(U)$
+$C_g = \beta_{n0} + \beta_{nt}T + \beta_{nu}U+ e_n$ (null model)
+$C_g = \beta_{a0} + \beta_{at}T + \beta_{au}U + \beta_{ut}T*U + e_a$ (alternative model)
 
-by comparing univariate and multivariate statistics between $T = 0$ and $T = 1$. We can also do similar tests to check $P(Y|T) = P(Y)$.
+For demonstration, we specify $U$ as a continuous variable but it is can be categorical. Under the null model, the relationship between $U$ and $C_g$ remains the same over time (with the exception of a scale shift accounted for by $T$). Under the alternative model, changes in the relationship between $U$ and $C_g$ are modelled as an interaction term. If an F-test rejects the null hypothesis that null model and the alternative model are equivalent then assumption 1 is not credible. We test assumption 2 in the same way. To test assumption 3, we can use either a Fisher's exact test or a Kurskal-Wallis test depending on whether $U$ is continuous or categorical.
 
 We adopt a kitchen-sink approach to testing: get as many possible variables as possible and check for changes in correlation (or other statistics) over time. We outline some potential candidates for $U$ in the data section.
 
-We can also do a pre-intervention test: find another period $T = -1$ before $T = 0$ where police.uk did not launch and check that the same assumptions are met (e.g. $P(U|T = -1) = P(U| T = 0)$). For example, $T = -1$ can be the year 2009. Furthermore we can check that our estimators (e.g. 1A - 1C) give the expected result of no effects.
+To test for changes over time for unobserved confounders, we can do a pre-intervention test. First, we find another period $T = -1$ before $T = 0$ where police.uk did not launch. Then we check that the same assumptions are met (e.g. $P(U|T = -1) = P(U| T = 0)$). For example, $T = -1$ can be the year 2009. Then we check that if our estimators (e.g. 1A - 1C) give the expected result of no effects for years before any intervention took place.
 
 We have no statistical way to test the assumption that between $T = 0$ and $T =1$, any change in the effect of $U$ on $Y$ will be entirely mediated by the real crime count $C_r$. There may be other mediating pathways that do not travel along $U \rightarrow C_r \rightarrow Y$. For example. $Md$ is a mediator whose effect on house prices $Y$ differs between $T = 1$ and $T = 0 $. If there is a single causal pathways between $Md$ and $Y$ that does not lies along the causal pathway $C_r \rightarrow M \rightarrow Y$ then this would violate our assumptions.
 
@@ -254,7 +256,7 @@ The HM Land Registry Price Paid dataset is a publicly available dataset of prope
 
 Archival data from police.uk are publicly available from the police.uk data site (https://data.police.uk/data/archive/). Other information, such as police force boundaries, are also contained on the website. We use the earliest archival extract of police.uk which contains data on crimes from Dec 2010 to Dec 2013. In general, police.uk keeps excellent documentation on archival data and changes made to its website and data manipulation. We also cross-referenced the historical police.uk website using the Wayback machine, which is an archive of websites.
 
-For South Yorkshire Police crime data, we will use the same data source sent to the Home Office and ultimately processed by police.uk. We expect data from at least the year 2010 to be available.
+For SYP crime data, we will use the same data source sent to the Home Office and ultimately processed by police.uk. We expect data from at least the year 2010 to be available.
 
 We infer the snaps used by police.uk from the unique crime locations shown on police.uk during these periods covered by versions one and two (see S1 and S3). In our inferred dataset, we have 734,000 snaps in version 2, roughly 96% of all the snaps in use by police.uk during this period. The inferred snaps are much lower in version one (~462k); we do not know how many snaps were used in this version. Ideally, we would like to use the entire master snap point data to mitigate against all measurement errors. However, for our estimators, it only matters that the causal relationship between our inferred snap points and confounders remains constant during the period under study.
 
@@ -283,7 +285,7 @@ police.uk variables (points data)
 - Home Office Offence Code
 - Latitude and Longitude (WGS84, to be converted to Easting and Northing OSGB36)
 
-South Yorkshire Police force variables (to be confirmed)
+SYP Police force variables (to be confirmed)
 - Date of offence/ incident
 - Home Office Offence Code
 - Easting and Northing (OSGB36)
@@ -309,14 +311,14 @@ Data on crimes in the prior three months is chosen based on Braakman’s researc
 
 ### Data quality issues
 
-From speaking to South Yorkshire Police, there are some data quality issues in the raw police geocoded crime and incidents data. First, some crimes and incidents will have no locations recorded, or locations are misrecorded. For instance, incidents with unknown or ambiguous locations are often recorded as taking place within police stations. Second, the data received by police.uk each month is a snapshot of police systems. The police continually update these records (e.g. to omit duplicate incidents), but these updates will not be reflected on public crime maps. For RQ2, our police records will be more up-to-date than those used to produce the police.uk crime maps in the past. The extent of these errors are unlikely to affect our results.
+From speaking to SYP, there are some data quality issues in the raw police geocoded crime and incidents data. First, some crimes and incidents will have no locations recorded, or locations are misrecorded. For instance, incidents with unknown or ambiguous locations are often recorded as taking place within police stations. Second, the data received by police.uk each month is a snapshot of police systems. The police continually update these records (e.g. to omit duplicate incidents), but these updates will not be reflected on public crime maps. For RQ2, our police records will be more up-to-date than those used to produce the police.uk crime maps in the past. The extent of these errors are unlikely to affect our results.
 
-Aside from these issues, there are no missing values in our data. Where missing values exist, we will perform list-wise deletion (i.e. get rid of cases with missing fields). Public domain data on housing and crimes already have undergone data cleaning and error checks by their respective data owners. We will conduct checks on the South Yorkshire Police. This is in addition to any data cleaning already done by the police.
+Aside from these issues, there are no missing values in our data. Where missing values exist, we will perform list-wise deletion (i.e. get rid of cases with missing fields). Public domain data on housing and crimes already have undergone data cleaning and error checks by their respective data owners. We will conduct checks on the SYP data. This is in addition to any data cleaning already done by the police.
 
 To check that we can replicate police.uk's crime maps, we have cross-referenced statistics from our inferred Snaps list with the statistics from the actual Snap data (see S3). We will also use the raw police data to check that we can recreate the public crime data from 2011 - 2013.
 
 ## Ethics
-This project has been approved by the University Research Ethics Committee at the University of Sheffield (approved 13/10/2021, reference no. 043654). The corresponding author submitted a University Research Ethics Committee-approved self-declaration to the ethics committee. A full ethical review was waived since the research was judged to involve only existing data that has been robustly anonymised, and is unlikely to cause offence to those who originally provided the data. Our ethics approval letter is contained in the supplement (S4). Most of the data we use is in the public domain. We have obtained consent from South Yorkshire Police to use their data.
+This project has been approved by the University Research Ethics Committee at the University of Sheffield (approved 13/10/2021, reference no. 043654). The corresponding author submitted a University Research Ethics Committee-approved self-declaration to the ethics committee. A full ethical review was waived since the research was judged to involve only existing data that has been robustly anonymised, and is unlikely to cause offence to those who originally provided the data. Our ethics approval letter is contained in the supplement (S4). Most of the data we use is in the public domain. We have obtained consent from SYP to use their data.
 
 ## Project timeline
 
