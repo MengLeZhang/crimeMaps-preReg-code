@@ -336,6 +336,8 @@ police.uk’s snaps database remains a secret. This guarantees that the snap poi
 
 The scope of this study is only limited to a number of years, mainly 2010 - 2013. For RQ2, we can only study the effects for South Yorkshire.
 
+Most data is within the public domain, except for SYP data. We have kept in close contact with SYP to minimise the risk of project termination due to the withdrawal of data access. In case SYP is unable to extract historical data, we will have to amend our statistical analysis or pursure RQ1 only. 
+
 ## Data protection
 A data protection plan formed between SYP and Sheffield University minimises the disclosure of personal data. All personal data will be stored within SYP setting. No personal data will leave these settings. All other data is publicly available. Only aggregated results will be taken out of the setting and cleared by SYP beforehand.
 
