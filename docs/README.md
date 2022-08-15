@@ -76,7 +76,7 @@ When all issues are done, I'll render all the markdown files into word using pan
   - [x] Table 1 should contain currency (the reader assumes this is GBP, right?).
   - A: Done
 
-  - [ ] The bibliography list is not homgeneous.
+  - [ ] The bibliography list is not homogeneous.
   - [ ] The authors should mention how to cope with the risk of finding errors in the data, having solid data for such a project is not only related the presence of missing data.
   - [ ] The quality of preparation of this manuscript should increase.
 
