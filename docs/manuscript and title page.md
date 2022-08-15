@@ -14,7 +14,6 @@ Meng Le Zhang$^1$*, Monsuru Adepeju$^2$, Rhiannon Thomas$^1$
 *Corresponding author
 Email: meng_le.zhang@sheffield.ac.uk (MZ)
 
-
 ----
 
 # Estimating the Effects of Crime Maps on House Prices using an (Un)natural Experiment: A Study Protocol
