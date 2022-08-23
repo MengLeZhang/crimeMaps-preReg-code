@@ -37,7 +37,7 @@ When all issues are done, I'll render all the markdown files into word using pan
 - [ ] Sanity and proof check the final manuscript (all figures there/ everything works)
 
 
-- Meet journal requirements
+### Meet journal requirements
   - [ ] Please ensure that your manuscript meets PLOS ONE's style requirements, including those for file naming. The PLOS ONE style templates can be found at https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf and https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf
   - A: Title page formatted as per instruction. Figures and heading formatted as per instruction. We have also added headings
 
@@ -59,9 +59,12 @@ When all issues are done, I'll render all the markdown files into word using pan
   - [x] Please include captions for your Supporting Information files at the end of your manuscript, and update any in-text citations to match accordingly. Please see our Supporting Information guidelines for more information: http://journals.plos.org/plosone/s/supporting-information.
   A: Done. File names changed and put captions at end of main text.
 
-- Review one comments
-  - [ ] I find the text a bit repetitive. Try to remove some ideas that are mentioned twice.
-  - [ ] Page 16. In general, confounders are not properly defined. This is unclear.
+### Review one comments
+  - [x] I find the text a bit repetitive. Try to remove some ideas that are mentioned twice.
+  - A: We have cut down the text and avoided repeition of the research design. We have moved the technical details for the Snap point and geomasking to Supplement S3 (now renamed to material related to police-uk). This should greatly cut down repetition of key ideas.
+  - [x] Page 16. In general, confounders are not properly defined. This is unclear.
+  - A: We define the technical term confounders in the research design; this is common term used through the social sciences and health related research. We have added a section with examples of confounder in the statistical analysis section. We have gone into details in the sensitivity and robustness tests and shown why the location of houses and crimes are the most important confounders in S2. We have also clarified what we mean by observed and unobserved confounders in the sensitivity and robustness section. We do reiterate that anything can be a confounder (unless proven otherwise).
+
   - [x] Page 16. The definition of "I" and three types of "I" is unclear. How is this used later in the text?
 - A : Deleted in main text. This definition is used in the S2.
 
@@ -74,25 +77,52 @@ When all issues are done, I'll render all the markdown files into word using pan
   - [x] Table 1 column headings should be checked (Ln vs. Log)?
 - A: Changed to log which is normally interpreted as the natural log (ln)
   - [x] Table 1 should contain currency (the reader assumes this is GBP, right?).
-  - A: Done
+  - A: Done. References to GBP are also made in the text.
 
-  - [ ] The bibliography list is not homogeneous.
-  - [ ] The authors should mention how to cope with the risk of finding errors in the data, having solid data for such a project is not only related the presence of missing data.
+
+  - [ ] The bibliography list is not homgeneous.
+  - [x] The authors should mention how to cope with the risk of finding errors in the data, having solid data for such a project is not only related the presence of missing data.
+  - A: We have filled this out more extensively. The public domain data has already been error checked. We have noted potential errors in the raw police data (which will be reflected in the public data). Based on talking with the police and their crime mapper -- these issues are unlikely to affect our results. We have reiterated that we have checked that our Snap data is an accurate recreation of the real secret snap data. We recreate the public domain data from 2011-2013 using raw police data to check that we have recreated the police.uk data routine. Section has been renamed data quality instead of missing data to reflect.
+
   - [ ] The quality of preparation of this manuscript should increase.
 
-- Reviewer two comments:
-  - [ ] the paper is very flawed in its structure, groundwork such as literature and data referencing and lacks a discussion section completely.
-  - [ ] Background. Why is results in supplementary materials. what is the meaning of the data access sentence. what does it mean by serendipitous discovery.
-  - [ ] Previous studies: Reviewer 2 says have studies the effects of crime maps. We just have to show the estimand and the design are not the same.
+### Reviewer two comments:
+- [ ] the paper is very flawed in its structure, groundwork such as literature and data referencing and lacks a discussion section completely.
+- A: This paper follows the structure of a PLOSone/ OSF protocol template with some exception in the original. Deviations from the standard format occured because we are doing secondary data study using a potential natural experiment rather than conducting an actual experiment with new data collection. The paper now follows the standard PLOSone protocol template even more rigidly. We have amended the referencing. The discussion section was called Other Consideration in original manuscript (now renamed). The discussion in a study protocol is not meant to be a discussion of results (since there are no results).
+
+- [ ] Background. Why is results in supplementary materials. what is the meaning of the data access sentence. what does it mean by serendipitous discovery.
+- A: This is a study protocol. S1 shows an example analysis using 1 police force out of 43 to make it clear to the readers a) what we have already done (to test our methods) and b) what the analysis looks like in practise (the statistical analysis section is very abstract and dry). We have moved mention of the serendipitous discovery to the project timelines subsection (in line with PLOSone protocol templates). This ought to clear things up.
+
+- [ ] Previous studies: Reviewer 2 says have studies the effects of crime maps. We just have to show the estimand and the design are not the same.
+
   - [ ] hypothesis. clarify.
   - [ ] hypothesis: correct reference style for data and webpage.
-  - [ ] design. what are confounders (common causes). -- my reply: this is a common term
-  - [ ] design. BetaT is used too much. Choose another letter
-  - [ ] method. time period.
-  - [ ] appendix refenreces not right???
-  - [ ] collinearity: need to ask reviewers to specify what is the issue. collinearity does not bias estimates unless it is particular bad. Clarify the rule of DAGs.
-  - [ ] RQ1. clarify to reviewer 2 re: study protocol,
+
+- [ ] design. what are confounders (common causes).
+- A: this is a common term in the social sciences (including economics) and health. We have explained it in the research design and added examples in the statistical analysis section.
+
+- [ ] design. BetaT is used too much. Choose another letter
+- A: We've kept the statistical notation. There's a lot of formulas and we've sectioned off our estimators in order to avoid confusion around what BetaT is from one section to another. BetaT is normally a test statistic.
+
+- [x] method. time period.
+- A: We've moved the sample subsection to nearer the beginning of the material and methods. We've made the time period as clear as possible. The end period is always the year 2013. The earliest year for RQ2 is unknown (2010 being the latest it can be).
+
+- [ ] appendix refenreces not right???
+- A: We've renamed supplements according to PLOSone guidelines.
+
+- [x] collinearity
+- A. We need to ask reviewer 2 to specify what is the issue. Collinearity does not bias estimates unless it is particular bad (i.e. near perfect collinearity). This is not the case; we've quoted Tompson et al who demonstrated there is a considerable mismatch between police.uk reported crime and police force recorded crimes. Multiple covariate correlated with the 'exposure' (e.g. geomasking error) will reduces statistical power however as reviewer 2 can see all our estimators either have no covariates or few covariates. We have used South Yorkshire data in supplement S1 to demonstrate power and noted other unknowns around power in the main text.
+
+- [ ] RQ1. clarify to reviewer 2 re: study protocol,
+- A. This is a study protocol. Not a result paper.
   - [ ] RQ2. See RQ1
+- A. This is a study protocol. Not a result paper.
+
   - [ ] sensitivity and robustness. see RQ1 and 2
+  - A. This is a study protocol. Not a result paper.
+
   - [ ] data source. what is the different tests for each one?
+  - A. We've stated the exact statistical tests in the robustness section in detail. These are all standard univariate and multivariate tests.
+
   - [ ] Scope, more crime etc.
+  - A: A study protocol outlines the main research questions. It does not stop us from doing exploratory results so long as we are clear what is confirmatory hypothesis testing (e.g. what's in the protocol written before results are known) and what are exploratory results. The scope of our main objectives is to cover an area that is academically novel, within the public interest, and based on hypotheses formed from arguments from the Government and private bodies such as estate agents.
