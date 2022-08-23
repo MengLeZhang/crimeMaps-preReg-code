@@ -10,6 +10,7 @@ __Estimating the Effects of Crime Maps on House Prices using an (Un)natural Expe
 Meng Le Zhang$^1$*, Monsuru Adepeju$^2$, Rhiannon Thomas$^1$
 
 [1] Department of Social Science, University of Sheffield, Sheffield, United Kingdom
+
 [2] Department of Sociology, Manchester Metropolitan University, Manchester, United Kingdom
 
 *Corresponding author
