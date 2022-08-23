@@ -1,11 +1,11 @@
 ---
-output:
-  word_document: default
-  html_document: default
-  bibliography: assets/manuscript-references.bib
+output: word_document
+bibliography: assets/manuscript-biblio.bib  
+csl: assets/plos-one.csl
 ---
 
 __Estimating the Effects of Crime Maps on House Prices using an (Un)natural Experiment: A Study Protocol__
+
 
 Meng Le Zhang$^1$*, Monsuru Adepeju$^2$, Rhiannon Thomas$^1$
 
@@ -60,7 +60,7 @@ The objective of this study protocol is to specify the research plan ahead of da
 
 ## Previous studies
 
-To our knowledge, no other study has studied the effect of crime maps on house prices or leveraged the type of design developed in this study. On the other hand, several observational studies have used crime count data in the UK in the investigation of the relationships between crime and house prices with the results revealing that higher local crime rates negatively impact house prices (Gibbons 2004, Braakman 2017). Globally, Ihlanfeldt and Mayock (2009) reviewed 18 hedonic price studies that have included a measure of neighbourhood crime among the explanatory variables. Generally, crime indicators are negatively associated with house prices but the vast majority of studies do not implement research designs to deal with unobserved characteristics that are associated with both neighbourhood crime and house prices.
+To our knowledge, no other study has studied the effect of crime maps on house prices or leveraged the type of design developed in this study. On the other hand, several observational studies have used crime count data in the UK in the investigation of the relationships between crime and house prices with the results revealing that higher local crime rates negatively impact house prices (Gibbons 2004) @braakmannLinkCrimeRisk2017. Globally, Ihlanfeldt and Mayock (2009) reviewed 18 hedonic price studies that have included a measure of neighbourhood crime among the explanatory variables. Generally, crime indicators are negatively associated with house prices but the vast majority of studies do not implement research designs to deal with unobserved characteristics that are associated with both neighbourhood crime and house prices.
 
 The existence of individual police force crime maps before police.uk has been documented in several studies (Sampson and Kinnear 2010, Chainey and Tompson 2008). Quinton (2011) trialled the effects of crime maps as a pilot before the launch of police.uk. The trial involved very aggregate level crime maps, and participants seemed to spend very little time perusing them (average, ~50 seconds). The primary outcome was perceptions of crime. Police.uk’s geomasking algorithm has been studied in several papers (Chainey and Tompson 2012, Smith and Heath 2014, Tompson et al 2015, Quinn et al 2019). Tompson et al’s 2015 paper on how geomasking errors were substantial in lower geographies (e.g. postcodes) greatly influenced this project. Finally, information about the data on police.uk is published on a companion data site: data.police.uk. This site is further documented in Smith and Heath (2014), and past versions are available from internet archives. This project would not have been possible without the excellent documentation in these sources.
 
@@ -320,7 +320,7 @@ For every residential property sold, we can derive the following variables:
 
 As mentioned early, there is a lag in police.uk data, homebuyers buying in February can only access data up to January (and maybe even less recently than that).
 
-Data on crimes in the prior three months is chosen based on Braakman’s research (2017). Nearby is defined as within 150/300/500m; our preferred distance is 150 because the lowest level of points data on police.uk appears at a specific zoom level. At that zoom level, the scope of the interactive map on police.uk roughly covers a 300m by 300m square.
+Data on crimes in the prior three months is chosen based on Braakman’s research @braakmannLinkCrimeRisk2017. Nearby is defined as within 150/300/500m; our preferred distance is 150 because the lowest level of points data on police.uk appears at a specific zoom level. At that zoom level, the scope of the interactive map on police.uk roughly covers a 300m by 300m square.
 
 ### Data quality issues
 
@@ -367,7 +367,6 @@ A data protection plan formed between SYP and Sheffield University minimises the
 
 # Bibliography
 
-Braakmann, Nils. 2017. ‘The Link between Crime Risk and Property Prices in England and Wales: Evidence from Street-Level Data’. Urban Studies 54 (8): 1990–2007. https://doi.org/10.1177/0042098016634611.
 
 Ceccato, V. and Wilhelmsson, M. 2011. ‘The impact of crime on apartment prices: Evidence from Stockholm, Sweden’. Geografiska Annaler: Series B, Human Geography, 93, 81–103.
 
