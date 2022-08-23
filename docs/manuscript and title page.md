@@ -1,6 +1,6 @@
 ---
 output: word_document
-bibliography: assets/manuscript-biblio.bib  
+bibliography: assets/manuscript-biblio.bib
 csl: assets/plos-one.csl
 ---
 
@@ -26,9 +26,9 @@ To address this question empirically, we would ideally experiment and introduce 
 
 # Introduction
 
-Crime may affect house prices through mediating causal pathways–such as the destruction of property or victimisation of locals (Ceccato & Wilhelmsson, 2011; Gibbons, 2004). One mediating pathway is the ‘signalling’ effect of crime which may decrease house prices in high crime areas due to a perception of increased victimisation or other factors like undesirable neighbours. The public may form their opinions about crime from several sources, from word of mouth to official statistics. Since 2011, the UK government has published online monthly crime figures at almost street-level resolution (Sampson and Kinnear 2010). Since launch, the crime map website (henceforth referred to by its domain name police.uk) has received approximately 1 million visits a month (Semrush, 2022).  On launch in February 2011, police.uk received over 18 million visits an hour which caused the website to crash repeatedly (Travis and Mulholland 2011). Before the publication of online crime maps on police.uk, street-level crime data was never available to the public (except in West Yorkshire, Sampson and Kinnear 2010).
+Crime may affect house prices through mediating causal pathways–such as the destruction of property or victimisation of locals @ceccatoImpactCrimeApartment2011 @gibbonsCostsUrbanProperty2004. One mediating pathway is the ‘signalling’ effect of crime which may decrease house prices in high crime areas due to a perception of increased victimisation or other factors like undesirable neighbours. The public may form their opinions about crime from several sources, from word of mouth to official statistics. Since 2011, the UK government has published online monthly crime figures at almost street-level resolution (Sampson and Kinnear 2010). Since launch, the crime map website (henceforth referred to by its domain name police.uk) has received approximately 1 million visits a month (Semrush, 2022).  On launch in February 2011, police.uk received over 18 million visits an hour which caused the website to crash repeatedly (Travis and Mulholland 2011). Before the publication of online crime maps on police.uk, street-level crime data was never available to the public (except in West Yorkshire, Sampson and Kinnear 2010).
 
-The release of online crime maps was supposed to create public confidence in crime statistics and support public service transparency (Chainey and Tomspon 2012). The publication of these maps was met by opposition who feared it would affect house prices and increase insurance premiums, particularly in high crime low-income neighbourhoods (Travis and Mulholland 2011, also see Ratcliffe 2002). At the time, the UK government argued that the benefits of open public service data outweighed these concerns (Herbert 2011). However, the advantages and disadvantages of publicly available crime data as a policy are unclear. Many countries with similar capabilities do not make such information public. For example, Scotland has not followed the rest of the UK in this respect.
+The release of online crime maps was supposed to create public confidence in crime statistics and support public service transparency @chaineyEngagementEmpowermentTransparency2012. The publication of these maps was met by opposition who feared it would affect house prices and increase insurance premiums, particularly in high crime low-income neighbourhoods (Travis and Mulholland 2011, also see Ratcliffe 2002). At the time, the UK government argued that the benefits of open public service data outweighed these concerns (Herbert 2011). However, the advantages and disadvantages of publicly available crime data as a policy are unclear. Many countries with similar capabilities do not make such information public. For example, Scotland has not followed the rest of the UK in this respect.
 
 In this project, we are interested in the causal effect of public crime maps on house prices. This effect is separate from the impact of crime on house prices through other causal pathways such as damage to the environment or negative public perceptions due to victimisation in the local area. The effect of crime maps on house prices is difficult to identify since accurate crime statistics would perfectly mirror actual crime. It is impossible to estimate the effects of crime statistics from actual crime separately in this scenario.
 
@@ -62,7 +62,7 @@ The objective of this study protocol is to specify the research plan ahead of da
 
 To our knowledge, no other study has studied the effect of crime maps on house prices or leveraged the type of design developed in this study. On the other hand, several observational studies have used crime count data in the UK in the investigation of the relationships between crime and house prices with the results revealing that higher local crime rates negatively impact house prices (Gibbons 2004) @braakmannLinkCrimeRisk2017. Globally, Ihlanfeldt and Mayock (2009) reviewed 18 hedonic price studies that have included a measure of neighbourhood crime among the explanatory variables. Generally, crime indicators are negatively associated with house prices but the vast majority of studies do not implement research designs to deal with unobserved characteristics that are associated with both neighbourhood crime and house prices.
 
-The existence of individual police force crime maps before police.uk has been documented in several studies (Sampson and Kinnear 2010, Chainey and Tompson 2008). Quinton (2011) trialled the effects of crime maps as a pilot before the launch of police.uk. The trial involved very aggregate level crime maps, and participants seemed to spend very little time perusing them (average, ~50 seconds). The primary outcome was perceptions of crime. Police.uk’s geomasking algorithm has been studied in several papers (Chainey and Tompson 2012, Smith and Heath 2014, Tompson et al 2015, Quinn et al 2019). Tompson et al’s 2015 paper on how geomasking errors were substantial in lower geographies (e.g. postcodes) greatly influenced this project. Finally, information about the data on police.uk is published on a companion data site: data.police.uk. This site is further documented in Smith and Heath (2014), and past versions are available from internet archives. This project would not have been possible without the excellent documentation in these sources.
+The existence of individual police force crime maps before police.uk has been documented in several studies @chaineyCrimeMappingCase2008 (Sampson and Kinnear 2010). Quinton (2011) trialled the effects of crime maps as a pilot before the launch of police.uk. The trial involved very aggregate level crime maps, and participants seemed to spend very little time perusing them (average, ~50 seconds). The primary outcome was perceptions of crime. Police.uk’s geomasking algorithm has been studied in several papers @chaineyEngagementEmpowermentTransparency2012  (Smith and Heath 2014, Tompson et al 2015, Quinn et al 2019). Tompson et al’s 2015 paper on how geomasking errors were substantial in lower geographies (e.g. postcodes) greatly influenced this project. Finally, information about the data on police.uk is published on a companion data site @DataPoliceUk and past versions are available from internet archives @DataPoliceUk2013. This site is also documented in Smith and Heath (2014). This project would not have been possible without the excellent documentation in these sources.
 
 The general strategy of leveraging differences between what is publicly seen and what is actually the case is well-established in economics. In labour economics, coarsened information about overall course grades has been used to study the ‘signalling’ effects of education on labour market outcomes (Feng and Graetz 2015). Coarsened public information about Radon has been used to study the effects of Radon on house prices (Pinchbeck et al 2020).
 
@@ -119,7 +119,7 @@ To do a power analysis, we need to know the variance of the ‘treatment’ vari
 Begin with a limited version of the causal relationship between snap points around a house, crimes on police.uk around a house, selling price and confounders (many of which we observe). Let:
 
 - $Y$ selling price of a house (logged). $Y$ can be demeaned to adjust for inflation but this is irrelevant later (e.g. due to the inclusion of an intercept in OLS models ).
-- $C_g$ Total crime counts around a house using police.uk (i.e. geomasked crime count). For records before Dec 2010, we use South Yorkshire Police's geocoded data, our inferred-snap list, and details from data.police.uk to create what data would have been on police.uk if it had launched earlier (see data section).
+- $C_g$ Total crime counts around a house using police.uk (i.e. geomasked crime count). For records before Dec 2010, we use South Yorkshire Police's geocoded data, our inferred-snap list, and details from data.police.uk @DataPoliceUk to create what data would have been on police.uk if it had launched earlier (see data section).
 - $C_r$ Total crime counts around a house using police force records. Although errors can exist in the police data, we assume this is the real crime count for simplicity. We do not believe this will adversely affect our design.
 - $M_s$ Sum of snaps around a house
 - $U$ confounding factors affecting $Y$ and other variables.
@@ -263,7 +263,7 @@ Finally, we can resort to investigative work to uncover evidence that may refute
 ### Data sources / Datasets used
 The HM Land Registry Price Paid dataset is a publicly available dataset of properties sold in England and Wales since 1995. The dataset contains information on price sold, address, house type and other features of the property sold. The dataset excludes certain types of transactions, such as inheritance and discounted transactions (e.g. discounted sales of social housing under the ‘Right to Buy’ scheme). The dataset can be accessed at: https://www.gov.uk/government/collections/price-paid-data. The coordinates of a property are derived from the coordinates of its postcode as recorded in the ONS National Statistics Postcode Lookup (ONS, 2021).
 
-Archival data from police.uk are publicly available from the police.uk data site (https://data.police.uk/data/archive/). Other information, such as police force boundaries, are also contained on the website. We use the earliest archival extract of police.uk which contains data on crimes from Dec 2010 to Dec 2013. In general, police.uk keeps excellent documentation on archival data and changes made to its website and data manipulation. We also cross-referenced the historical police.uk website using the Wayback machine, which is an archive of websites.
+Archival data from police.uk are publicly available from the police.uk data site @DataPoliceUk2013. Other information, such as police force boundaries, are also contained on the website. We use the earliest archival extract of police.uk which contains data on crimes from Dec 2010 to Dec 2013. In general, police.uk keeps excellent documentation on archival data and changes made to its website and data manipulation. We also cross-referenced the historical police.uk website using the Wayback machine, which is an archive of websites.
 
 For SYP crime data, we will use the same data source sent to the Home Office and ultimately processed by police.uk. We expect data from at least the year 2010 to be available.
 
@@ -284,7 +284,7 @@ To test the plausibility of the research design, we use a variety of data source
 ### Data access restrictions
 Police force data is not directly available for research. Researchers need to contact and negotiate access with individual police forces. Other data sources mentioned are publicly available or else require a free registered account. In the case of Ordinance Survey product (OS), researchers may need to purchase data from OS.
 
-We inferred the master list of snap-points from public domain data from data.police.uk. The inferred list cannot be used for reverse geomasking (i.e. to reveal the exact location of crimes and identify victims). We have explained exactly how to recreate this list using public data (see supplement S3) and have shared our code on Github [link redacted for peer review].
+We inferred the master list of snap-points from public domain data from data.police.uk @DataPoliceUk. The inferred list cannot be used for reverse geomasking (i.e. to reveal the exact location of crimes and identify victims). We have explained exactly how to recreate this list using public data (see supplement S3) and have shared our code on Github [link redacted for peer review].
 
 ### Variables/ Codebook
 The main variables used are:
@@ -344,7 +344,7 @@ police.uk’s snaps database remains a secret. This guarantees that the snap poi
 
 The scope of this study is only limited to a number of years, mainly 2010 - 2013. For RQ2, we can only study the effects for South Yorkshire.
 
-Most data is within the public domain, except for SYP data. We have kept in close contact with SYP to minimise the risk of project termination due to the withdrawal of data access. In case SYP is unable to extract historical data, we will have to amend our statistical analysis or pursure RQ1 only. 
+Most data is within the public domain, except for SYP data. We have kept in close contact with SYP to minimise the risk of project termination due to the withdrawal of data access. In case SYP is unable to extract historical data, we will have to amend our statistical analysis or pursure RQ1 only.
 
 ## Data protection
 A data protection plan formed between SYP and Sheffield University minimises the disclosure of personal data. All personal data will be stored within SYP setting. No personal data will leave these settings. All other data is publicly available. Only aggregated results will be taken out of the setting and cleared by SYP beforehand.
@@ -367,14 +367,6 @@ A data protection plan formed between SYP and Sheffield University minimises the
 
 # Bibliography
 
-
-Ceccato, V. and Wilhelmsson, M. 2011. ‘The impact of crime on apartment prices: Evidence from Stockholm, Sweden’. Geografiska Annaler: Series B, Human Geography, 93, 81–103.
-
-Chainey, Spencer, and Lisa Tompson. 2008. Crime Mapping Case Studies: Practice and Research. London, UK: John Wiley & Sons, Ltd.
-
-Chainey, S., and L. Tompson. 2012. ‘Engagement, Empowerment and Transparency: Publishing Crime Statistics Using Online Crime Mapping1’. Policing 6 (3): 228–39. https://doi.org/10.1093/police/pas006.
-
-data.police.uk. n.d. ‘About | Data.Police.Uk’. Accessed 18 March 2022. https://data.police.uk/about/. Older web archived version are here on the Wayback machine: https://web.archive.org/web/20130705204237/https://data.police.uk/about/
 
 Feng, A, and G Graetz. 2015. A Question of Degree: The Effects of Degree Class on Labour Market Outcomes. Centre for Economic Performance Discussion Paper. London: Centre for Economic Performance.
 
