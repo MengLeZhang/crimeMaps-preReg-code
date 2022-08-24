@@ -30,7 +30,7 @@ Our conclusion is none of these studies looks . The only common theme is that al
 - Dubin, R. A., & Goodman, A. C. (1982). Valuation of education and crime neighborhood characteristics through Hedonic Housing Prices. Population and Environment, 5, 166–181.
 
 Estimand:
-Design: 
+Design:
 
 - Ceccato, V., & Wilhelmsson, M. (2012). Acts of vandalism and fear in neighbourhoods: Do they affect housing prices? In V. Ceccato (Ed.), The urban fabric of crime and fear (pp. 191–215). New York, London: Springer.
 
@@ -48,3 +48,13 @@ Design:
 
 
 We also would like to note that none of these studies have a protocol written before seeing the results. Only a small minority of study conduct falsification tests of their assumptions.
+
+---
+
+Stashed R2 reply
+
+First, all of these paper are about the effect of crimes on property prices. Our paper is about the introduction of crime maps on house property prices. These are not the same causal effects at all and have very different policy implications. Even if crime maps are not ever made available (as in the case of many countries including Scotland), this will not stop crime itself having an effect on property. We have also assumed these authors are implicitly making a causal claim -- it is unclear to us to what extent the authors actually believe they have been successful in getting an unbiased causal estimator. We are very clear about the causal estimand and our goals in the protocol (whether we succeed is another matter dependent on robustness tests).
+
+Second, these paper have very weak identification strategies (e.g. research designs). Almost all of these paper use hedonic modeling (i.e. linear regression models) and are dependent on all relevant confounders being including in the statistical models (along with other parametric assumptions such as correct model specifications etc). The assumption of no omitted confounders is never tested or testable. There is no design-based source of exogeneity (i.e. quasi-random variations in crime) except the occassional use of instrumental variables in alternate specifications. Almost all the instruments are dubious with very little rationale given for their choice. There is also little done to test the assumption that the instruments are exogenous.
+
+Our conclusions are in line with an older review of the literature on crime and house prices by @refGibbons who also pick up on the same issues: weak identification strategies (no design aside from kitchen sink statistical models) and little justification of instruments or robustness tests (when instrumental variables are used). We would also the reviewer to compare and contrast these approaches with our research design.
