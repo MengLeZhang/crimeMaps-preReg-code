@@ -1,3 +1,8 @@
+---
+output: word_document
+bibliography: ../assets/manuscript-biblio.bib
+csl: ../assets/plos-one.csl
+---
 
 ## A2. DAG with more confounders
 
