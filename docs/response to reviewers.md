@@ -1,74 +1,64 @@
-# README on journal submission
-
-We need to address the journal comment
-
-
-# How to work with markdown:
-
-Ideally you want to use a text editor that comes with feature to preview markdown and checks for errors. I use [Atom](https://atom.io/) which is seriously excellent and lightweight.
-
-You can download additional packages for Atom to make it more useable. I recommend:
-
-- Markdown Preview Enhanced. Aside from a nice live preview (press ctrl+shift+m). It includes support for maths symbols.
-- markdown-img-paste. Normally with markdown you need to insert a link to a figure you want to render. This means you have to save the image and specify its filepath. This package allows you to 'copy and paste' images by automating all of this. Your pasted content will be in the /assets folder.
-
-Remember this about markdown:
-- all filepaths are relative. Take this README which is written in markdown. If I want link to 'appendix.md' it will look for a filed names this in the same folder as this README.
-- unfortunately my experience with reference managers in markdown is a faff. Any references just pop it in with a note (e.g. @reference) and I'll go chase it up.
-- I'll be rendering the markdown doc with rstudio (which calls up pandocs) into word. I'll take care of this.
-
-# Steps:
-1. Check the issues page on github
-2. Pick an issue that you want to work on and write on the page
-3. Each issue has a branch named it after the issue. Work on the issue on that branch. See below to check how to access:
-![](assets/readme-1.png)
-
-4. Every week on Friday, MZ will merge finished branches together into main.
-5. Repeat until all issues are addressed.
-6. If you can get stuck on an issue or particular task (i.e. it's something only MZ can do). Let everyone know in the issues page.
-
-When all issues are done, I'll render all the markdown files into word using pandocs/rstudio/rmarkdown. Then it'll get sent to PLOSone.
-
-# Building the documents
-
-Most of the docs are designed to be submitted as word docs. The intended output is located in the YAML at the start of the files. Example is:
-
-````
 ---
-output: word_document
-bibliography: ../assets/manuscript-biblio.bib
-csl: ../assets/plos-one.csl
+output:
+  pdf_document: default
+  html_document: default
 ---
-````
-The documents are built using rmarkdown from Rstudio (which itself calls up pandocs). The bibliography and citation style is under a folder called assets.
+# Response to reviewers
+
+We would like to take the reviewers and editors for their time in providing their comments; many of which were detailed and specific. The majority of these from Reviewer 1 and the journal editorial team were about the preparation of the manuscript. In response, we have made these major changes:
+
+- Changed the document to conform with PLoSone guidelines in line with the editor's suggestions
+- Changed section heading to be more in line with PLoSone's guidelines for protocols
+- Uploaded figures up to standard of PLOSone using the PACE tool.
+- Supplements are now correct referenced.
+- Added Ethics and funding letter to the supporting information (not for peer review). Improved ethic subsection in the methods section in line with PLoSone guidelines.
+- Clarification about confounders with examples in the statistical analysis subsection.  We have also clarified what we mean by observed and unobserved confounders (i.e. variables that the research team can observe vs unobserable/ unavailable variables) in the sensitivity and robustness section.
+- Added more references to studies on the effects of crime maps on public perception.
+- Added a project timeline subsection to clarify the project status and the degree to which we are blind to the results before starting data extraction and analysis.
+- Cut down on text reptition by moving the technical details of snap points and geomasking to supplment S3. The main text no longer repeats the core design ideas as much.
+- Improved discussion of data errors. We have added in additional information from SYP on the raw police data. Subsection has been renamed data quality instead of missing data to reflect change.
+- Fixed numerous minor issues (typoes, figure referencing, table heading, referencing tables in the text etc)
+
+We note that reviewer 1 is positive in their review (answering yes to all check items). Reviewer 2 has a completely different opinion. We believe the majority of reviewer 2's comments stem from a misunderstanding: this is a study protocol and not a full report on findings. The definition of a study protocol from PLOSone:
+
+> Study Protocols describe detailed plans for conducting research, including the background, rationale, objectives, methodology, statistical plan, and organization of a research project. PLOS ONE accepts submissions of Study Protocols for any study type within the journal’s scope.
+
+We have been clear that this is a protocol: the word protocol is mentioned around 8 times throughout the text (including the title). Most of reviewer two's comments, such as lack of results and discussion, are outside the scope of a protocol and are not relevant. This is evidenced by PLoSone's own guidelines for protocol. Reviewer two also has valid criticisms which we have addressed (see itemised responses). However, we want to address reviewer two criticism of our paper's originality here.
+
+Reviewer two believes the literature work is scarce; truthfully that's because the literature on the impact of crime maps is scarce. However, we have included additional references on related studies looking at public perceptions of crime maps. They also hallenge our assertiation:  “no other study has studied the effect of crime maps on house prices or leveraged the type of design developed in this study.” Then provides a list of reference.
+
+We have fact-checked this references to check 1) the estimand of these studies (i.e. do they measure crime map effects or something else) and 2) the design of the study (i.e. did they use geomasking errors or other quirks of crime data to seperate the effects of Open Data from other crime effects). First, none of them look at the introduction of crime maps on house prices. They all look at relationship between crime in general on house prices. This is not the same topic. Second, they almost all depend on statistical adjustments with no design beyond throwing whatever covariates into a regression model (aside from those using instrumental variables with implausible instruments). We rely on geomasking to provide nearly as good as random variations in crime information available to the public (with interrupted time series taking out any remaining confounding bias). Third, we already cite a systematic review of crime effects on house prices in our submission (Ihanfeldt and Mayock) which also comes to the same conclusion about this literatures (e.g. weak identification strategies).
+Our original comments about novelty still stand. The reviewers can check our summaries of each article (under reply to reviewer 2 comments) to make up their own minds.
+
+Regarding our current status. When we submitted the paper in May, we had not yet extracted any data in order to remain blind to the final results. The only exception is public domain data from South Yorkshire which was used to test code, scope statistical power, and demonstrate our estimators. Since we know the early results from one police force (for RQ1 only), we have openly declared this. We have not used public domain data from any of the other 40+ forces for the protocol (but will do so for the study). This is a project with limited resources and time. We have since gained access to raw South Yorkshire Police data (used for RQ2) and are poised to start analysing public domain data (used for RQ1) in this September (see project timeline subsection).
+
+We are happy for PLOSone to publish the history of this submission so that all readers can judge that we have not changed our hypotheses and research questions between initial submission and resubmission (in fact our hypotheses remain the same as those in our study pre-registration on OSF).
 
 
-----
+---
 
-# To do list:
-
-- [ ] Collate a review response/ rebuttal
-- [ ] Sanity and proof check the final manuscript (all figures there/ everything works)
+# List of detailed responses
 
 
-### Meet journal requirements
-  - [ ] Please ensure that your manuscript meets PLOS ONE's style requirements, including those for file naming. The PLOS ONE style templates can be found at https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf and https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf
-  - A: Title page formatted as per instruction. Figures and heading formatted as per instruction. We have also added headings
 
-  - [x] Please include your full ethics statement in the ‘Methods’ section of your manuscript file. In your statement, please include the full name of the IRB or ethics committee who approved or waived your study, as well as whether or not you obtained informed written or verbal consent. If consent was waived for your study, please include this information in your statement as well.
-  - A: Added and ethics letter is in supplement (S4).
+## Editor comments
+- [x] Please ensure that your manuscript meets PLOS ONE's style requirements, including those for file naming. The PLOS ONE style templates can be found at https://journals.plos.org/plosone/s/file?id=wjVg/PLOSOne_formatting_sample_main_body.pdf and https://journals.plos.org/plosone/s/file?id=ba62/PLOSOne_formatting_sample_title_authors_affiliations.pdf
+- A: Changed as per requested. Title page formatted as per instruction. Figures and heading formatted as per instruction.
 
-  - [x] Please upload a new copy of Figure 1 as the detail is not clear. Please follow the link for more information: https://blogs.plos.org/plos/2019/06/looking-good-tips-for-creating-your-plos-figures-graphics/
-  - A: Done. All figures are converted and checked through PACE
+- [x] Please include your full ethics statement in the ‘Methods’ section of your manuscript file. In your statement, please include the full name of the IRB or ethics committee who approved or waived your study, as well as whether or not you obtained informed written or verbal consent. If consent was waived for your study, please include this information in your statement as well.
+- A: Added and ethics letter is in supplement (S4).
 
-  - [x] We note you have included a table to which you do not refer in the text of your manuscript. Please ensure that you refer to Table 1 in your text; if accepted, production will need this reference to link the reader to the Table.
-  - A: Done
+- [x] Please upload a new copy of Figure 1 as the detail is not clear. Please follow the link for more information: https://blogs.plos.org/plos/2019/06/looking-good-tips-for-creating-your-plos-figures-graphics/
+- A: Done. All figures are converted and checked through PACE
 
-  - [x] Please ensure that you refer to Figure 1 and 3 in your text as, if accepted, production will need this reference to link the reader to the figure.
-  - A: references added in text
+- [x] We note you have included a table to which you do not refer in the text of your manuscript. Please ensure that you refer to Table 1 in your text; if accepted, production will need this reference to link the reader to the Table.
+- A: Done
 
-  - [x] Please upload a copy of Figure 7 and 5, to which you refer in your text on page 3 and 14. If the figure is no longer to be included as part of the submission please remove all reference to it within the text.
-  - A: Figure 5 amended to figure 3. Figure 7 is a figure in a referenced paper and is a citation (made clearer in text).
+- [x] Please ensure that you refer to Figure 1 and 3 in your text as, if accepted, production will need this reference to link the reader to the figure.
+- A: references added in text
+
+- [x] Please upload a copy of Figure 7 and 5, to which you refer in your text on page 3 and 14. If the figure is no longer to be included as part of the submission please remove all reference to it within the text.
+- A: Figure 5 amended to figure 3. Figure 7 is a figure in a referenced paper (made clearer in text).
 
   - [x] Please include captions for your Supporting Information files at the end of your manuscript, and update any in-text citations to match accordingly. Please see our Supporting Information guidelines for more information: http://journals.plos.org/plosone/s/supporting-information.
   A: Done. File names changed and put captions at end of main text.
@@ -82,26 +72,26 @@ The documents are built using rmarkdown from Rstudio (which itself calls up pand
   - [x] Page 16. The definition of "I" and three types of "I" is unclear. How is this used later in the text?
 - A : Deleted in main text. This definition is used in the S2.
 
-  - [x] Page 20. The text mentions Figure 5, which is not located in the main text.
-    - A: Figure 5 is amended to figure 3.
+- [x] Page 20. The text mentions Figure 5, which is not located in the main text.
+- A: Figure 5 is amended to figure 3.
 
-  - [x] Page 22. "share" should be "shared"
-  - A: done
+- [x] Page 22. "share" should be "shared"
+- A: done
 
-  - [x] Table 1 column headings should be checked (Ln vs. Log)?
+- [x] Table 1 column headings should be checked (Ln vs. Log)?
 - A: Changed to log which is normally interpreted as the natural log (ln)
-  - [x] Table 1 should contain currency (the reader assumes this is GBP, right?).
-  - A: Done. References to GBP are also made in the text.
+- [x] Table 1 should contain currency (the reader assumes this is GBP, right?).
+- A: Done. References to GBP are also made in the text.
 
 
-  - [x] The bibliography list is not homgeneous.
-  - A: The bibliography list has been amended to Vancouver style as mandated by PLOSone.
+- [x] The bibliography list is not homgeneous.
+- A: The bibliography list has been amended to Vancouver style as mandated by PLOSone.
 
-  - [x] The authors should mention how to cope with the risk of finding errors in the data, having solid data for such a project is not only related the presence of missing data.
-  - A: We have filled this out more extensively. The public domain data has already been error checked. We have noted potential errors in the raw police data (which will be reflected in the public data). Based on talking with the police and their crime mapper -- these issues are unlikely to affect our results. We have reiterated that we have checked that our Snap data is an accurate recreation of the real secret snap data. We recreate the public domain data from 2011-2013 using raw police data to check that we have recreated the police.uk data routine. Section has been renamed data quality instead of missing data to reflect.
+- [x] The authors should mention how to cope with the risk of finding errors in the data, having solid data for such a project is not only related the presence of missing data.
+- A: We have filled this out more extensively. The public domain data has already been error checked. We have noted potential errors in the raw police data (which will be reflected in the public data). Based on talking with the police and their crime mapper -- these issues are unlikely to affect our results. We have reiterated that we have checked that our Snap data is an accurate recreation of the real secret snap data. We recreate the public domain data from 2011-2013 using raw police data to check that we have recreated the police.uk data routine. Section has been renamed data quality instead of missing data to reflect.
 
-  - [x] The quality of preparation of this manuscript should increase.
-  - A: Following the advice of the reviewer and the editor, we have amended the manuscript with reference to PLOSone's guidelines.
+- [x] The quality of preparation of this manuscript should increase.
+- A: Following the advice of the reviewer and the editor, we have amended the manuscript with reference to PLOSone's guidelines.
 
 ### Reviewer two comments:
 - [x] The manuscript organization is a bit confusing, for instance, sections are unnumbered, data sources appear at the end, the results section is located in the supplementary material and the findings and conclusions/discussions are missed ... the paper is very flawed in its structure, groundwork such as literature and data referencing and lacks a discussion section completely.
@@ -148,8 +138,11 @@ The documents are built using rmarkdown from Rstudio (which itself calls up pand
 - [x] Scope, more crime etc.
 - A: A study protocol outlines the main research questions. It does not stop us from doing exploratory results so long as we are clear what is confirmatory hypothesis testing (e.g. what's in the protocol written before results are known) and what are exploratory results. The scope of our main objectives is to cover an area that is academically novel, within the public interest, and based on hypotheses formed from arguments from the Government and private bodies such as estate agents.
 
-- [x] Our claims of originality and literature review.
-- A: We have inspected very single reference noting it's estimand and research design. We summarise our findings in the main reply. In short, in every case the estimand was different (i.e. not about crime maps). The methodology is also different; instrumental variables and hedonic regression models are used whilst we opt for a simple designed based estimator with far more assumption tests. For comparison's sake, we start with the estimand and research design of the current study:
+
+
+## Fact-check of papers
+
+For comparison's sake, we start with the estimand and research design of the current study:
 
 
 __This paper__
@@ -214,4 +207,7 @@ Design: Statistical adjustment only: hedonic modelling with alternative specific
 
 > such tests reject instrument validity may often barely exceed small levels, even when instruments are seriously invalid, whereas even minor invalidity of instruments can severely undermine inference on regression coefficients by instrumental variable estimators. These uncomfortable patterns may be aggravated when particular valid or invalid instruments are relatively weak or strong.
 
-https://www.sciencedirect.com/science/article/pii/S0165176521002123
+From: 
+
+> Kiviet, Jan F., and Sebastian Kripfganz. 2021. ‘Instrument Approval by the Sargan Test and Its Consequences for Coefficient Estimation’. Economics Letters 205 (August): 109935. https://doi.org/10.1016/j.econlet.2021.109935.
+
