@@ -1,3 +1,9 @@
+---
+output: word_document
+bibliography: ../assets/manuscript-biblio.bib
+csl: ../assets/plos-one.csl
+---
+
 # S1. Example of analysis (RQ1)
 
 For this analysis, we'll use house price data for the year 2010 - 2013 and futher filter the sample according to the routine described in this protcol. For each house sold, we know the total number of potential snap points nearby (150m), the sold price (logged), and other characteristics. We use version one of the police.uk snap points list.
