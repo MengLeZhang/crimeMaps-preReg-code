@@ -19,15 +19,15 @@ We would like to thank the reviewers and editors for their time in providing the
 - Improved discussion of data errors. We have added in additional information from SYP on the raw police data. Subsection has been renamed data quality instead of missing data to reflect change.
 - Fixed numerous minor issues (typos, figure referencing, table heading, referencing tables in the text etc)
 
-We note that reviewer 1 is positive in their review (answering yes to all check items). Reviewer 2 has a completely different opinion. We believe the majority of reviewer 2's comments stem from a misunderstanding: this is a study protocol and not a full report on findings. The definition of a study protocol from PLOSone:
+We note that reviewer 1 is positive in their review (answering yes to all check items). Reviewer 2 has a completely different opinion. We believe the majority of reviewer 2's comments stem from a misunderstanding: this is a study protocol and not a full report on findings. The definition of a study protocol from PLOSOne:
 
 > Study Protocols describe detailed plans for conducting research, including the background, rationale, objectives, methodology, statistical plan, and organization of a research project. PLOS ONE accepts submissions of Study Protocols for any study type within the journal’s scope.
 
-We have been clear that this is a protocol: the word protocol is mentioned around 8 times throughout the text (including the title). Most of reviewer two's comments, such as lack of results and discussion, are outside the scope of a protocol and are not relevant. This is evidenced by PLoSone's own guidelines for protocol. Reviewer two also has valid criticisms which we have addressed (see itemised responses). However, we want to address reviewer two criticism of our paper's originality here.
+However, Reviewer two has valid criticisms which we have addressed (see itemised responses). First, we want to address reviewer two criticism of our paper's originality here.
 
-Reviewer two believes the literature work is scarce; truthfully that's because the literature on the impact of crime maps is scarce. However, we have included additional references on related studies looking at public perceptions of crime maps. They also hallenge our assertiation:  “no other study has studied the effect of crime maps on house prices or leveraged the type of design developed in this study.” Then provides a list of reference.
+Reviewer two believes the literature work is sparse; truthfully that's because the literature on the impact of crime maps is scarce. However, we have included additional references on related studies looking at public perceptions of crime maps. They also challenged our assertion:  “no other study has studied the effect of crime maps on house prices or leveraged the type of design developed in this study.” Then provides a list of reference.
 
-We have fact-checked this references to check 1) the estimand of these studies (i.e. do they measure crime map effects or something else) and 2) the design of the study (i.e. did they use geomasking errors or other quirks of crime data to seperate the effects of Open Data from other crime effects). First, none of them look at the introduction of crime maps on house prices. They all look at relationship between crime in general on house prices. This is not the same topic. Second, they almost all depend on statistical adjustments with no design beyond throwing whatever covariates into a regression model (aside from those using instrumental variables with implausible instruments). We rely on geomasking to provide nearly as good as random variations in crime information available to the public (with interrupted time series taking out any remaining confounding bias). Third, we already cite a systematic review of crime effects on house prices in our submission (Ihanfeldt and Mayock) which also comes to the same conclusion about this literatures (e.g. weak identification strategies).
+We have fact-checked this references to check 1) the estimand of these studies (i.e. do they measure crime map effects or something else) and 2) the design of the study (i.e. did they use geomasking errors or other quirks of crime data to separate the effects of Open Data from other crime effects). First, none of them look at the introduction of crime maps on house prices. They all look at relationship between crime in general on house prices. This is not the same topic. Second, they almost all depend on statistical adjustments with no design beyond throwing whatever covariates into a regression model (aside from those using instrumental variables with implausible instruments). We rely on geomasking to provide nearly as good as random variations in crime information available to the public (with interrupted time series taking out any remaining confounding bias). Third, we already cite a systematic review of crime effects on house prices in our submission (Ihanfeldt and Mayock) which also comes to the same conclusion about this literatures (e.g. weak identification strategies).
 Our original comments about novelty still stand. The reviewers can check our summaries of each article (under reply to reviewer 2 comments) to make up their own minds.
 
 Regarding our current status. When we submitted the paper in May, we had not yet extracted any data in order to remain blind to the final results. The only exception is public domain data from South Yorkshire which was used to test code, scope statistical power, and demonstrate our estimators. Since we know the early results from one police force (for RQ1 only), we have openly declared this. We have not used public domain data from any of the other 40+ forces for the protocol (but will do so for the study). This is a project with limited resources and time. We have since gained access to raw South Yorkshire Police data (used for RQ2) and are poised to start analysing public domain data (used for RQ1) in this September (see project timeline subsection).
@@ -65,9 +65,9 @@ We are happy for PLOSone to publish the history of this submission so that all r
 
 ### Review one comments
   - [x] I find the text a bit repetitive. Try to remove some ideas that are mentioned twice.
-  - A: We have cut down the text and avoided repeition of the research design. We have moved the technical details for the Snap point and geomasking to Supplement S3 (now renamed to material related to police-uk). This should greatly cut down repetition of key ideas.
+  - A: We have cut down the text and avoided repetition of the research design. We have moved the technical details for the snap point and geomasking to Supplement S3 (now renamed to material related to police-uk). This should greatly cut down repetition of key ideas.
   - [x] Page 16. In general, confounders are not properly defined. This is unclear.
-  - A: We define the technical term confounders in the research design; this is common term used through the social sciences and health related research. We have added a section with examples of confounder in the statistical analysis section. We have gone into details in the sensitivity and robustness tests and shown why the location of houses and crimes are the most important confounders in S2. We have also clarified what we mean by observed and unobserved confounders in the sensitivity and robustness section. We do reiterate that anything can be a confounder (unless proven otherwise).
+  - A: We define the technical term confounders in the research design; this is common term used throughout the social sciences and health related research. We have added a section with examples of confounder in the statistical analysis section. We have gone into details in the sensitivity and robustness tests and shown why the location of houses and crimes are the most important confounders in S2. We have also clarified what we mean by observed and unobserved confounders in the sensitivity and robustness section. We do reiterate that anything can be a confounder (unless proven otherwise).
 
   - [x] Page 16. The definition of "I" and three types of "I" is unclear. How is this used later in the text?
 - A : Deleted in main text. This definition is used in the S2.
@@ -87,7 +87,7 @@ We are happy for PLOSone to publish the history of this submission so that all r
 - [x] The bibliography list is not homgeneous.
 - A: The bibliography list has been amended to Vancouver style as mandated by PLOSone.
 
-- [x] The authors should mention how to cope with the risk of finding errors in the data, having solid data for such a project is not only related the presence of missing data.
+- [x] The authors should mention how to cope with the risk of finding errors in the data, having solid data for such a project is not only related to the presence of missing data.
 - A: We have filled this out more extensively. The public domain data has already been error checked. We have noted potential errors in the raw police data (which will be reflected in the public data). Based on talking with the police and their crime mapper -- these issues are unlikely to affect our results. We have reiterated that we have checked that our Snap data is an accurate recreation of the real secret snap data. We recreate the public domain data from 2011-2013 using raw police data to check that we have recreated the police.uk data routine. Section has been renamed data quality instead of missing data to reflect.
 
 - [x] The quality of preparation of this manuscript should increase.
@@ -101,10 +101,10 @@ We are happy for PLOSone to publish the history of this submission so that all r
   > Plante C, Bandara T, Baugh Littlejohns L, Sandhu N, Pham A, Neudorf C. Surveying the local public health response to COVID-19 in Canada: Study protocol. Plos one. 2021 Nov 18;16(11):e0259590.
 
 - [x] Background. Why is results in supplementary materials. what is the meaning of the data access sentence. what does it mean by serendipitous discovery.
-- A: This is a study protocol. S1 shows an example analysis using 1 police force out of 43 to make it clear to the readers a) what we have already done (to test our methods) and b) what the analysis looks like in practise (the statistical analysis section is very abstract and dry). We have moved mention of the serendipitous discovery to the project timelines subsection (in line with PLOSone protocol templates). This ought to clear things up.
+- A: As mentioned earlier, this is a study protocol and not a result paper. However, in S1 we show an example analysis using 1 police force out of 43 to make it clear to the readers a) what we have already done (to test our methods) and b) what the analysis looks like in practise (the statistical analysis section is very abstract and dry). We have moved mention of the serendipitous discovery to the project timelines subsection (in line with PLOSone protocol templates). This ought to clear things up.
 
 - [x] H1 is the hypothesis rejected by the serendipitous Discovery, whereas the authors state that H2 hypothesis has not been tested yet because they do not have extracted the data. If so, RQ2 remains unanswered and the research only has one research question. Please, clarify this.
-- A: This is a study protocol not a results paper. We address the confusion in the study timeline. To test our methods for RQ1, we had to trial our method on one police force. Our total sample consists of data from more than 40 forces. Hypothesis 1 has not been rejected but we are not completely blind to the results from one force.
+- A: Please, see the above comment on the category of the current paper. However, we address the confusion relating to the hypothesis in the study timeline. To test our methods for RQ1, we had to trial our method on one police force. Our total sample consists of data from more than 40 forces. Hypothesis 1 has not been rejected but we are not completely blind to the results from one force.
 
 - [x] hypothesis: correct reference style for data and webpage.
 - A: Correct referencing
@@ -122,15 +122,15 @@ We are happy for PLOSone to publish the history of this submission so that all r
 - A: We've renamed supplements according to PLOSone guidelines.
 
 - [x] collinearity
-- A. We need to ask reviewer 2 to specify what is the issue. Collinearity does not bias estimates unless it is particular bad (i.e. near perfect collinearity). This is not the case; we've quoted Tompson et al who demonstrated there is a considerable mismatch between police.uk reported crime and police force recorded crimes. Multiple covariate correlated with the 'exposure' (e.g. geomasking error) will reduces statistical power however as reviewer 2 can see all our estimators either have no covariates or few covariates (2 in the case of RQ1). We have used South Yorkshire data in supplement S1 to demonstrate power and noted other unknowns around power in the main text.
+- A. Collinearity does not bias estimates unless it is particular bad (i.e. near perfect collinearity). This is not the case; we've quoted Tompson et al who demonstrated there is a considerable mismatch between police.uk reported crime and police force recorded crimes. Multiple covariate correlated with the 'exposure' (e.g. geomasking error) will reduces statistical power however as reviewer 2 can see all our estimators either have no covariates or few covariates (2 in the case of RQ1). We have used South Yorkshire data in supplement S1 to demonstrate power and noted other unknowns around power in the main text.
 
 - [x] RQ1. clarify to reviewer 2 re: study protocol,
-- A. This is a study protocol. Not a result paper.
+- A. Please, see our earlier comment on the category of the current paper.
 - [x] RQ2. See RQ1
-- A. This is a study protocol. Not a result paper.
+- A. Please, see our earlier comment on the category of the current paper.
 
 - [x] sensitivity and robustness. see RQ1 and 2
-- A. This is a study protocol. Not a result paper. We have expanded the section on robustness tests to give exact statistical tests. The worked example in S1 gives an idea of what we want to do.
+- A. Please, see our earlier comment on the category of the current paper. We have expanded the section on robustness tests to give exact statistical tests. The worked example in S1 gives an idea of what we want to do.
 
 - [x] data source. what is the different tests for each one?
 - A. We've stated the exact statistical tests in the robustness section in detail. These are all standard univariate and multivariate tests.
@@ -207,7 +207,6 @@ Design: Statistical adjustment only: hedonic modelling with alternative specific
 
 > such tests reject instrument validity may often barely exceed small levels, even when instruments are seriously invalid, whereas even minor invalidity of instruments can severely undermine inference on regression coefficients by instrumental variable estimators. These uncomfortable patterns may be aggravated when particular valid or invalid instruments are relatively weak or strong.
 
-From: 
+From:
 
 > Kiviet, Jan F., and Sebastian Kripfganz. 2021. ‘Instrument Approval by the Sargan Test and Its Consequences for Coefficient Estimation’. Economics Letters 205 (August): 109935. https://doi.org/10.1016/j.econlet.2021.109935.
-
