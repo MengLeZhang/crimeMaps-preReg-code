@@ -5,19 +5,19 @@ output:
 ---
 # Response to reviewers
 
-We would like to take the reviewers and editors for their time in providing their comments; many of which were detailed and specific. The majority of these from Reviewer 1 and the journal editorial team were about the preparation of the manuscript. In response, we have made these major changes:
+We would like to thank the reviewers and editors for their time in providing their comments; many of which were detailed and specific. The majority of these from Reviewer 1 and the journal editorial team were about the preparation of the manuscript. In response, we have made these major changes:
 
 - Changed the document to conform with PLoSone guidelines in line with the editor's suggestions
 - Changed section heading to be more in line with PLoSone's guidelines for protocols
 - Uploaded figures up to standard of PLOSone using the PACE tool.
-- Supplements are now correct referenced.
+- Supplements are now correctly referenced.
 - Added Ethics and funding letter to the supporting information (not for peer review). Improved ethic subsection in the methods section in line with PLoSone guidelines.
 - Clarification about confounders with examples in the statistical analysis subsection.  We have also clarified what we mean by observed and unobserved confounders (i.e. variables that the research team can observe vs unobserable/ unavailable variables) in the sensitivity and robustness section.
 - Added more references to studies on the effects of crime maps on public perception.
 - Added a project timeline subsection to clarify the project status and the degree to which we are blind to the results before starting data extraction and analysis.
-- Cut down on text reptition by moving the technical details of snap points and geomasking to supplment S3. The main text no longer repeats the core design ideas as much.
+- Cut down on text repetition by moving the technical details of snap points and geomasking to supplement S3. The main text no longer repeats the core design ideas as much.
 - Improved discussion of data errors. We have added in additional information from SYP on the raw police data. Subsection has been renamed data quality instead of missing data to reflect change.
-- Fixed numerous minor issues (typoes, figure referencing, table heading, referencing tables in the text etc)
+- Fixed numerous minor issues (typos, figure referencing, table heading, referencing tables in the text etc)
 
 We note that reviewer 1 is positive in their review (answering yes to all check items). Reviewer 2 has a completely different opinion. We believe the majority of reviewer 2's comments stem from a misunderstanding: this is a study protocol and not a full report on findings. The definition of a study protocol from PLOSone:
 
