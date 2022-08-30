@@ -23,7 +23,8 @@ We report the means of key characteristics such as price sold and the coordinate
 ## Estimation
 
 __Estimator 1A: Non-parametric__
-> Check whether the correlation (i.e. spearman's rank) between $Y$ and $M_s$ is the same at $T = 0$ and $T = 1$. The null hypothesis is that the correlation remains the same. We can use bootstrapping or permutation tests to get standard errors.
+
+*Check whether the correlation (i.e. spearman's rank) between $Y$ and $M_s$ is the same at $T = 0$ and $T = 1$. The null hypothesis is that the correlation remains the same. We can use bootstrapping or permutation tests to get standard errors.*
 
 We can compute the rank correlation between house prices for these years:
 
@@ -48,10 +49,11 @@ For the year 2011, the rank correlation -0.191 falls above the highest 2.5% valu
 
 
 __Estimator 1B: Parametric estimation__
->Assuming that a linear functional form is close enough approximation, estimate the following model using OLS:
+
+*Assuming that a linear functional form is close enough approximation, estimate the following model using OLS:*
 $$E(Y) = \beta_0 + \beta_T T + \beta_{M_s}M_s +\beta_{TM_s}T.M_s$$
 
-> Under the null hypothesis that police.uk had no effect, we would expect $\beta_{TM_s}$ to be zero.
+*Under the null hypothesis that police.uk had no effect, we would expect $\beta_{TM_s}$ to be zero.*
 
 Using the year 2010 and 2011 as $T = 0$ and $T = 1$ respectively; we can simply estimate the above regression equation. The resulting interaction term has a value of 0.009 ($p<0.05$). This shows again that we can reject the null hypothesis.
 
@@ -77,19 +79,20 @@ ppSnapsNearby:I(year == 2011)TRUE  0.0063203  0.0029405   2.1494   0.03162 *
 
 
 **Estimator 1C: Parametric time series**
->Assume that a linear functional form is close enough approximation. Then redefine $T$ to be an index number for year (e.g. $T = 2011$ if the year is 2011). For every year, estimate the following model using OLS:
+
+*Assume that a linear functional form is close enough approximation. Then redefine $T$ to be an index number for year (e.g. $T = 2011$ if the year is 2011). For every year, estimate the following model using OLS:*
 $$E(Y_T) = \beta_{0,T} +  \beta_{M_s, T}M_s$$
 
-> The statistical association between $Y$ and $M_s$ ($\beta_{M_s, T}$) may change over time. If that change was consistent (e.g. greater effect sizes due to inflation) then, for every year before 2011, we can fit the following model using OLS:
+*The statistical association between $Y$ and $M_s$ ($\beta_{M_s, T}$) may change over time. If that change was consistent (e.g. greater effect sizes due to inflation) then, for every year before 2011, we can fit the following model using OLS:*
 
-> $$E(\beta_{M_s, T}) = \delta_0 + \delta_{T}T$$
+$$E(\beta_{M_s, T}) = \delta_0 + \delta_{T}T$$
 
-> We can use the model to estimate  $\tilde\beta_{M_s, 2011}$. This is what $\beta_{M_s, 2011}$ would have been if police.uk did not launch in 2011. Under the null hypothesis: $$\beta_{M_s, 2011} - \tilde\beta_{M_s, 2011} = 0$$
+*We can use the model to estimate  $\tilde\beta_{M_s, 2011}$. This is what $\beta_{M_s, 2011}$ would have been if police.uk did not launch in 2011. Under the null hypothesis: $$\beta_{M_s, 2011} - \tilde\beta_{M_s, 2011} = 0$$*
 
 For this estimator, we take data on houses sold since 1995 until 2019 (prior to COVID19). Run OLS for each year and plot the estimated parameter above. We use both price and logged price. The results are plotted below:
 
 ![](assets/markdown-img-paste-20220313133759764.png)
-__Figure 1: Time series of OLS estimates using price (logged, left) and price (untransformed, right)__
+__Figure S1.1: Time series of OLS estimates using price (logged, left) and price (untransformed, right)__
 
 The error bars represent the 95% margin of error for each OLS estimate. We use OLS to predict the trend in these points between 1995 and 2010 (see below).
 
@@ -119,7 +122,7 @@ Note:                          *p<0.1; **p<0.05; ***p<0.01
 
 Between 1995-2010, there is no time trend using logged prices and a very predictable linear time trend using un-logged prices. The model fit for the untransformed house price model is very high ($R^2 = 0.94$). A very predictable time trend (or lack of one entirely) is a good sign.
 
-Using the 1995-2010 OLS models, we predict a values of $\tilde\beta_{M_s, 2011}$ of 0.051 for logged prices and -7,800 for the un-logged prices. The real values of $\beta_{M_s, 2011}$ are -0.046 (se: 0.002) and -5,900 (se: 318). The difference between $\tilde\beta_{M_s, 2011}$ and  $\beta_{M_s, 2011}$ (as well as the graph above) suggests that 2011 bucks the trend.
+Using the 1995-2010 OLS models, we predict a values of $\tilde \beta_{M_s, 2011}$ of 0.051 for logged prices and -7,800 for the un-logged prices. The real values of $\beta_{M_s, 2011}$ are -0.046 (se: 0.002) and -5,900 (se: 318). The difference between $\tilde\beta_{M_s, 2011}$ and  $\beta_{M_s, 2011}$ (as well as the graph above) suggests that 2011 bucks the trend.
 
 ## Assumption testing
 
@@ -134,7 +137,7 @@ However, we can check assumption two and three:
 We can simply check this for the years 2010 and 2011 graphically:
 
 ![](assets/markdown-img-paste-2022031313590255.png)
-__Figure A1.2: Pairwise summaries of variables__
+__Fig S1.2: Pairwise summaries of variables__
 
 Across the 2010 and 2011, the underlying univariate and multivariate distribution of coordinates are very close. The relationship between these coordiantes and snaps nearby is also the same between 2010 and 2011.
 
