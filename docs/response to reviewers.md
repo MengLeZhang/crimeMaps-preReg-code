@@ -58,7 +58,7 @@ We are happy for PLOSone to publish the history of this submission so that all r
 - A: references added in text
 
 - [x] Please upload a copy of Figure 7 and 5, to which you refer in your text on page 3 and 14. If the figure is no longer to be included as part of the submission please remove all reference to it within the text.
-- A: Figure 5 amended to figure 3. Figure 7 is a figure in a referenced paper (made clearer in text).
+- A: Original figure 5 reference changed. Figure 7 is a figure in a referenced paper. We took out this reference to a figure and left in a reference to the paper.
 
   - [x] Please include captions for your Supporting Information files at the end of your manuscript, and update any in-text citations to match accordingly. Please see our Supporting Information guidelines for more information: http://journals.plos.org/plosone/s/supporting-information.
   A: Done. File names changed and put captions at end of main text.
