@@ -9,14 +9,17 @@ csl: ../assets/plos-one.csl
 ## Geomasking in police.uk
 
 The geomasking routine currently used on police.uk is documented on data.police.uk. Using information from various sources and public data, we know that the geomasking routine was changed in 2012 when police.uk updated its snap-points list. To summarise, the data processing for police.uk is as follows:
-1. Home Office receives geocoded data from individual police forces and performs data checks (e.g. identifying crime outside police force boundaries).
-2.	The coordinates of crimes and incidents are changed to the coordinates of the nearest snap-point for the public data.
+
+   1. Home Office receives geocoded data from individual police forces and performs data checks (e.g. identifying crime outside police force boundaries).
+
+
+   2.	The coordinates of crimes and incidents are changed to the coordinates of the nearest snap-point for the public data.
 
 We note that police.uk crime maps were updated with a 2-month delay until at least 2016 @quinnExplorationProgressOpen2019. The list of potential snap points used in step two is a secret. Between 2011 to 2013, we believe there were at least two major versions of the snap-point list which we henceforth refer to as  Version One and Version Two. Version One was used on records between December 2010 and November 2011 whilst Version Two was used on records from December 2011 until at least the end of our study period (December 2013). The snap points were created in the following ways:
 
 _Version One_: This was created in 2011 using Ordnance Survey data (exact datasets unverified). Potential snap-points were the centre of residential roads (see p. 93 - 94 in @smithPoliceUkData2014), and Catchment areas for each point were created using Voronoi polygons (Fig 3.1). If a snap-point has less than 12 postal addresses within its catchment, it is dropped. This version consists of the remaining snap-points. For computational efficiency, police.uk could have used a nearest neighbour finding algorithm to do the postal address counting. This would have yielded the same outcome as the catchment approach.
 
-![fig-voronoi](assets/fig2.tif)
+![](assets/voronoi.tif)
 
 __Fig S3.1. Example of Voronoi polygons.__ Polygon A is associated with point A and represents areas closer to point A than any other point. Source: OpenStreetMap (base map only).
 
