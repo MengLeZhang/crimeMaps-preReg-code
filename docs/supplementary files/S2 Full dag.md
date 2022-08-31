@@ -4,7 +4,7 @@ bibliography: ../assets/manuscript-biblio.bib
 csl: ../assets/plos-one.csl
 ---
 
-## A2. DAG with more confounders
+## S2. DAG with more confounders
 
 Additional variables are:
 
@@ -15,10 +15,14 @@ Additional variables are:
 
 Other variables retain the same meaning. The simpler DAG in the main text treats $I$ as items in the larger set of confounders $U$.
 
-  ![](assets/dag1.png)
-  __Figure 1: DAG/ Path diagram of causal relations during the control period__
+  ![](assets/dag1.tif)
+
+  __Fig S2.1: DAG/ Path diagram of causal relations during the control period__
 
 The purpose of this DAG is to show that:
-1. $M_s$ is purely a function of two only inputs: $I_h$ and $I_s$.
+
+1. $M_s$ is purely a function of only two inputs: $I_h$ and $I_s$.
+
 2. Crime count shown $C_g$ on police.uk is a function of only three inputs: $I_h$, $I_s$, and $I_c$
+
 3. The pathway between map features $M_s$ and $C_g$, and all other confounders $U$ are intercepted by $I_h$, $I_s$, and $I_c$. Therefore three information sets are the key sources of confounding.

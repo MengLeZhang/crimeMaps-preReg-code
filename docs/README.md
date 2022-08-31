@@ -68,7 +68,7 @@ The documents are built using rmarkdown from Rstudio (which itself calls up pand
   - A: references added in text
 
   - [x] Please upload a copy of Figure 7 and 5, to which you refer in your text on page 3 and 14. If the figure is no longer to be included as part of the submission please remove all reference to it within the text.
-  - A: Figure 5 amended to figure 3. Figure 7 is a figure in a referenced paper (made clearer in text).
+  - A: Figure 5 amended to figure 3. Figure 7 is a figure in a referenced paper and is a citation (made clearer in text).
 
   - [x] Please include captions for your Supporting Information files at the end of your manuscript, and update any in-text citations to match accordingly. Please see our Supporting Information guidelines for more information: http://journals.plos.org/plosone/s/supporting-information.
   A: Done. File names changed and put captions at end of main text.
@@ -100,7 +100,7 @@ The documents are built using rmarkdown from Rstudio (which itself calls up pand
   - [x] The authors should mention how to cope with the risk of finding errors in the data, having solid data for such a project is not only related the presence of missing data.
   - A: We have filled this out more extensively. The public domain data has already been error checked. We have noted potential errors in the raw police data (which will be reflected in the public data). Based on talking with the police and their crime mapper -- these issues are unlikely to affect our results. We have reiterated that we have checked that our Snap data is an accurate recreation of the real secret snap data. We recreate the public domain data from 2011-2013 using raw police data to check that we have recreated the police.uk data routine. Section has been renamed data quality instead of missing data to reflect.
 
-  - [ ] The quality of preparation of this manuscript should increase.
+  - [x] The quality of preparation of this manuscript should increase.
   - A: Following the advice of the reviewer and the editor, we have amended the manuscript with reference to PLOSone's guidelines.
 
 ### Reviewer two comments:

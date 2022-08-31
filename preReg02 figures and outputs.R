@@ -17,7 +17,7 @@ tsData <-
     trend1 = - 0.5 + rnorm(13, sd = 0.01) - 0.001*(year - 2001),
     trend2 = - 0.3 + rnorm(13, sd = 0.01) - 0.001*(year - 2001),
     beta = ifelse(year < 2011, trend1, trend2),
-    period = ifelse(year < 2011, 'No intervention', 'Post intervention')
+    Period = ifelse(year < 2011, 'No intervention', 'Post intervention')
   )
 
 tsData <- 
@@ -27,24 +27,27 @@ tsData <-
 
 
 # example its 
-
-ggplot(tsData, aes(x=year, y=beta, shape = period))+
+ggplot(tsData, aes(x=year, y=beta, shape = Period))+
   geom_point(size = 3) +
-  theme_minimal()+
-  theme(
-    axis.text.y=element_blank(),
-    axis.ticks.y=element_blank(),
-    axis.title = element_text(size = 12, face = 'bold'),
-    legend.position = "bottom", legend.box = "horizontal"
-  ) +
-  geom_abline(intercept = -0.5, slope = -0.001) +
+  theme_bw()+
   labs(
-#    title = "An illustration of an interrupted time series",
+    #    title = "An illustration of an interrupted time series",
     x = 'T (year)',
     y = expression( hat(beta) [t]) #using R's maths
-  )
+  ) +
+  theme(
+    text = element_text(size = 20),
+    axis.title.y = element_text(angle = 0, vjust = .5),
+    axis.text.y=element_blank(),
+    axis.ticks.y=element_blank(),
+    axis.title = element_text(size = 20, face = 'bold')#,
+#    legend.position = "bottom", legend.box = "vertical"
+#  plot.background = element_rect(colour = "black", fill=NA, size=1)
+  ) +
+  geom_abline(intercept = -0.5, slope = -0.001) 
 
-
+?element_text
+?labs
 
 # voronoi example ---------------------------------------------------------
 
