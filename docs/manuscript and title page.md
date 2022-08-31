@@ -76,7 +76,7 @@ The existence of individual police force crime maps before police.uk has been do
 
 Members of the public or other bodies (e.g. estate agents) are not aware of the actual location of crimes as recorded by the police. Also, street-level crime maps for South Yorkshire did not exist before police.uk. Broader areal level maps have existed since 2008; notably the _crimemapper_ website. The research design exploits the fact that key features of police.uk, namely its snap point list and geomasking errors, did not exist before 2011 and had no causal impact on house prices before that date. Any statistical association between these features and house prices are due to the existence of confounders: common causes that affect both police.uk crime map features and house prices. After the launch of police.uk in 2011, these crime map features could have a causal effect on house prices. Assuming that the relationship between confounders and these map features are constant over time, changes in the association between these map features and house prices before and after the launch of police.uk will be indicative of causality. In essence, we are employing a form of interrupted time series analysis. Figure 1 demonstrates the intuition behind our research design.
 
-![fig-ITS](assets/fig1.tif)
+![](assets/fig1.tif)
 
 __Fig1. Example of an interrupted time series using police.uk data__
 
@@ -145,7 +145,7 @@ However, we cannot ever observe a world in which police.uk did not exist in 2011
 
 The below Directed Acyclic Graph (DAG) (Fig 2) represents our core assumptions about causal relationships in a world where police.uk did not exist @pearlCausalityModelsReasoning2009. A more extensive version is shown in supplement S2.
 
-![fig-dag](assets/fig2.tif)
+![](assets/fig2.tif)
 
 __Fig2. DAG/ Path diagram of causal relations__
 
